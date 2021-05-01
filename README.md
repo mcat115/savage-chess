@@ -1,5 +1,7 @@
 # README
 
+[![Codeship Status for mcat115/savage-chess](https://app.codeship.com/projects/90a3633b-a191-4e64-93eb-73f322f676bd/status?branch=master)](https://app.codeship.com/projects/443350)
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
