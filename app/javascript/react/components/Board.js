@@ -3,105 +3,29 @@ import Square from "./Square"
 
 const Board = (props) => {
 
-  const board = () => {
+  let boardData = []
+  for (let i = 0; i < 8; i++) {
 
-    
-    return (
-        <>
-          <span>
-            <Square/>
-            <Square/>
-            <Square/>
-            <Square/>
-            <Square/>
-            <Square/>
-            <Square/>
-            <Square/>
-          </span>
-          <br/>
-          <span>
-            <Square/>
-            <Square/>
-            <Square/>
-            <Square/>
-            <Square/>
-            <Square/>
-            <Square/>
-            <Square/>
-          </span>
-          <br/>
-          <span>
-            <Square/>
-            <Square/>
-            <Square/>
-            <Square/>
-            <Square/>
-            <Square/>
-            <Square/>
-            <Square/>
-          </span>
-          <br/>
-          <span>
-            <Square/>
-            <Square/>
-            <Square/>
-            <Square/>
-            <Square/>
-            <Square/>
-            <Square/>
-            <Square/>
-          </span>
-          <br/>
-          <span>
-            <Square/>
-            <Square/>
-            <Square/>
-            <Square/>
-            <Square/>
-            <Square/>
-            <Square/>
-            <Square/>
-          </span>
-          <br/>
-          <span>
-            <Square/>
-            <Square/>
-            <Square/>
-            <Square/>
-            <Square/>
-            <Square/>
-            <Square/>
-            <Square/>
-          </span>
-          <br/>
-          <span>
-            <Square/>
-            <Square/>
-            <Square/>
-            <Square/>
-            <Square/>
-            <Square/>
-            <Square/>
-            <Square/>
-          </span>
-          <br/>
-          <span>
-            <Square/>
-            <Square/>
-            <Square/>
-            <Square/>
-            <Square/>
-            <Square/>
-            <Square/>
-            <Square/>
-          </span>
-        </>
+    boardData.push(
+      <div>
+        <span>
+          <Square/>
+          <Square/>
+          <Square/>
+          <Square/>
+          <Square/>
+          <Square/>
+          <Square/>
+          <Square/>
+        </span>
+        <br/>
+      </div>
     )
   }
 
   return (
     <>
-      {board()}
+      {boardData}
     </>
   )
 
