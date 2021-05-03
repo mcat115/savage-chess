@@ -3,7 +3,6 @@ import LightSquareImage from "../../../assets/images/light-square.png"
 import DarkSquareImage from "../../../assets/images/dark-square.png"
 
 const Square = (props) => {
-
   let id = `${props.column}${props.row}`
 
   let square = DarkSquareImage
@@ -24,7 +23,7 @@ const Square = (props) => {
     }
   }
 
-  lightTiles.forEach(tile => {
+  lightTiles.forEach((tile) => {
     if (tile === id) {
       square = LightSquareImage
     }
@@ -43,13 +42,12 @@ const Square = (props) => {
   }
 
   return (
-    <img 
-    src={square}
+  <img 
+    src={square} 
     id={id}
     className={classContent}
-    onClick={click}
-    />
-  )
+    onClick={click} 
+  />)
 }
 
-export default Square 
+export default Square
