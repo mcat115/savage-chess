@@ -4,19 +4,19 @@ import Square from "./Square"
 const Board = (props) => {
 
   let boardData = []
-  for (let i = 0; i < 8; i++) {
+  for (let i = 1; i <= 8; i++) {
 
-    boardData.push(
+    boardData.unshift(
       <div>
         <span>
-          <Square/>
-          <Square/>
-          <Square/>
-          <Square/>
-          <Square/>
-          <Square/>
-          <Square/>
-          <Square/>
+          <Square row={i} column="a"/>
+          <Square row={i} column="b"/>
+          <Square row={i} column="c"/>
+          <Square row={i} column="d"/>
+          <Square row={i} column="e"/>
+          <Square row={i} column="f"/>
+          <Square row={i} column="g"/>
+          <Square row={i} column="h"/>
         </span>
         <br/>
       </div>
@@ -24,9 +24,9 @@ const Board = (props) => {
   }
 
   return (
-    <>
+    <div className="board">
       {boardData}
-    </>
+    </div>
   )
 
 }
