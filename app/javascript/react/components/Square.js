@@ -30,10 +30,24 @@ const Square = (props) => {
     }
   })
 
+  let classContent = "tile"
+
+  if (props.selectedSquare === id) {
+    classContent = "selected tile"
+  } else {
+    classContent = "tile"
+  }
+
+  const click = () => {
+    props.setSelectedSquare(id)
+  }
+
   return (
     <img 
     src={square}
     id={id}
+    className={classContent}
+    onClick={click}
     />
   )
 }

@@ -1,30 +1,32 @@
-import React from "react"
+import React, { useState } from "react"
 import Square from "./Square"
 
 const Board = (props) => {
+
+  const [selectedSquare, setSelectedSquare] = useState(null)
 
   let boardData = []
   for (let i = 1; i <= 8; i++) {
 
     boardData.unshift(
-      <div>
+      <>
         <span>
-          <Square row={i} column="a"/>
-          <Square row={i} column="b"/>
-          <Square row={i} column="c"/>
-          <Square row={i} column="d"/>
-          <Square row={i} column="e"/>
-          <Square row={i} column="f"/>
-          <Square row={i} column="g"/>
-          <Square row={i} column="h"/>
+          <Square row={i} column="a" selectedSquare={selectedSquare} setSelectedSquare={setSelectedSquare}/>
+          <Square row={i} column="b" selectedSquare={selectedSquare} setSelectedSquare={setSelectedSquare}/>
+          <Square row={i} column="c" selectedSquare={selectedSquare} setSelectedSquare={setSelectedSquare}/>
+          <Square row={i} column="d" selectedSquare={selectedSquare} setSelectedSquare={setSelectedSquare}/>
+          <Square row={i} column="e" selectedSquare={selectedSquare} setSelectedSquare={setSelectedSquare}/>
+          <Square row={i} column="f" selectedSquare={selectedSquare} setSelectedSquare={setSelectedSquare}/>
+          <Square row={i} column="g" selectedSquare={selectedSquare} setSelectedSquare={setSelectedSquare}/>
+          <Square row={i} column="h" selectedSquare={selectedSquare} setSelectedSquare={setSelectedSquare}/>
         </span>
         <br/>
-      </div>
+      </>
     )
   }
 
   return (
-    <div className="board">
+    <div id="board">
       {boardData}
     </div>
   )
