@@ -1,11 +1,26 @@
+@font-face {
+  font-family: 'medieval';    
+  src: asset-path(medieval) format("opentype");
+  src: font_url('medieval.otf'); 
+}
+
 .top-bar {
-  background-color: rgb(223, 243, 184);
+  background-color: rgb(230, 240, 210);
+
+  #title {
+    font-family: "medieval"
+  }
 
   a {
-    color: black 
+    color: black;
+    margin: 4px
   }
   
   a:hover {
-    color: green
+    color: rgb(223, 33, 33)
+  }
+
+  p {
+    margin: 0
   }
 }
