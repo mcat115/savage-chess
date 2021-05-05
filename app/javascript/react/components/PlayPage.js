@@ -6,7 +6,6 @@ const PlayPage = () => {
   const [bankSelection, setBankSelection] = useState(null)
   const [selectedSquare, setSelectedSquare] = useState(null)
 
-
   return (
     <div>
       <Board

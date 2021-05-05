@@ -39,6 +39,7 @@ const Square = (props) => {
   const click = () => {
     props.selectFirstSquare()
     props.movePiece()
+    props.addPiece()
   }
 
   let piece = props.boardState[`${props.column}`][`${props.row - 1}`]

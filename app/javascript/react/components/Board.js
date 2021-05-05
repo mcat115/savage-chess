@@ -46,6 +46,27 @@ const Board = (props) => {
         }
       }
 
+      const addPiece = () => {
+        if (props.bankSelection !== null) {
+          let newPiece = props.bankSelection 
+          if (newPiece === "x") {
+            newPiece = null
+          }
+
+          let newBoard = boardState
+          newBoard[column].splice((row - 1), 1, newPiece)
+
+          setBoardState(newBoard)
+
+          props.setBankSelection(null)
+        }
+      }
+
+      // ADD PIECE, FUNCTION TO CHNAGE STATE BASED ON BANK, NOT SELECTED TILE. THEN PASS THIS DOWN TO SQUARE, THEN ADD TO CLICK
+      // ALSO REMEMBER X SHOULD BE NULL
+
+      // BUG SELECTING PIECE DELETES IT
+
       boardData.unshift(
         <Square
           key={id}
@@ -55,6 +76,7 @@ const Board = (props) => {
           boardState={boardState}
           movePiece={movePiece}
           selectFirstSquare={selectFirstSquare}
+          addPiece={addPiece}
         />
       )
       if (column === "a") {
