@@ -1,13 +1,11 @@
-import React, { useState } from "react"
+import React from "react"
 import LightSquareImage from "../../../assets/images/light-square.png"
 import DarkSquareImage from "../../../assets/images/dark-square.png"
 
 const Square = (props) => {
 
   let id = `${props.column}${props.row}`
-
   let square = DarkSquareImage
-
   let lightTiles = []
 
   for (let i = 1; i <= 8; i++) {
@@ -38,97 +36,79 @@ const Square = (props) => {
     classContent = "tile"
   }
 
-  const click = () => {
-    props.setSelectedSquare(id)
+
+
+
+
+
+
+  const click = (newSpaceColumn = null, newSpaceRow = null) => {
+
+    if ((props.boardState[`${props.column}`][`${props.row - 1}`]) !== null && props.selectedSquare === null) {
+      props.setSelectedSquare(id)
+    }
+
+    // if (props.selectedSquare !== null) {
+    //   let oldSpace = props.selectedSquare
+    //   let oldSpaceData = oldSpace.split()
+    //   let pieceOnOldSpace = boardState[oldSpaceData(0)][oldSpaceData(1) - 1]
+
+    //   props.setBoardState({
+    //     ...boardState,
+    //     [`${props.column}.${props.row - 1}`]: null,
+    //     [`${newSpaceColumn}.${newSpaceRow}`]: pieceOnOldSpace
+    //   })
+
+    //   props.setSelectedSquare(null)
+    // }
   }
 
 
+  // tomorrow - look at setBoardState, break into two differnt onClick functions
 
 
-// CHNAGE TILE BASED ON STATE FROM BOARD, WHICH WILL CHANGE BASED ON THE CLICK OF A TILE HERE
+  let piece = props.boardState[`${props.column}`][`${props.row - 1}`]
 
-
-
-
-  let piece 
- 
+    
 
 
 
-  if (props.boardState.gameStarted === false) {
-    if (props.row == 2) {
-      piece = "wp"
-    }
-    if (props.row == 7) {
-      piece = "bp"
-    }
-    if (id === "a1" || id === "h1") {
-      piece = "wr"
-    }
-    if (id === "a8" || id === "h8") {
-      piece = "br"
-    }
-    if (id === "b1" || id === "g1") {
-      piece = "wn"
-    }
-    if (id === "b8" || id === "g8") {
-      piece = "bn"
-    }
-    if (id === "c1" || id === "f1") {
-      piece = "wb"
-    }
-    if (id === "c8" || id === "f8") {
-      piece = "bb"
-    }
-    if (id === "e1") {
-      piece = "wk"
-    }
-    if (id === "d1") {
-      piece = "wq"
-    }
-    if (id === "e8") {
-      piece = "bk"
-    }
-    if (id === "d8") {
-      piece = "bq"
-    }
-  }
 
 
 
 
   let iconClass
   if (piece === "wp") {
-    iconClass = "white fas fa-chess-pawn"
+    iconClass = "white fas fa-chess-pawn fa-2x"
   } else if (piece === "bp") {
-    iconClass = "fas fa-chess-pawn"
+    iconClass = "fas fa-chess-pawn fa-2x"
   } else if (piece === "wr") {
-    iconClass = "white fas fa-chess-rook"
+    iconClass = "white fas fa-chess-rook fa-2x"
   } else if (piece === "br") {
-    iconClass = "fas fa-chess-rook"
+    iconClass = "fas fa-chess-rook fa-2x"
   } else if (piece === "wn") {
-    iconClass = "white fas fa-chess-knight"
+    iconClass = "white fas fa-chess-knight fa-2x"
   } else if (piece === "bn") {
-    iconClass = "fas fa-chess-knight"
+    iconClass = "fas fa-chess-knight fa-2x"
   } else if (piece === "wb") {
-    iconClass = "white fas fa-chess-bishop"
+    iconClass = "white fas fa-chess-bishop fa-2x"
   } else if (piece === "bb") {
-    iconClass = "fas fa-chess-bishop"
+    iconClass = "fas fa-chess-bishop fa-2x"
   } else if (piece === "wq") {
-    iconClass = "white fas fa-chess-queen"
+    iconClass = "white fas fa-chess-queen fa-2x"
   } else if (piece === "bq") {
-    iconClass = "fas fa-chess-queen"
+    iconClass = "fas fa-chess-queen fa-2x"
   } else if (piece === "wk") {
-    iconClass = "white fas fa-chess-king"
+    iconClass = "white fas fa-chess-king fa-2x"
   } else if (piece === "bk") {
-    iconClass = "fas fa-chess-king"
+    iconClass = "fas fa-chess-king fa-2x"
   }
 
   return (
     <span 
       className="square" 
-      id={id} 
       onClick={click}
+      // onClick={click(props.column, props.row)}
     >
       <img 
         src={square} 
