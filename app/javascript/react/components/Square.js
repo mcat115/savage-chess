@@ -36,42 +36,10 @@ const Square = (props) => {
     classContent = "tile"
   }
 
-
-
-  const selectFirstSquare = () => {
-    if ((props.boardState[`${props.column}`][`${props.row - 1}`]) !== null && props.selectedSquare === null) {
-      props.setSelectedSquare(id)
-    }
-
-    if (props.selectedSquare == id) {
-      props.setSelectedSquare(null)
-    }
-  }
-
-
-  // const movePiece = (newSpaceColumn, newSpaceRow) => {
-
-  //   if (props.selectedSquare !== null) {
-  //     let oldSpace = props.selectedSquare
-  //     let oldSpaceData = oldSpace.split("")
-  //     let pieceOnOldSpace = props.boardState[oldSpaceData[0]][parseInt(oldSpaceData[1]) - 1]
-
-  //     props.setBoardState({
-  //       ...props.boardState,
-  //       [oldSpaceData[0][parseInt(oldSpaceData[1]) - 1]]: null,
-  //       [newSpaceColumn.newSpaceRow]: pieceOnOldSpace
-  //     })
-
-  //     props.setSelectedSquare(null)
-  //   }
-  // }
-
-
   const click = () => {
-    selectFirstSquare()
+    props.selectFirstSquare()
     props.movePiece()
   }
-
 
   let piece = props.boardState[`${props.column}`][`${props.row - 1}`]
 

@@ -19,6 +19,18 @@ const Board = (props) => {
   for (let row = 1; row <= 8; row++) {
     columns.forEach((column) => {
 
+      let id = `${column}${row}`
+
+      const selectFirstSquare = () => {
+        if ((boardState[column][row - 1]) !== null && selectedSquare === null) {
+          setSelectedSquare(id)
+        }
+    
+        if (selectedSquare == id) {
+          setSelectedSquare(null)
+        }
+      }
+
       const movePiece = () => {
         if (selectedSquare !== null) {
           let oldSpace = selectedSquare
@@ -37,19 +49,18 @@ const Board = (props) => {
 
       boardData.unshift(
         <Square
-          key={`${column}${row}`}
+          key={id}
           row={row}
           column={column}
           selectedSquare={selectedSquare}
-          setSelectedSquare={setSelectedSquare}
           boardState={boardState}
-          setBoardState={setBoardState}
           movePiece={movePiece}
+          selectFirstSquare={selectFirstSquare}
         />
       )
       if (column === "a") {
         boardData.unshift(
-          <br key={`break number: ${row}`}/>
+          <br key={`break ${row}`}/>
         )
       }
     })
