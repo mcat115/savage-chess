@@ -38,15 +38,17 @@ const Square = (props) => {
 
 
 
-
-
-
-
-  const click = (newSpaceColumn = null, newSpaceRow = null) => {
-
+  const selectFirstSquare = () => {
     if ((props.boardState[`${props.column}`][`${props.row - 1}`]) !== null && props.selectedSquare === null) {
       props.setSelectedSquare(id)
     }
+
+    if (props.selectedSquare == id) {
+      props.setSelectedSquare(null)
+    }
+  }
+
+  // const movePiece = (newSpaceColumn, newSpaceRow) => {
 
     // if (props.selectedSquare !== null) {
     //   let oldSpace = props.selectedSquare
@@ -61,21 +63,17 @@ const Square = (props) => {
 
     //   props.setSelectedSquare(null)
     // }
+
+  // }
+
+
+  const click = () => {
+    selectFirstSquare()
+    // movePiece(param, param)
   }
 
 
-  // tomorrow - look at setBoardState, break into two differnt onClick functions
-
-
   let piece = props.boardState[`${props.column}`][`${props.row - 1}`]
-
-    
-
-
-
-
-
-
 
   let iconClass
   if (piece === "wp") {
@@ -108,7 +106,6 @@ const Square = (props) => {
     <span 
       className="square" 
       onClick={click}
-      // onClick={click(props.column, props.row)}
     >
       <img 
         src={square} 
