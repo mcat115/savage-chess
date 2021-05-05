@@ -15,23 +15,41 @@ const Board = (props) => {
   })
 
   let boardData = []
-  let letters = ["h", "g", "f", "e", "d", "c", "b", "a"]
-  for (let i = 1; i <= 8; i++) {
-    letters.forEach((letter) => {
+  let columns = ["h", "g", "f", "e", "d", "c", "b", "a"]
+  for (let row = 1; row <= 8; row++) {
+    columns.forEach((column) => {
+
+      const movePiece = () => {
+        if (selectedSquare !== null) {
+          let oldSpace = selectedSquare
+          let oldSpaceData = oldSpace.split("")
+          let pieceOnOldSpace = boardState[oldSpaceData[0]][parseInt(oldSpaceData[1]) - 1]
+
+          let newBoard = boardState
+          newBoard[oldSpaceData[0]].splice((parseInt(oldSpaceData[1] - 1)), 1, null)
+          newBoard[column].splice((row - 1), 1, pieceOnOldSpace)
+
+          setBoardState(newBoard)
+    
+          setSelectedSquare(null)
+        }
+      }
+
       boardData.unshift(
         <Square
-          key={`${letter}${i}`}
-          row={i}
-          column={letter}
+          key={`${column}${row}`}
+          row={row}
+          column={column}
           selectedSquare={selectedSquare}
           setSelectedSquare={setSelectedSquare}
           boardState={boardState}
           setBoardState={setBoardState}
+          movePiece={movePiece}
         />
       )
-      if (letter === "a") {
+      if (column === "a") {
         boardData.unshift(
-          <br key={`break number: ${i}`}/>
+          <br key={`break number: ${row}`}/>
         )
       }
     })

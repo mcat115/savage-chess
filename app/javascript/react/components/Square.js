@@ -48,28 +48,28 @@ const Square = (props) => {
     }
   }
 
+
   // const movePiece = (newSpaceColumn, newSpaceRow) => {
 
-    // if (props.selectedSquare !== null) {
-    //   let oldSpace = props.selectedSquare
-    //   let oldSpaceData = oldSpace.split()
-    //   let pieceOnOldSpace = boardState[oldSpaceData(0)][oldSpaceData(1) - 1]
+  //   if (props.selectedSquare !== null) {
+  //     let oldSpace = props.selectedSquare
+  //     let oldSpaceData = oldSpace.split("")
+  //     let pieceOnOldSpace = props.boardState[oldSpaceData[0]][parseInt(oldSpaceData[1]) - 1]
 
-    //   props.setBoardState({
-    //     ...boardState,
-    //     [`${props.column}.${props.row - 1}`]: null,
-    //     [`${newSpaceColumn}.${newSpaceRow}`]: pieceOnOldSpace
-    //   })
+  //     props.setBoardState({
+  //       ...props.boardState,
+  //       [oldSpaceData[0][parseInt(oldSpaceData[1]) - 1]]: null,
+  //       [newSpaceColumn.newSpaceRow]: pieceOnOldSpace
+  //     })
 
-    //   props.setSelectedSquare(null)
-    // }
-
+  //     props.setSelectedSquare(null)
+  //   }
   // }
 
 
   const click = () => {
     selectFirstSquare()
-    // movePiece(param, param)
+    props.movePiece()
   }
 
 
@@ -103,10 +103,7 @@ const Square = (props) => {
   }
 
   return (
-    <span 
-      className="square" 
-      onClick={click}
-    >
+    <span className="square" onClick={click}>
       <img 
         src={square} 
         className={classContent} 
