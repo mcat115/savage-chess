@@ -1,0 +1,16 @@
+.square {
+  position: relative;
+
+  i {
+    position: absolute;
+    top: -5px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    cursor: pointer
+  }
+}
+
+.white {
+  color: rgb(202, 218, 238)
+}
