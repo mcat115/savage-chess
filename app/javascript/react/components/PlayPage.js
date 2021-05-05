@@ -1,10 +1,19 @@
-import React from "react"
+import React, { useState } from "react"
 import Board from "./Board"
+import PieceBank from "./PieceBank"
 
 const PlayPage = () => {
 
+  const [bankSelection, setBankSelection] = useState(null)
+
   return (
-    <Board/>
+    <div>
+      <Board/>
+      <PieceBank
+        bankSelection={bankSelection}
+        setBankSelection={setBankSelection}
+      />
+    </div>
   )
 }
 
