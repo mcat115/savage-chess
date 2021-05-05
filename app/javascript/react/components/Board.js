@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import Square from "./Square"
 
 const Board = (props) => {
-  const [selectedSquare, setSelectedSquare] = useState(null)
   const [boardState, setBoardState] = useState({
     a: ["wr", "wp", null, null, null, null, "bp", "br"],
     b: ["wn", "wp", null, null, null, null, "bp", "bn"],
@@ -22,18 +21,18 @@ const Board = (props) => {
       let id = `${column}${row}`
 
       const selectFirstSquare = () => {
-        if ((boardState[column][row - 1]) !== null && selectedSquare === null) {
-          setSelectedSquare(id)
+        if ((boardState[column][row - 1]) !== null && props.selectedSquare === null && props.bankSelection === null) {
+          props.setSelectedSquare(id)
         }
     
-        if (selectedSquare == id) {
-          setSelectedSquare(null)
+        if (props.selectedSquare == id) {
+          props.setSelectedSquare(null)
         }
       }
 
       const movePiece = () => {
-        if (selectedSquare !== null) {
-          let oldSpace = selectedSquare
+        if (props.selectedSquare !== null) {
+          let oldSpace = props.selectedSquare
           let oldSpaceData = oldSpace.split("")
           let pieceOnOldSpace = boardState[oldSpaceData[0]][parseInt(oldSpaceData[1]) - 1]
 
@@ -43,7 +42,7 @@ const Board = (props) => {
 
           setBoardState(newBoard)
     
-          setSelectedSquare(null)
+          props.setSelectedSquare(null)
         }
       }
 
@@ -52,7 +51,7 @@ const Board = (props) => {
           key={id}
           row={row}
           column={column}
-          selectedSquare={selectedSquare}
+          selectedSquare={props.selectedSquare}
           boardState={boardState}
           movePiece={movePiece}
           selectFirstSquare={selectFirstSquare}

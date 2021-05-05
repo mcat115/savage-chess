@@ -18,7 +18,9 @@ const PieceBank = (props) => {
   }
 
   const click = () => {
-    props.setBankSelection(piece)
+    if (props.selectedSquare === null) {
+      props.setBankSelection(piece)
+    }
     
     if (props.bankSelection === piece) {
       props.setBankSelection(null)

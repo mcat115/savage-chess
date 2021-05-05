@@ -28,7 +28,7 @@ const BankIcon = (props) => {
   } else if (props.piece === "bk") {
     iconClass = `${props.classContent} fas fa-chess-king fa-2x`
   } else if (props.piece === "x") {
-    iconClass = `${props.classContent} x fas fa-times fa-2x`
+    iconClass = `${props.classContent} fas fa-times fa-2x`
   }
 
   return (
