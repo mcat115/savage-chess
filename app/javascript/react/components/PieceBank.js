@@ -3,11 +3,11 @@ import BankIcon from "./BankIcon"
 
 const PieceBank = (props) => {
   
-  const pieces = ["wp", "wn", "wb", "wr", "wq", "bp", "bn", "bb", "br", "bq"]
+  const icons = ["wp", "wn", "wb", "wr", "wq", "bp", "bn", "bb", "br", "bq", "x"]
 
-  let icons = []
+  let iconComponents = []
 
-  pieces.forEach(piece => {
+  icons.forEach(piece => {
 
   let classContent
 
@@ -17,20 +17,29 @@ const PieceBank = (props) => {
     classContent = ""
   }
 
-    icons.push(
+  const click = () => {
+    props.setBankSelection(piece)
+    
+    if (props.bankSelection === piece) {
+      props.setBankSelection(null)
+    }
+  }
+
+    iconComponents.push(
       <BankIcon 
         classContent={classContent}
         bankSelection={props.setBankSelection}
         setBankSelection={props.setBankSelection}
         piece={piece}
         key={piece}
+        click={click}
       />
     )
   })
 
   return (
     <div className="pieceBank">
-      {icons}
+      {iconComponents}
     </div>
   )
 }
