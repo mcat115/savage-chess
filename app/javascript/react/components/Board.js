@@ -62,11 +62,6 @@ const Board = (props) => {
         }
       }
 
-      // ADD PIECE, FUNCTION TO CHNAGE STATE BASED ON BANK, NOT SELECTED TILE. THEN PASS THIS DOWN TO SQUARE, THEN ADD TO CLICK
-      // ALSO REMEMBER X SHOULD BE NULL
-
-      // BUG SELECTING PIECE DELETES IT
-
       boardData.unshift(
         <Square
           key={id}

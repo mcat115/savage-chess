@@ -7,7 +7,7 @@ const PlayPage = () => {
   const [selectedSquare, setSelectedSquare] = useState(null)
 
   return (
-    <div>
+    <div className="playPage">
       <Board
         bankSelection={bankSelection}
         setBankSelection={setBankSelection}

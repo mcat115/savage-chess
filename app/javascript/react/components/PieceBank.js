@@ -40,7 +40,8 @@ const PieceBank = (props) => {
   })
 
   return (
-    <div className="pieceBank">
+    <div id="pieceBank">
+      <p>Add or remove pieces manually:</p>
       {iconComponents}
     </div>
   )
