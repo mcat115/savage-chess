@@ -12,9 +12,9 @@ const PieceBank = (props) => {
   let classContent
 
   if (props.bankSelection === piece) {
-    classContent = "pieceSelected"
+    classContent = "pieceSelected bankPointer"
   } else {
-    classContent = ""
+    classContent = "bankPointer"
   }
 
   const click = () => {
