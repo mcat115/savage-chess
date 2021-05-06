@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import Square from "./Square"
+import SavedStateSection from "./SavedStatesSection"
 
 const Board = (props) => {
   const [boardState, setBoardState] = useState({
@@ -82,7 +83,15 @@ const Board = (props) => {
     })
   }
 
-  return <div id="board">{boardData}</div>
+  return (
+    <>
+      <div id="board">{boardData}</div>
+      <SavedStateSection
+        boardState={boardState}
+        setBoardState={setBoardState}
+      />
+    </>
+  )
 }
 
 export default Board
