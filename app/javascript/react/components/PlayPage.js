@@ -7,19 +7,28 @@ const PlayPage = () => {
   const [selectedSquare, setSelectedSquare] = useState(null)
 
   return (
-    <div className="playPage">
-      <Board
-        bankSelection={bankSelection}
-        setBankSelection={setBankSelection}
-        selectedSquare={selectedSquare}
-        setSelectedSquare={setSelectedSquare}
-      />
-      <PieceBank
-        bankSelection={bankSelection}
-        setBankSelection={setBankSelection}
-        selectedSquare={selectedSquare}
-        setSelectedSquare={setSelectedSquare}
-      />
+    <div className="grid-container">
+      <div className="grid-x">
+        <div className="cell small-12 medium-2 large-3">
+          {/* <MeetingButton/> */}
+        </div>
+        <div className="cell small-12 medium-8 large-6">
+          <Board
+            bankSelection={bankSelection}
+            setBankSelection={setBankSelection}
+            selectedSquare={selectedSquare}
+            setSelectedSquare={setSelectedSquare}
+          />
+        </div>
+        <div className="cell small-12 medium-2 large-3"> 
+          <PieceBank
+            bankSelection={bankSelection}
+            setBankSelection={setBankSelection}
+            selectedSquare={selectedSquare}
+            setSelectedSquare={setSelectedSquare}
+          />
+        </div>
+      </div>
     </div>
   )
 }

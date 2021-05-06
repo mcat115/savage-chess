@@ -1,12 +1,15 @@
 #board {
   text-align: center;
+  margin-bottom: 10px
 }
 
 #pieceBank {
   border: solid black;
+  border-radius: 10px;
   text-align: center;
-  margin-right: 33%;
-  margin-left: 33%
+  margin: auto;
+  margin-top: 33%;
+  width: 175px
 }
 
 .bank-icon {
