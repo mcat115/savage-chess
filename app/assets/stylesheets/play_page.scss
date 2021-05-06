@@ -1,19 +1,69 @@
 #board {
   text-align: center;
   margin-bottom: 10px;
-  min-width: 450px;
+  min-width: 500px;
 }
 
 #pieceBank {
   border: solid black;
   border-radius: 10px;
   text-align: center;
-  margin: auto;
-  margin-top: 33%;
-  width: 175px
+  // margin: 50% auto 50% 100px;
+  margin-top: 125px;
+  margin-right: 25px;
+  margin-left: 60px;
+  width: 175px;
+  padding: 5px;
 }
 
-.bank-icon {
-  margin-right: 3px;
-  margin-left: 3px
+.square {
+  position: relative;
+
+  i {
+    position: absolute;
+    top: -5px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    cursor: pointer
+  }
+}
+
+.white {
+  color: rgb(202, 218, 238)
+}
+
+.pieceSelected {
+  color: rgb(223, 33, 33)
+}
+
+.bankIcon {
+  cursor: pointer;
+  margin: 5px 3px
+}
+
+.tile {
+  cursor: pointer;
+  height: 60px;
+  width: 60px
+}
+
+.selected {
+  outline: solid 3px rgb(228, 231, 23);
+  outline-offset: -3px;
+}
+
+#emergencyMeetingDiv {
+  text-align: center;
+  margin-top: 125px;
+  margin-right: 25px;
+  border: solid black;
+  border-radius: 10px;
+  text-align: center;
+  padding: 5px;
+
+  img {
+    cursor: pointer;
+    max-width: 150px
+  }
 }
