@@ -85,10 +85,8 @@ const Board = (props) => {
             alert("black rook wins placeholder animatinon")
           } else if (lastSelectedPiece === "bq") {
             alert("black queen wins placeholder animatinon")
-          } else if (lastSelectedPiece === null) {
-            alert("resignation placeholder animatinon")
           } else (
-            alert("friendly fire placeholder animatinon")
+            alert("friendly fire/kill before game starts placeholder animatinon")
           )
           // RESET BOARD
         }
@@ -116,10 +114,8 @@ const Board = (props) => {
             alert("white rook wins placeholder animatinon")
           } else if (lastSelectedPiece === "wq") {
             alert("white queen wins placeholder animatinon")
-          } else if (lastSelectedPiece === null) {
-            alert("resignation placeholder animatinon")
           } else (
-            alert("friendly fire placeholder animatinon")
+            alert("friendly fire/kill before game starts placeholder animatinon")
           )
           // RESET BOARD
         }
