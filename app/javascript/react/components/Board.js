@@ -62,22 +62,41 @@ const Board = (props) => {
         }
       }
 
-      // const gameOverWhite = () => {
-      //   let gameOver = true
+      const gameOverWhite = () => {
+        let gameOver = true
 
-      //   columns.forEach(letter => {
-      //     boardState[letter].forEach(square => {
-      //       if (square === "wk") {
-      //         gameOver = false
-      //       }
-      //     })
-      //   })
+        columns.forEach(letter => {
+          boardState[letter].forEach(square => {
+            if (square === "wk") {
+              gameOver = false
+            }
+          })
+        })
 
-      //   if (gameOver === true) {
-      //     alert("black wins")
-      //   }
+        if (gameOver === true) {
+          alert("black wins placeholder animation")
+          // RESET BOARD
+        }
 
-      // }
+      }
+
+      const gameOverBlack = () => {
+        let gameOver = true
+
+        columns.forEach(letter => {
+          boardState[letter].forEach(square => {
+            if (square === "bk") {
+              gameOver = false
+            }
+          })
+        })
+
+        if (gameOver === true) {
+          alert("white wins placeholder animation")
+          // RESET BOARD
+        }
+
+      }
 
       boardData.unshift(
         <Square
@@ -89,7 +108,8 @@ const Board = (props) => {
           movePiece={movePiece}
           selectFirstSquare={selectFirstSquare}
           addPiece={addPiece}
-          // gameOverWhite={gameOverWhite}
+          gameOverWhite={gameOverWhite}
+          gameOverBlack={gameOverBlack}
         />
       )
       if (column === "a") {
