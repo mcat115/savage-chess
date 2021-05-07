@@ -6,8 +6,11 @@ class Api::V1::BoardSavesController < ApiController
   end
 
   def create
-    new_board_save = BoardSave.create(board_save_params)
-    render json: new_board_save
+    # new_board_save = BoardSave.create(board_save_params)
+    new_board_save = BoardSave.new(board: params[:board])
+    if new_board_save.save 
+      render json: new_board_save
+    end
   end
 
   private 

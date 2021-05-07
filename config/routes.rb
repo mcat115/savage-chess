@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   namespace :api do 
     namespace :v1 do
       resources :board_saves, only: [:index, :create]
+      resources :current_users, only: [:index]
     end
   end
 

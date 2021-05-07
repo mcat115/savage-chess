@@ -2,10 +2,28 @@ import React, { useState, useEffect } from "react"
 
 const SavedStatesSection = (props) => {
   const [boardStates, setBoardStates] = useState([])
-
   const [currentUserId, setCurrentUserId] = useState(null)
 
-  // ONLY FETCH CURRENT USER's BOARDS
+  const fetchCurrentUser = async () => {
+    try {
+      const response = await fetch("/api/v1/current_users")
+      if (!response.ok) {
+        const errorMessage = `${response.status} (${response.statusText})`
+        throw new Error(errorMessage)
+      }
+      const responseBody = await response.json()
+      setCurrentUserId(responseBody.id)
+    } catch (error) {
+      console.error(`Error in Fetch: ${error.message}`)
+    }
+  }
+
+
+
+
+
+
+  // ONLY FETCH CURRENT USER's BOARDS, DONE IN CONTROLLER?
   const fetchStates = async () => {
     try {
       const response = await fetch("/api/v1/board_saves")
@@ -13,30 +31,27 @@ const SavedStatesSection = (props) => {
         const errorMessage = `${response.status} (${response.statusText})`
         throw new Error(errorMessage)
       }
-
       const responseBody = await response.json()
       setBoardStates(responseBody)
-
-      // setCurrentUser({
-      //   id: responseBody.animal.current_user.id,
-      //   username: responseBody.animal.current_user.username,
-      //   profile_photo: responseBody.animal.current_user.profile_photo,
-      //   role: responseBody.animal.current_user.role
-      // })
-
-
     } catch (error) {
       console.error(`Error in Fetch: ${error.message}`)
     }
   }
 
+
+
+
+
+
+
   useEffect(() => {
-    fetchStates()
+    fetchCurrentUser()
+    // fetchStates()
   }, [])
 
   const postState = async (payload) => {
     try {
-      const response = await fetch("/api/v1/animals/${animalId}/reviews", {
+      const response = await fetch("/api/v1/board_saves", {
         credentials: "same-origin",
         method: "POST",
         headers: {
@@ -50,28 +65,35 @@ const SavedStatesSection = (props) => {
         throw new Error(errorMessage)
       }
       const newState = await response.json()
-      stateList = boardStates.unshift(newState)
+      stateList = boardStates
+      stateList.unshift(newState)
       setBoardStates(stateList)
     } catch (error) {
       console.error(`Error in Fetch: ${error.message}`)
     }
   }
 
+  let currentBoard = props.boardState
+
   const click = () => {
-    postState({
-      board: props.boardState,
-      user_id: current_user
-    })
+    // postState({
+    //   board: props.boardState,
+    //   user_id: currentUserId
+    // })
+
+    postState(currentBoard)
   }
 
-  // if (user_signed_in?) {
+  if (currentUserId !== null) {
     return (
       <div>
         <p id="save" onClick={click}>Save the current state of the board!</p>
-        {boardStates}
+        {/* {boardStates} */}
       </div>
-    )
-  // }
+    ) 
+  } else {
+    return null
+  }
 }
 
 export default SavedStatesSection
