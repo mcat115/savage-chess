@@ -10,6 +10,7 @@ const HomePage = (props) => {
       <p>And like real warefare, there's nobody checking that both sides follow the rules! It's up to you to notice if your opponent does anything sneaky, like trying to move a piece in a way they aren't supposed to... call a war crime trial if you are suspicious!</p>
       <p>If you can confidently prove they cheated, they automatically lose! If you fail to, they get away with it and the game continues! Save the state of the board whenever you want to gather evidence.</p>
       <p>Or maybe you'll want to sneak in a slightly illegal move yourself when you're opponent isn't looking... social deduction mixed with raw strategy!</p>
+      <p>It also serves as a fully functional board and pieces virtual toy! Make custom positions and save positions to try out different paths. Much like the freedom a real chess board gives, but with the ability to easily save positions and use of unlimited pieces!</p>
       <Link to="/play">Start a game!</Link>
     </div>
   )

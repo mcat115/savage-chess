@@ -62,6 +62,23 @@ const Board = (props) => {
         }
       }
 
+      // const gameOverWhite = () => {
+      //   let gameOver = true
+
+      //   columns.forEach(letter => {
+      //     boardState[letter].forEach(square => {
+      //       if (square === "wk") {
+      //         gameOver = false
+      //       }
+      //     })
+      //   })
+
+      //   if (gameOver === true) {
+      //     alert("black wins")
+      //   }
+
+      // }
+
       boardData.unshift(
         <Square
           key={id}
@@ -72,6 +89,7 @@ const Board = (props) => {
           movePiece={movePiece}
           selectFirstSquare={selectFirstSquare}
           addPiece={addPiece}
+          // gameOverWhite={gameOverWhite}
         />
       )
       if (column === "a") {
