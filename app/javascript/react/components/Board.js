@@ -12,7 +12,7 @@ const Board = (props) => {
     g: ["wn", "wp", null, null, null, null, "bp", "bn"],
     h: ["wr", "wp", null, null, null, null, "bp", "br"]
   })
-  const [lastMovedPiece, setLastMovedPiece] = useState(null)
+  const [lastSelectedPiece, setLastSelectedPiece] = useState(null)
 
   let boardData = []
   let columns = ["h", "g", "f", "e", "d", "c", "b", "a"]
@@ -24,6 +24,7 @@ const Board = (props) => {
       const selectFirstSquare = () => {
         if ((boardState[column][row - 1]) !== null && props.selectedSquare === null && props.bankSelection === null) {
           props.setSelectedSquare(id)
+          setLastSelectedPiece((boardState[column][row - 1]))
         }
     
         if (props.selectedSquare == id) {
@@ -43,7 +44,6 @@ const Board = (props) => {
 
           setBoardState(newBoard)
           props.setSelectedSquare(null)
-          setLastMovedPiece(pieceOnOldSpace)
         }
       }
 
@@ -75,20 +75,20 @@ const Board = (props) => {
         })
 
         if (gameOver === true) {
-          if (lastMovedPiece === "bp") {
+          if (lastSelectedPiece === "bp") {
             alert("black pawn wins placeholder animatinon")
-          } else if (lastMovedPiece === "bn") {
+          } else if (lastSelectedPiece === "bn") {
             alert("black knight wins placeholder animatinon")
-          } else if (lastMovedPiece === "bb") {
+          } else if (lastSelectedPiece === "bb") {
             alert("black bishop wins placeholder animatinon")
-          } else if (lastMovedPiece === "br") {
+          } else if (lastSelectedPiece === "br") {
             alert("black rook wins placeholder animatinon")
-          } else if (lastMovedPiece === "bq") {
+          } else if (lastSelectedPiece === "bq") {
             alert("black queen wins placeholder animatinon")
-          } else if (lastMovedPiece === null) {
+          } else if (lastSelectedPiece === null) {
             alert("resignation placeholder animatinon")
           } else (
-            alert("friendly fire placeholder animatino")
+            alert("friendly fire placeholder animatinon")
           )
           // RESET BOARD
         }
@@ -106,20 +106,20 @@ const Board = (props) => {
         })
 
         if (gameOver === true) {
-          if (lastMovedPiece === "wp") {
+          if (lastSelectedPiece === "wp") {
             alert("white pawn wins placeholder animatinon")
-          } else if (lastMovedPiece === "wn") {
+          } else if (lastSelectedPiece === "wn") {
             alert("white knight wins placeholder animatinon")
-          } else if (lastMovedPiece === "wb") {
+          } else if (lastSelectedPiece === "wb") {
             alert("white bishop wins placeholder animatinon")
-          } else if (lastMovedPiece === "wr") {
+          } else if (lastSelectedPiece === "wr") {
             alert("white rook wins placeholder animatinon")
-          } else if (lastMovedPiece === "wq") {
+          } else if (lastSelectedPiece === "wq") {
             alert("white queen wins placeholder animatinon")
-          } else if (lastMovedPiece === null) {
+          } else if (lastSelectedPiece === null) {
             alert("resignation placeholder animatinon")
           } else (
-            alert("friendly fire placeholder animatino")
+            alert("friendly fire placeholder animatinon")
           )
           // RESET BOARD
         }
