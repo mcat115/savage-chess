@@ -12,6 +12,7 @@ const Board = (props) => {
     g: ["wn", "wp", null, null, null, null, "bp", "bn"],
     h: ["wr", "wp", null, null, null, null, "bp", "br"]
   })
+  const [lastMovedPiece, setLastMovedPiece] = useState(null)
 
   let boardData = []
   let columns = ["h", "g", "f", "e", "d", "c", "b", "a"]
@@ -41,8 +42,8 @@ const Board = (props) => {
           newBoard[column].splice((row - 1), 1, pieceOnOldSpace)
 
           setBoardState(newBoard)
-    
           props.setSelectedSquare(null)
+          setLastMovedPiece(pieceOnOldSpace)
         }
       }
 
@@ -74,10 +75,23 @@ const Board = (props) => {
         })
 
         if (gameOver === true) {
-          alert("black wins placeholder animation")
+          if (lastMovedPiece === "bp") {
+            alert("black pawn wins placeholder animatinon")
+          } else if (lastMovedPiece === "bn") {
+            alert("black knight wins placeholder animatinon")
+          } else if (lastMovedPiece === "bb") {
+            alert("black bishop wins placeholder animatinon")
+          } else if (lastMovedPiece === "br") {
+            alert("black rook wins placeholder animatinon")
+          } else if (lastMovedPiece === "bq") {
+            alert("black queen wins placeholder animatinon")
+          } else if (lastMovedPiece === null) {
+            alert("resignation placeholder animatinon")
+          } else (
+            alert("friendly fire placeholder animatino")
+          )
           // RESET BOARD
         }
-
       }
 
       const gameOverBlack = () => {
@@ -92,10 +106,23 @@ const Board = (props) => {
         })
 
         if (gameOver === true) {
-          alert("white wins placeholder animation")
+          if (lastMovedPiece === "wp") {
+            alert("white pawn wins placeholder animatinon")
+          } else if (lastMovedPiece === "wn") {
+            alert("white knight wins placeholder animatinon")
+          } else if (lastMovedPiece === "wb") {
+            alert("white bishop wins placeholder animatinon")
+          } else if (lastMovedPiece === "wr") {
+            alert("white rook wins placeholder animatinon")
+          } else if (lastMovedPiece === "wq") {
+            alert("white queen wins placeholder animatinon")
+          } else if (lastMovedPiece === null) {
+            alert("resignation placeholder animatinon")
+          } else (
+            alert("friendly fire placeholder animatino")
+          )
           // RESET BOARD
         }
-
       }
 
       boardData.unshift(
