@@ -63,7 +63,7 @@ const Board = (props) => {
         }
       }
 
-      const gameOverWhite = () => {
+      const checkGameOverWhite = () => {
         let gameOver = true
 
         columns.forEach(letter => {
@@ -88,11 +88,20 @@ const Board = (props) => {
           } else (
             alert("friendly fire/kill before game starts placeholder animatinon")
           )
-          // RESET BOARD
+          setBoardState({
+            a: ["wr", "wp", null, null, null, null, "bp", "br"],
+            b: ["wn", "wp", null, null, null, null, "bp", "bn"],
+            c: ["wb", "wp", null, null, null, null, "bp", "bb"],
+            d: ["wq", "wp", null, null, null, null, "bp", "bq"],
+            e: ["wk", "wp", null, null, null, null, "bp", "bk"],
+            f: ["wb", "wp", null, null, null, null, "bp", "bb"],
+            g: ["wn", "wp", null, null, null, null, "bp", "bn"],
+            h: ["wr", "wp", null, null, null, null, "bp", "br"]
+          })
         }
       }
 
-      const gameOverBlack = () => {
+      const checkGameOverBlack = () => {
         let gameOver = true
 
         columns.forEach(letter => {
@@ -117,7 +126,16 @@ const Board = (props) => {
           } else (
             alert("friendly fire/kill before game starts placeholder animatinon")
           )
-          // RESET BOARD
+          setBoardState({
+            a: ["wr", "wp", null, null, null, null, "bp", "br"],
+            b: ["wn", "wp", null, null, null, null, "bp", "bn"],
+            c: ["wb", "wp", null, null, null, null, "bp", "bb"],
+            d: ["wq", "wp", null, null, null, null, "bp", "bq"],
+            e: ["wk", "wp", null, null, null, null, "bp", "bk"],
+            f: ["wb", "wp", null, null, null, null, "bp", "bb"],
+            g: ["wn", "wp", null, null, null, null, "bp", "bn"],
+            h: ["wr", "wp", null, null, null, null, "bp", "br"]
+          })
         }
       }
 
@@ -131,8 +149,8 @@ const Board = (props) => {
           movePiece={movePiece}
           selectFirstSquare={selectFirstSquare}
           addPiece={addPiece}
-          gameOverWhite={gameOverWhite}
-          gameOverBlack={gameOverBlack}
+          checkGameOverWhite={checkGameOverWhite}
+          checkGameOverBlack={checkGameOverBlack}
         />
       )
       if (column === "a") {
