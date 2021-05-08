@@ -2,21 +2,35 @@ class Api::V1::BoardSavesController < ApiController
   before_action :authenticate_user
 
   def index
+    # boards = current_user.boards
+    # render json: { boards: boards }
     render json: BoardSave.all
   end
 
   def create
-    # new_board_save = BoardSave.create(board_save_params)
-    new_board_save = BoardSave.new(board: params[:board])
+    # new_board_save = BoardSave.new({ position: params[:board_safe]})
+    # new_board_save = BoardSave.new(params[:board_safe])
+    # new_board_save = BoardSave.new(board_save_params)
+
+    data = JSON.parse(params[:board_safe])
+    new_board_save = BoardSave.new({ position: data})
+
+    # take a look how to overwrite rails default convention model name, etc
+
+    binding.pry 
+    new_board_save.user = current_user
     if new_board_save.save 
       render json: new_board_save
+      # else errors
     end
   end
 
   private 
 
   def board_save_params
-    params.require(:board_save).permit(:board)
+    params.require(:board_safe).permit(:position)
+
+    # permit title once you add that functionality
   end
 
   def authenticate_user

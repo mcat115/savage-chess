@@ -30,7 +30,8 @@ const Board = (props) => {
           props.setSelectedSquare(null)
         }
       }
-
+// look at lesson supplemnts/resources nick shared how to movfe fetch to other files
+// applies to other functions with state involved
       const movePiece = () => {
         if (props.selectedSquare !== null) {
           let oldSpace = props.selectedSquare

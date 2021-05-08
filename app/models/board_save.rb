@@ -1,5 +1,5 @@
 class BoardSave < ApplicationRecord
   belongs_to :user
 
-  validates :board, presence: true
+  validates :position, presence: true
 end

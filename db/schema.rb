@@ -15,12 +15,13 @@ ActiveRecord::Schema.define(version: 2021_05_06_182651) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "board_save", force: :cascade do |t|
-    t.json "board", null: false
+  create_table "board_saves", force: :cascade do |t|
+    t.json "position", null: false
+    t.string "title"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_board_save_on_user_id"
+    t.index ["user_id"], name: "index_board_saves_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
