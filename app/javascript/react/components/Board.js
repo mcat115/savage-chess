@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import Square from "./Square"
 import { Keyframes, Frame } from 'react-keyframes';
-
 import Red from "../../../assets/images/red.png"
 import Streak1 from "../../../assets/images/streak 1.png"
 import Streak2 from "../../../assets/images/streak 2.png"
@@ -46,8 +45,100 @@ import BN11 from "../../../assets/images/Black Knight 11.png"
 import BN12 from "../../../assets/images/Black Knight 12.png"
 import BN13 from "../../../assets/images/Black Knight 13.png"
 import BN14 from "../../../assets/images/Black Knight 14.png"
-
-
+import WN1 from "../../../assets/images/White Knight 1.png"
+import WN2 from "../../../assets/images/White Knight 2.png"
+import WN3 from "../../../assets/images/White Knight 3.png"
+import WN4 from "../../../assets/images/White Knight 4.png"
+import WN5 from "../../../assets/images/White Knight 5.png"
+import WN6 from "../../../assets/images/White Knight 6.png"
+import WN7 from "../../../assets/images/White Knight 7.png"
+import WN8 from "../../../assets/images/White Knight 8.png"
+import WN9 from "../../../assets/images/White Knight 9.png"
+import WN10 from "../../../assets/images/White Knight 10.png"
+import WN11 from "../../../assets/images/White Knight 11.png"
+import WN12 from "../../../assets/images/White Knight 12.png"
+import WN13 from "../../../assets/images/White Knight 13.png"
+import WN14 from "../../../assets/images/White Knight 14.png"
+import BB1 from "../../../assets/images/Black Bishop 1.png"
+import BB2 from "../../../assets/images/Black Bishop 2.png"
+import BB3 from "../../../assets/images/Black Bishop 3.png"
+import BB4 from "../../../assets/images/Black Bishop 4.png"
+import BB5 from "../../../assets/images/Black Bishop 5.png"
+import BB6 from "../../../assets/images/Black Bishop 6.png"
+import BB7 from "../../../assets/images/Black Bishop 7.png"
+import BB8 from "../../../assets/images/Black Bishop 8.png"
+import BB9 from "../../../assets/images/Black Bishop 9.png"
+import BB10 from "../../../assets/images/Black Bishop 10.png"
+import BB11 from "../../../assets/images/Black Bishop 11.png"
+import BB12 from "../../../assets/images/Black Bishop 12.png"
+import WB1 from "../../../assets/images/White Bishop 1.png"
+import WB2 from "../../../assets/images/White Bishop 2.png"
+import WB3 from "../../../assets/images/White Bishop 3.png"
+import WB4 from "../../../assets/images/White Bishop 4.png"
+import WB5 from "../../../assets/images/White Bishop 5.png"
+import WB6 from "../../../assets/images/White Bishop 6.png"
+import WB7 from "../../../assets/images/White Bishop 7.png"
+import WB8 from "../../../assets/images/White Bishop 8.png"
+import WB9 from "../../../assets/images/White Bishop 9.png"
+import WB10 from "../../../assets/images/White Bishop 10.png"
+import WB11 from "../../../assets/images/White Bishop 11.png"
+import WB12 from "../../../assets/images/White Bishop 12.png"
+import BR1 from "../../../assets/images/Black Rook 1.png"
+import BR2 from "../../../assets/images/Black Rook 2.png"
+import BR3 from "../../../assets/images/Black Rook 3.png"
+import BR4 from "../../../assets/images/Black Rook 4.png"
+import BR5 from "../../../assets/images/Black Rook 5.png"
+import BR6 from "../../../assets/images/Black Rook 6.png"
+import BR7 from "../../../assets/images/Black Rook 7.png"
+import BR8 from "../../../assets/images/Black Rook 8.png"
+import BR9 from "../../../assets/images/Black Rook 9.png"
+import BR10 from "../../../assets/images/Black Rook 10.png"
+import BR11 from "../../../assets/images/Black Rook 11.png"
+import BR12 from "../../../assets/images/Black Rook 12.png"
+import BR13 from "../../../assets/images/Black Rook 13.png"
+import BR14 from "../../../assets/images/Black Rook 14.png"
+import WR1 from "../../../assets/images/White Rook 1.png"
+import WR2 from "../../../assets/images/White Rook 2.png"
+import WR3 from "../../../assets/images/White Rook 3.png"
+import WR4 from "../../../assets/images/White Rook 4.png"
+import WR5 from "../../../assets/images/White Rook 5.png"
+import WR6 from "../../../assets/images/White Rook 6.png"
+import WR7 from "../../../assets/images/White Rook 7.png"
+import WR8 from "../../../assets/images/White Rook 8.png"
+import WR9 from "../../../assets/images/White Rook 9.png"
+import WR10 from "../../../assets/images/White Rook 10.png"
+import WR11 from "../../../assets/images/White Rook 11.png"
+import WR12 from "../../../assets/images/White Rook 12.png"
+import WR13 from "../../../assets/images/White Rook 13.png"
+import WR14 from "../../../assets/images/White Rook 14.png"
+import BQ1 from "../../../assets/images/Black Queen 1.png"
+import BQ2 from "../../../assets/images/Black Queen 2.png"
+import BQ3 from "../../../assets/images/Black Queen 3.png"
+import BQ4 from "../../../assets/images/Black Queen 4.png"
+import BQ5 from "../../../assets/images/Black Queen 5.png"
+import BQ6 from "../../../assets/images/Black Queen 6.png"
+import BQ7 from "../../../assets/images/Black Queen 7.png"
+import BQ8 from "../../../assets/images/Black Queen 8.png"
+import BQ9 from "../../../assets/images/Black Queen 9.png"
+import BQ10 from "../../../assets/images/Black Queen 10.png"
+import BQ11 from "../../../assets/images/Black Queen 11.png"
+import BQ12 from "../../../assets/images/Black Queen 12.png"
+import BQ13 from "../../../assets/images/Black Queen 13.png"
+import BQ14 from "../../../assets/images/Black Queen 14.png"
+import WQ1 from "../../../assets/images/White Queen 1.png"
+import WQ2 from "../../../assets/images/White Queen 2.png"
+import WQ3 from "../../../assets/images/White Queen 3.png"
+import WQ4 from "../../../assets/images/White Queen 4.png"
+import WQ5 from "../../../assets/images/White Queen 5.png"
+import WQ6 from "../../../assets/images/White Queen 6.png"
+import WQ7 from "../../../assets/images/White Queen 7.png"
+import WQ8 from "../../../assets/images/White Queen 8.png"
+import WQ9 from "../../../assets/images/White Queen 9.png"
+import WQ10 from "../../../assets/images/White Queen 10.png"
+import WQ11 from "../../../assets/images/White Queen 11.png"
+import WQ12 from "../../../assets/images/White Queen 12.png"
+import WQ13 from "../../../assets/images/White Queen 13.png"
+import WQ14 from "../../../assets/images/White Queen 14.png"
 
 const Board = (props) => {
   const [boardState, setBoardState] = useState({
@@ -148,7 +239,7 @@ const Board = (props) => {
           } else if (lastSelectedPiece === "bq") {
             setWhatShouldReturn("bq kill")
           } else (
-            alert("friendly fire/kill before game starts placeholder animatinon")
+            alert("friendly fire/resign placeholder animatinon")
           )
           // resetBoard()
         }
@@ -177,7 +268,7 @@ const Board = (props) => {
           } else if (lastSelectedPiece === "wq") {
             setWhatShouldReturn("wq kill")
           } else (
-            alert("friendly fire/kill before game starts placeholder animatinon")
+            alert("friendly fire/resign placeholder animatinon")
           )
           // resetBoard()
         }
@@ -273,6 +364,163 @@ const Board = (props) => {
         <Frame duration={100}><img src={BN12}/></Frame>
         <Frame duration={100}><img src={BN13}/></Frame>
         <Frame duration={100}><img src={BN14}/></Frame>
+      </Keyframes>
+    )
+  } else if (whatShouldReturn === "wn kill") {
+    return (
+      <Keyframes>
+        <Frame duration={250}><img src={Red}/></Frame>
+        <Frame duration={80}><img src={Streak1}/></Frame>
+        <Frame duration={80}><img src={Streak2}/></Frame>
+        <Frame duration={100}><img src={Streak3}/></Frame>
+        <Frame duration={100}><img src={WN1}/></Frame>
+        <Frame duration={100}><img src={WN2}/></Frame>
+        <Frame duration={100}><img src={WN3}/></Frame>
+        <Frame duration={100}><img src={WN4}/></Frame>
+        <Frame duration={100}><img src={WN5}/></Frame>
+        <Frame duration={100}><img src={WN6}/></Frame>
+        <Frame duration={100}><img src={WN7}/></Frame>
+        <Frame duration={100}><img src={WN8}/></Frame>
+        <Frame duration={100}><img src={WN9}/></Frame>
+        <Frame duration={100}><img src={WN10}/></Frame>
+        <Frame duration={100}><img src={WN11}/></Frame>
+        <Frame duration={100}><img src={WN12}/></Frame>
+        <Frame duration={100}><img src={WN13}/></Frame>
+        <Frame duration={100}><img src={WN14}/></Frame>
+      </Keyframes>
+    )
+  } else if (whatShouldReturn === "bb kill") {
+    return (
+      <Keyframes>
+        <Frame duration={250}><img src={Red}/></Frame>
+        <Frame duration={80}><img src={Streak1}/></Frame>
+        <Frame duration={80}><img src={Streak2}/></Frame>
+        <Frame duration={100}><img src={Streak3}/></Frame>
+        <Frame duration={100}><img src={BB1}/></Frame>
+        <Frame duration={100}><img src={BB2}/></Frame>
+        <Frame duration={100}><img src={BB3}/></Frame>
+        <Frame duration={100}><img src={BB4}/></Frame>
+        <Frame duration={100}><img src={BB5}/></Frame>
+        <Frame duration={100}><img src={BB6}/></Frame>
+        <Frame duration={100}><img src={BB7}/></Frame>
+        <Frame duration={100}><img src={BB8}/></Frame>
+        <Frame duration={100}><img src={BB9}/></Frame>
+        <Frame duration={100}><img src={BB10}/></Frame>
+        <Frame duration={100}><img src={BB11}/></Frame>
+        <Frame duration={100}><img src={BB12}/></Frame>
+      </Keyframes>
+    )
+  } else if (whatShouldReturn === "wb kill") {
+    return (
+      <Keyframes>
+        <Frame duration={250}><img src={Red}/></Frame>
+        <Frame duration={80}><img src={Streak1}/></Frame>
+        <Frame duration={80}><img src={Streak2}/></Frame>
+        <Frame duration={100}><img src={Streak3}/></Frame>
+        <Frame duration={100}><img src={WB1}/></Frame>
+        <Frame duration={100}><img src={WB2}/></Frame>
+        <Frame duration={100}><img src={WB3}/></Frame>
+        <Frame duration={100}><img src={WB4}/></Frame>
+        <Frame duration={100}><img src={WB5}/></Frame>
+        <Frame duration={100}><img src={WB6}/></Frame>
+        <Frame duration={100}><img src={WB7}/></Frame>
+        <Frame duration={100}><img src={WB8}/></Frame>
+        <Frame duration={100}><img src={WB9}/></Frame>
+        <Frame duration={100}><img src={WB10}/></Frame>
+        <Frame duration={100}><img src={WB11}/></Frame>
+        <Frame duration={100}><img src={WB12}/></Frame>
+      </Keyframes>
+    )
+  } else if (whatShouldReturn === "br kill") {
+    return (
+      <Keyframes>
+        <Frame duration={250}><img src={Red}/></Frame>
+        <Frame duration={80}><img src={Streak1}/></Frame>
+        <Frame duration={80}><img src={Streak2}/></Frame>
+        <Frame duration={100}><img src={Streak3}/></Frame>
+        <Frame duration={100}><img src={BR1}/></Frame>
+        <Frame duration={100}><img src={BR2}/></Frame>
+        <Frame duration={100}><img src={BR3}/></Frame>
+        <Frame duration={100}><img src={BR4}/></Frame>
+        <Frame duration={100}><img src={BR5}/></Frame>
+        <Frame duration={100}><img src={BR6}/></Frame>
+        <Frame duration={100}><img src={BR7}/></Frame>
+        <Frame duration={100}><img src={BR8}/></Frame>
+        <Frame duration={100}><img src={BR9}/></Frame>
+        <Frame duration={100}><img src={BR10}/></Frame>
+        <Frame duration={100}><img src={BR11}/></Frame>
+        <Frame duration={100}><img src={BR12}/></Frame>
+        <Frame duration={100}><img src={BR13}/></Frame>
+        <Frame duration={100}><img src={BR14}/></Frame>
+      </Keyframes>
+    )
+  } else if (whatShouldReturn === "wr kill") {
+    return (
+      <Keyframes>
+        <Frame duration={250}><img src={Red}/></Frame>
+        <Frame duration={80}><img src={Streak1}/></Frame>
+        <Frame duration={80}><img src={Streak2}/></Frame>
+        <Frame duration={100}><img src={Streak3}/></Frame>
+        <Frame duration={100}><img src={WR1}/></Frame>
+        <Frame duration={100}><img src={WR2}/></Frame>
+        <Frame duration={100}><img src={WR3}/></Frame>
+        <Frame duration={100}><img src={WR4}/></Frame>
+        <Frame duration={100}><img src={WR5}/></Frame>
+        <Frame duration={100}><img src={WR6}/></Frame>
+        <Frame duration={100}><img src={WR7}/></Frame>
+        <Frame duration={100}><img src={WR8}/></Frame>
+        <Frame duration={100}><img src={WR9}/></Frame>
+        <Frame duration={100}><img src={WR10}/></Frame>
+        <Frame duration={100}><img src={WR11}/></Frame>
+        <Frame duration={100}><img src={WR12}/></Frame>
+        <Frame duration={100}><img src={WR13}/></Frame>
+        <Frame duration={100}><img src={WR14}/></Frame>
+      </Keyframes>
+    )
+  } else if (whatShouldReturn === "bq kill") {
+    return (
+      <Keyframes>
+        <Frame duration={250}><img src={Red}/></Frame>
+        <Frame duration={80}><img src={Streak1}/></Frame>
+        <Frame duration={80}><img src={Streak2}/></Frame>
+        <Frame duration={100}><img src={Streak3}/></Frame>
+        <Frame duration={100}><img src={BQ1}/></Frame>
+        <Frame duration={100}><img src={BQ2}/></Frame>
+        <Frame duration={100}><img src={BQ3}/></Frame>
+        <Frame duration={100}><img src={BQ4}/></Frame>
+        <Frame duration={100}><img src={BQ5}/></Frame>
+        <Frame duration={100}><img src={BQ6}/></Frame>
+        <Frame duration={100}><img src={BQ7}/></Frame>
+        <Frame duration={100}><img src={BQ8}/></Frame>
+        <Frame duration={100}><img src={BQ9}/></Frame>
+        <Frame duration={100}><img src={BQ10}/></Frame>
+        <Frame duration={100}><img src={BQ11}/></Frame>
+        <Frame duration={100}><img src={BQ12}/></Frame>
+        <Frame duration={100}><img src={BQ13}/></Frame>
+        <Frame duration={100}><img src={BQ14}/></Frame>
+      </Keyframes>
+    )
+  } else if (whatShouldReturn === "wq kill") {
+    return (
+      <Keyframes>
+        <Frame duration={250}><img src={Red}/></Frame>
+        <Frame duration={80}><img src={Streak1}/></Frame>
+        <Frame duration={80}><img src={Streak2}/></Frame>
+        <Frame duration={100}><img src={Streak3}/></Frame>
+        <Frame duration={100}><img src={WQ1}/></Frame>
+        <Frame duration={100}><img src={WQ2}/></Frame>
+        <Frame duration={100}><img src={WQ3}/></Frame>
+        <Frame duration={100}><img src={WQ4}/></Frame>
+        <Frame duration={100}><img src={WQ5}/></Frame>
+        <Frame duration={100}><img src={WQ6}/></Frame>
+        <Frame duration={100}><img src={WQ7}/></Frame>
+        <Frame duration={100}><img src={WQ8}/></Frame>
+        <Frame duration={100}><img src={WQ9}/></Frame>
+        <Frame duration={100}><img src={WQ10}/></Frame>
+        <Frame duration={100}><img src={WQ11}/></Frame>
+        <Frame duration={100}><img src={WQ12}/></Frame>
+        <Frame duration={100}><img src={WQ13}/></Frame>
+        <Frame duration={100}><img src={WQ14}/></Frame>
       </Keyframes>
     )
   }

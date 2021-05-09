@@ -3,7 +3,7 @@ import BankIcon from "./BankIcon"
 
 const PieceBank = (props) => {
   
-  const icons = ["wp", "wn", "wb", "wr", "wq", "bp", "bn", "bb", "br", "bq", "x", "wk", "bk"]
+  const icons = ["wp", "wn", "wb", "wr", "wq", "bp", "bn", "bb", "br", "bq", "x", "bk", "wk"]
 
   let iconComponents = []
 
