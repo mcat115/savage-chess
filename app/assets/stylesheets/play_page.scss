@@ -24,7 +24,7 @@
 
 .playWords {
   p {
-    text-align: center
+    text-align: center;
   }
 }
 
@@ -73,4 +73,19 @@
     cursor: pointer;
     max-width: 150px
   }
+}
+
+#newGameButton {
+  text-align: center;
+  border: solid 3px rgb(223, 33, 33);
+  background-color: rgb(243, 234, 234);
+  border-radius: 10px;
+  margin-right: 200px;
+  margin-left: 200px;
+  margin-top: 10px;
+  cursor: pointer
+}
+
+p {
+  font-family: sans-serif
 }

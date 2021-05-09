@@ -203,19 +203,6 @@ const Board = (props) => {
         }
       }
 
-      // const resetBoard = () => {
-      //   setBoardState({
-      //     a: ["wr", "wp", null, null, null, null, "bp", "br"],
-      //     b: ["wn", "wp", null, null, null, null, "bp", "bn"],
-      //     c: ["wb", "wp", null, null, null, null, "bp", "bb"],
-      //     d: ["wq", "wp", null, null, null, null, "bp", "bq"],
-      //     e: ["wk", "wp", null, null, null, null, "bp", "bk"],
-      //     f: ["wb", "wp", null, null, null, null, "bp", "bb"],
-      //     g: ["wn", "wp", null, null, null, null, "bp", "bn"],
-      //     h: ["wr", "wp", null, null, null, null, "bp", "br"]
-      //   })
-      // }
-
       const checkGameOverWhite = () => {
         let gameOver = true
 
@@ -241,7 +228,6 @@ const Board = (props) => {
           } else (
             alert("friendly fire/resign placeholder animatinon")
           )
-          // resetBoard()
         }
       }
 
@@ -270,7 +256,6 @@ const Board = (props) => {
           } else (
             alert("friendly fire/resign placeholder animatinon")
           )
-          // resetBoard()
         }
       }
 
@@ -296,233 +281,84 @@ const Board = (props) => {
     })
   }
 
+  const newGame = () => {
+    setWhatShouldReturn("board")
+    setBoardState({
+      a: ["wr", "wp", null, null, null, null, "bp", "br"],
+      b: ["wn", "wp", null, null, null, null, "bp", "bn"],
+      c: ["wb", "wp", null, null, null, null, "bp", "bb"],
+      d: ["wq", "wp", null, null, null, null, "bp", "bq"],
+      e: ["wk", "wp", null, null, null, null, "bp", "bk"],
+      f: ["wb", "wp", null, null, null, null, "bp", "bb"],
+      g: ["wn", "wp", null, null, null, null, "bp", "bn"],
+      h: ["wr", "wp", null, null, null, null, "bp", "br"]
+    })
+  }
+
+  let frames = [
+    [BP1, BP2, BP3, BP4, BP5, BP6, BP7, BP8, BP9, BP10, BP11, BP12, BP13],
+    [WP1, WP2, WP3, WP4, WP5, WP6, WP7, WP8, WP9, WP10, WP11, WP12, WP13],
+    [BN1, BN2, BN3, BN4, BN5, BN6, BN7, BN8, BN9, BN10, BN11, BN12, BN13, BN14],
+    [WN1, WN2, WN3, WN4, WN5, WN6, WN7, WN8, WN9, WN10, WN11, WN12, WN13, WN14],
+    [BB1, BB2, BB3, BB4, BB5, BB6, BB7, BB8, BB9, BB10, BB11, BB12],
+    [WB1, WB2, WB3, WB4, WB5, WB6, WB7, WB8, WB9, WB10, WB11, WB12],
+    [BR1, BR2, BR3, BR4, BR5, BR6, BR7, BR8, BR9, BR10, BR11, BR12, BR13, BR14],
+    [WR1, WR2, WR3, WR4, WR5, WR6, WR7, WR8, WR9, WR10, WR11, WR12, WR13, WR14],
+    [BQ1, BQ2, BQ3, BQ4, BQ5, BQ6, BQ7, BQ8, BQ9, BQ10, BQ11, BQ12, BQ13, BQ14],
+    [WQ1, WQ2, WQ3, WQ4, WQ5, WQ6, WQ7, WQ8, WQ9, WQ10, WQ11, WQ12, WQ13, WQ14]
+  ]
+
+  let animations = []
+
+  frames.forEach(piece => {
+    let frameData = []
+    frameData.push(<Frame duration={250}><img src={Red}/></Frame>)
+    frameData.push(<Frame duration={80}><img src={Streak1}/></Frame>)
+    frameData.push(<Frame duration={80}><img src={Streak2}/></Frame>)
+    frameData.push(<Frame duration={100}><img src={Streak3}/></Frame>)
+    piece.forEach(frame => {
+      frameData.push(<Frame duration={100}><img src={frame}/></Frame>)
+    })
+    animations.push(frameData)
+  })
+
+  let endGameComponents = []
+
+  animations.forEach(animation => {
+    let returnComponent = []
+    returnComponent.push(
+      <div>
+        <Keyframes>
+          {animation}
+        </Keyframes>
+        <p id="newGameButton" onClick={newGame}>Start a new game!</p>
+      </div>
+    )
+    endGameComponents.push(returnComponent)
+  })
 
   if (whatShouldReturn === "board") {
     return <div id="board">{boardData}</div>
   } else if (whatShouldReturn === "bp kill") {
-    return (
-      <Keyframes>
-        <Frame duration={250}><img src={Red}/></Frame>
-        <Frame duration={80}><img src={Streak1}/></Frame>
-        <Frame duration={80}><img src={Streak2}/></Frame>
-        <Frame duration={100}><img src={Streak3}/></Frame>
-        <Frame duration={100}><img src={BP1}/></Frame>
-        <Frame duration={100}><img src={BP2}/></Frame>
-        <Frame duration={100}><img src={BP3}/></Frame>
-        <Frame duration={100}><img src={BP4}/></Frame>
-        <Frame duration={100}><img src={BP5}/></Frame>
-        <Frame duration={100}><img src={BP6}/></Frame>
-        <Frame duration={100}><img src={BP7}/></Frame>
-        <Frame duration={100}><img src={BP8}/></Frame>
-        <Frame duration={100}><img src={BP9}/></Frame>
-        <Frame duration={100}><img src={BP10}/></Frame>
-        <Frame duration={100}><img src={BP11}/></Frame>
-        <Frame duration={100}><img src={BP12}/></Frame>
-        <Frame duration={100}><img src={BP13}/></Frame>
-      </Keyframes>
-    )
+    return endGameComponents[0]
   } else if (whatShouldReturn === "wp kill") {
-    return (
-      <Keyframes>
-        <Frame duration={250}><img src={Red}/></Frame>
-        <Frame duration={80}><img src={Streak1}/></Frame>
-        <Frame duration={80}><img src={Streak2}/></Frame>
-        <Frame duration={100}><img src={Streak3}/></Frame>
-        <Frame duration={100}><img src={WP1}/></Frame>
-        <Frame duration={100}><img src={WP2}/></Frame>
-        <Frame duration={100}><img src={WP3}/></Frame>
-        <Frame duration={100}><img src={WP4}/></Frame>
-        <Frame duration={100}><img src={WP5}/></Frame>
-        <Frame duration={100}><img src={WP6}/></Frame>
-        <Frame duration={100}><img src={WP7}/></Frame>
-        <Frame duration={100}><img src={WP8}/></Frame>
-        <Frame duration={100}><img src={WP9}/></Frame>
-        <Frame duration={100}><img src={WP10}/></Frame>
-        <Frame duration={100}><img src={WP11}/></Frame>
-        <Frame duration={100}><img src={WP12}/></Frame>
-        <Frame duration={100}><img src={WP13}/></Frame>
-      </Keyframes>
-    )
+    return endGameComponents[1]
   } else if (whatShouldReturn === "bn kill") {
-    return (
-      <Keyframes>
-        <Frame duration={250}><img src={Red}/></Frame>
-        <Frame duration={80}><img src={Streak1}/></Frame>
-        <Frame duration={80}><img src={Streak2}/></Frame>
-        <Frame duration={100}><img src={Streak3}/></Frame>
-        <Frame duration={100}><img src={BN1}/></Frame>
-        <Frame duration={100}><img src={BN2}/></Frame>
-        <Frame duration={100}><img src={BN3}/></Frame>
-        <Frame duration={100}><img src={BN4}/></Frame>
-        <Frame duration={100}><img src={BN5}/></Frame>
-        <Frame duration={100}><img src={BN6}/></Frame>
-        <Frame duration={100}><img src={BN7}/></Frame>
-        <Frame duration={100}><img src={BN8}/></Frame>
-        <Frame duration={100}><img src={BN9}/></Frame>
-        <Frame duration={100}><img src={BN10}/></Frame>
-        <Frame duration={100}><img src={BN11}/></Frame>
-        <Frame duration={100}><img src={BN12}/></Frame>
-        <Frame duration={100}><img src={BN13}/></Frame>
-        <Frame duration={100}><img src={BN14}/></Frame>
-      </Keyframes>
-    )
+    return endGameComponents[2]
   } else if (whatShouldReturn === "wn kill") {
-    return (
-      <Keyframes>
-        <Frame duration={250}><img src={Red}/></Frame>
-        <Frame duration={80}><img src={Streak1}/></Frame>
-        <Frame duration={80}><img src={Streak2}/></Frame>
-        <Frame duration={100}><img src={Streak3}/></Frame>
-        <Frame duration={100}><img src={WN1}/></Frame>
-        <Frame duration={100}><img src={WN2}/></Frame>
-        <Frame duration={100}><img src={WN3}/></Frame>
-        <Frame duration={100}><img src={WN4}/></Frame>
-        <Frame duration={100}><img src={WN5}/></Frame>
-        <Frame duration={100}><img src={WN6}/></Frame>
-        <Frame duration={100}><img src={WN7}/></Frame>
-        <Frame duration={100}><img src={WN8}/></Frame>
-        <Frame duration={100}><img src={WN9}/></Frame>
-        <Frame duration={100}><img src={WN10}/></Frame>
-        <Frame duration={100}><img src={WN11}/></Frame>
-        <Frame duration={100}><img src={WN12}/></Frame>
-        <Frame duration={100}><img src={WN13}/></Frame>
-        <Frame duration={100}><img src={WN14}/></Frame>
-      </Keyframes>
-    )
+    return endGameComponents[3]
   } else if (whatShouldReturn === "bb kill") {
-    return (
-      <Keyframes>
-        <Frame duration={250}><img src={Red}/></Frame>
-        <Frame duration={80}><img src={Streak1}/></Frame>
-        <Frame duration={80}><img src={Streak2}/></Frame>
-        <Frame duration={100}><img src={Streak3}/></Frame>
-        <Frame duration={100}><img src={BB1}/></Frame>
-        <Frame duration={100}><img src={BB2}/></Frame>
-        <Frame duration={100}><img src={BB3}/></Frame>
-        <Frame duration={100}><img src={BB4}/></Frame>
-        <Frame duration={100}><img src={BB5}/></Frame>
-        <Frame duration={100}><img src={BB6}/></Frame>
-        <Frame duration={100}><img src={BB7}/></Frame>
-        <Frame duration={100}><img src={BB8}/></Frame>
-        <Frame duration={100}><img src={BB9}/></Frame>
-        <Frame duration={100}><img src={BB10}/></Frame>
-        <Frame duration={100}><img src={BB11}/></Frame>
-        <Frame duration={100}><img src={BB12}/></Frame>
-      </Keyframes>
-    )
+    return endGameComponents[4]
   } else if (whatShouldReturn === "wb kill") {
-    return (
-      <Keyframes>
-        <Frame duration={250}><img src={Red}/></Frame>
-        <Frame duration={80}><img src={Streak1}/></Frame>
-        <Frame duration={80}><img src={Streak2}/></Frame>
-        <Frame duration={100}><img src={Streak3}/></Frame>
-        <Frame duration={100}><img src={WB1}/></Frame>
-        <Frame duration={100}><img src={WB2}/></Frame>
-        <Frame duration={100}><img src={WB3}/></Frame>
-        <Frame duration={100}><img src={WB4}/></Frame>
-        <Frame duration={100}><img src={WB5}/></Frame>
-        <Frame duration={100}><img src={WB6}/></Frame>
-        <Frame duration={100}><img src={WB7}/></Frame>
-        <Frame duration={100}><img src={WB8}/></Frame>
-        <Frame duration={100}><img src={WB9}/></Frame>
-        <Frame duration={100}><img src={WB10}/></Frame>
-        <Frame duration={100}><img src={WB11}/></Frame>
-        <Frame duration={100}><img src={WB12}/></Frame>
-      </Keyframes>
-    )
+    return endGameComponents[5]
   } else if (whatShouldReturn === "br kill") {
-    return (
-      <Keyframes>
-        <Frame duration={250}><img src={Red}/></Frame>
-        <Frame duration={80}><img src={Streak1}/></Frame>
-        <Frame duration={80}><img src={Streak2}/></Frame>
-        <Frame duration={100}><img src={Streak3}/></Frame>
-        <Frame duration={100}><img src={BR1}/></Frame>
-        <Frame duration={100}><img src={BR2}/></Frame>
-        <Frame duration={100}><img src={BR3}/></Frame>
-        <Frame duration={100}><img src={BR4}/></Frame>
-        <Frame duration={100}><img src={BR5}/></Frame>
-        <Frame duration={100}><img src={BR6}/></Frame>
-        <Frame duration={100}><img src={BR7}/></Frame>
-        <Frame duration={100}><img src={BR8}/></Frame>
-        <Frame duration={100}><img src={BR9}/></Frame>
-        <Frame duration={100}><img src={BR10}/></Frame>
-        <Frame duration={100}><img src={BR11}/></Frame>
-        <Frame duration={100}><img src={BR12}/></Frame>
-        <Frame duration={100}><img src={BR13}/></Frame>
-        <Frame duration={100}><img src={BR14}/></Frame>
-      </Keyframes>
-    )
+    return endGameComponents[6]
   } else if (whatShouldReturn === "wr kill") {
-    return (
-      <Keyframes>
-        <Frame duration={250}><img src={Red}/></Frame>
-        <Frame duration={80}><img src={Streak1}/></Frame>
-        <Frame duration={80}><img src={Streak2}/></Frame>
-        <Frame duration={100}><img src={Streak3}/></Frame>
-        <Frame duration={100}><img src={WR1}/></Frame>
-        <Frame duration={100}><img src={WR2}/></Frame>
-        <Frame duration={100}><img src={WR3}/></Frame>
-        <Frame duration={100}><img src={WR4}/></Frame>
-        <Frame duration={100}><img src={WR5}/></Frame>
-        <Frame duration={100}><img src={WR6}/></Frame>
-        <Frame duration={100}><img src={WR7}/></Frame>
-        <Frame duration={100}><img src={WR8}/></Frame>
-        <Frame duration={100}><img src={WR9}/></Frame>
-        <Frame duration={100}><img src={WR10}/></Frame>
-        <Frame duration={100}><img src={WR11}/></Frame>
-        <Frame duration={100}><img src={WR12}/></Frame>
-        <Frame duration={100}><img src={WR13}/></Frame>
-        <Frame duration={100}><img src={WR14}/></Frame>
-      </Keyframes>
-    )
+    return endGameComponents[7]
   } else if (whatShouldReturn === "bq kill") {
-    return (
-      <Keyframes>
-        <Frame duration={250}><img src={Red}/></Frame>
-        <Frame duration={80}><img src={Streak1}/></Frame>
-        <Frame duration={80}><img src={Streak2}/></Frame>
-        <Frame duration={100}><img src={Streak3}/></Frame>
-        <Frame duration={100}><img src={BQ1}/></Frame>
-        <Frame duration={100}><img src={BQ2}/></Frame>
-        <Frame duration={100}><img src={BQ3}/></Frame>
-        <Frame duration={100}><img src={BQ4}/></Frame>
-        <Frame duration={100}><img src={BQ5}/></Frame>
-        <Frame duration={100}><img src={BQ6}/></Frame>
-        <Frame duration={100}><img src={BQ7}/></Frame>
-        <Frame duration={100}><img src={BQ8}/></Frame>
-        <Frame duration={100}><img src={BQ9}/></Frame>
-        <Frame duration={100}><img src={BQ10}/></Frame>
-        <Frame duration={100}><img src={BQ11}/></Frame>
-        <Frame duration={100}><img src={BQ12}/></Frame>
-        <Frame duration={100}><img src={BQ13}/></Frame>
-        <Frame duration={100}><img src={BQ14}/></Frame>
-      </Keyframes>
-    )
+    return endGameComponents[8]
   } else if (whatShouldReturn === "wq kill") {
-    return (
-      <Keyframes>
-        <Frame duration={250}><img src={Red}/></Frame>
-        <Frame duration={80}><img src={Streak1}/></Frame>
-        <Frame duration={80}><img src={Streak2}/></Frame>
-        <Frame duration={100}><img src={Streak3}/></Frame>
-        <Frame duration={100}><img src={WQ1}/></Frame>
-        <Frame duration={100}><img src={WQ2}/></Frame>
-        <Frame duration={100}><img src={WQ3}/></Frame>
-        <Frame duration={100}><img src={WQ4}/></Frame>
-        <Frame duration={100}><img src={WQ5}/></Frame>
-        <Frame duration={100}><img src={WQ6}/></Frame>
-        <Frame duration={100}><img src={WQ7}/></Frame>
-        <Frame duration={100}><img src={WQ8}/></Frame>
-        <Frame duration={100}><img src={WQ9}/></Frame>
-        <Frame duration={100}><img src={WQ10}/></Frame>
-        <Frame duration={100}><img src={WQ11}/></Frame>
-        <Frame duration={100}><img src={WQ12}/></Frame>
-        <Frame duration={100}><img src={WQ13}/></Frame>
-        <Frame duration={100}><img src={WQ14}/></Frame>
-      </Keyframes>
-    )
+    return endGameComponents[9]
   }
 }
 
