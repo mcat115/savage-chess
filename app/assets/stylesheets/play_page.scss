@@ -14,6 +14,7 @@
   margin-left: 60px;
   width: 175px;
   padding: 5px;
+  background-color: rgb(252, 255, 248);
 }
 
 .bankIcon {
@@ -23,9 +24,10 @@
 }
 
 .playWords {
-  p {
-    text-align: center
-  }
+  text-align: center;
+  font-weight: bold;
+  margin-top: 50px;
+  font-size: 30px;
 }
 
 .square {
@@ -68,9 +70,25 @@
   border-radius: 10px;
   text-align: center;
   padding: 5px;
+  background-color: rgb(252, 255, 248);
 
   img {
     cursor: pointer;
     max-width: 150px
+  }
+}
+
+#newGameButton {
+  text-align: center;
+  border: solid 3px rgb(223, 33, 33);
+  background-color: rgb(243, 234, 234);
+  border-radius: 10px;
+  margin-right: 200px;
+  margin-left: 200px;
+  margin-top: 10px;
+  cursor: pointer;
+
+  &:hover {
+    border: solid 3px rgb(231, 141, 23);
   }
 }

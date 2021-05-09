@@ -8,10 +8,10 @@ const PlayPage = () => {
   const [selectedSquare, setSelectedSquare] = useState(null)
 
   return (
-    <div className="grid-container">
+    <div className="grid-container playPageFull">
       <div className="grid-x">
-        <div className="cell small-6 medium-3 playWords">
-        <p>Point and click!</p>
+        <div className="cell small-6 medium-3">
+        <p className="playWords">Point and click!</p>
           <MeetingButton/>
         </div>
         <div className="cell small-12 medium-6">
@@ -22,8 +22,8 @@ const PlayPage = () => {
             setSelectedSquare={setSelectedSquare}
           />
         </div>
-        <div className="cell small-6 medium-3 playWords"> 
-          <p>To resign, X out your own king!</p>
+        <div className="cell small-6 medium-3"> 
+          <p className="playWords">To resign, X out your own king!</p>
           <PieceBank
             bankSelection={bankSelection}
             setBankSelection={setBankSelection}
