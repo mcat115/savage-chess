@@ -8,7 +8,7 @@ const MeetingButton = () => {
 
   const click = () => {
     if (meetingStatus === "inactive") {
-      alert("meeting animation placeholder")
+      alert("Deliberate!")
       setMessage("End the emergency war crime meeting!")
       setMeetingStatus("active")
     } else {

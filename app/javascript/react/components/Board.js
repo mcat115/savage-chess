@@ -1,5 +1,53 @@
 import React, { useState } from "react"
 import Square from "./Square"
+import { Keyframes, Frame } from 'react-keyframes';
+
+import Red from "../../../assets/images/red.png"
+import Streak1 from "../../../assets/images/streak 1.png"
+import Streak2 from "../../../assets/images/streak 2.png"
+import Streak3 from "../../../assets/images/streak 3.png"
+import BP1 from "../../../assets/images/Black Pawn 1.png"
+import BP2 from "../../../assets/images/Black Pawn 2.png"
+import BP3 from "../../../assets/images/Black Pawn 3.png"
+import BP4 from "../../../assets/images/Black Pawn 4.png"
+import BP5 from "../../../assets/images/Black Pawn 5.png"
+import BP6 from "../../../assets/images/Black Pawn 6.png"
+import BP7 from "../../../assets/images/Black Pawn 7.png"
+import BP8 from "../../../assets/images/Black Pawn 8.png"
+import BP9 from "../../../assets/images/Black Pawn 9.png"
+import BP10 from "../../../assets/images/Black Pawn 10.png"
+import BP11 from "../../../assets/images/Black Pawn 11.png"
+import BP12 from "../../../assets/images/Black Pawn 12.png"
+import BP13 from "../../../assets/images/Black Pawn 13.png"
+import WP1 from "../../../assets/images/White Pawn 1.png"
+import WP2 from "../../../assets/images/White Pawn 2.png"
+import WP3 from "../../../assets/images/White Pawn 3.png"
+import WP4 from "../../../assets/images/White Pawn 4.png"
+import WP5 from "../../../assets/images/White Pawn 5.png"
+import WP6 from "../../../assets/images/White Pawn 6.png"
+import WP7 from "../../../assets/images/White Pawn 7.png"
+import WP8 from "../../../assets/images/White Pawn 8.png"
+import WP9 from "../../../assets/images/White Pawn 9.png"
+import WP10 from "../../../assets/images/White Pawn 10.png"
+import WP11 from "../../../assets/images/White Pawn 11.png"
+import WP12 from "../../../assets/images/White Pawn 12.png"
+import WP13 from "../../../assets/images/White Pawn 13.png"
+import BN1 from "../../../assets/images/Black Knight 1.png"
+import BN2 from "../../../assets/images/Black Knight 2.png"
+import BN3 from "../../../assets/images/Black Knight 3.png"
+import BN4 from "../../../assets/images/Black Knight 4.png"
+import BN5 from "../../../assets/images/Black Knight 5.png"
+import BN6 from "../../../assets/images/Black Knight 6.png"
+import BN7 from "../../../assets/images/Black Knight 7.png"
+import BN8 from "../../../assets/images/Black Knight 8.png"
+import BN9 from "../../../assets/images/Black Knight 9.png"
+import BN10 from "../../../assets/images/Black Knight 10.png"
+import BN11 from "../../../assets/images/Black Knight 11.png"
+import BN12 from "../../../assets/images/Black Knight 12.png"
+import BN13 from "../../../assets/images/Black Knight 13.png"
+import BN14 from "../../../assets/images/Black Knight 14.png"
+
+
 
 const Board = (props) => {
   const [boardState, setBoardState] = useState({
@@ -13,6 +61,7 @@ const Board = (props) => {
     h: ["wr", "wp", null, null, null, null, "bp", "br"]
   })
   const [lastSelectedPiece, setLastSelectedPiece] = useState(null)
+  const [whatShouldReturn, setWhatShouldReturn] = useState("board")
 
   let boardData = []
   let columns = ["h", "g", "f", "e", "d", "c", "b", "a"]
@@ -63,18 +112,18 @@ const Board = (props) => {
         }
       }
 
-      const resetBoard = () => {
-        setBoardState({
-          a: ["wr", "wp", null, null, null, null, "bp", "br"],
-          b: ["wn", "wp", null, null, null, null, "bp", "bn"],
-          c: ["wb", "wp", null, null, null, null, "bp", "bb"],
-          d: ["wq", "wp", null, null, null, null, "bp", "bq"],
-          e: ["wk", "wp", null, null, null, null, "bp", "bk"],
-          f: ["wb", "wp", null, null, null, null, "bp", "bb"],
-          g: ["wn", "wp", null, null, null, null, "bp", "bn"],
-          h: ["wr", "wp", null, null, null, null, "bp", "br"]
-        })
-      }
+      // const resetBoard = () => {
+      //   setBoardState({
+      //     a: ["wr", "wp", null, null, null, null, "bp", "br"],
+      //     b: ["wn", "wp", null, null, null, null, "bp", "bn"],
+      //     c: ["wb", "wp", null, null, null, null, "bp", "bb"],
+      //     d: ["wq", "wp", null, null, null, null, "bp", "bq"],
+      //     e: ["wk", "wp", null, null, null, null, "bp", "bk"],
+      //     f: ["wb", "wp", null, null, null, null, "bp", "bb"],
+      //     g: ["wn", "wp", null, null, null, null, "bp", "bn"],
+      //     h: ["wr", "wp", null, null, null, null, "bp", "br"]
+      //   })
+      // }
 
       const checkGameOverWhite = () => {
         let gameOver = true
@@ -89,19 +138,19 @@ const Board = (props) => {
 
         if (gameOver === true) {
           if (lastSelectedPiece === "bp") {
-            alert("black pawn wins placeholder animatinon")
+            setWhatShouldReturn("bp kill")
           } else if (lastSelectedPiece === "bn") {
-            alert("black knight wins placeholder animatinon")
+            setWhatShouldReturn("bn kill")
           } else if (lastSelectedPiece === "bb") {
-            alert("black bishop wins placeholder animatinon")
+            setWhatShouldReturn("bb kill")
           } else if (lastSelectedPiece === "br") {
-            alert("black rook wins placeholder animatinon")
+            setWhatShouldReturn("br kill")
           } else if (lastSelectedPiece === "bq") {
-            alert("black queen wins placeholder animatinon")
+            setWhatShouldReturn("bq kill")
           } else (
             alert("friendly fire/kill before game starts placeholder animatinon")
           )
-          resetBoard()
+          // resetBoard()
         }
       }
 
@@ -118,19 +167,19 @@ const Board = (props) => {
 
         if (gameOver === true) {
           if (lastSelectedPiece === "wp") {
-            alert("white pawn wins placeholder animatinon")
+            setWhatShouldReturn("wp kill")
           } else if (lastSelectedPiece === "wn") {
-            alert("white knight wins placeholder animatinon")
+            setWhatShouldReturn("wn kill")
           } else if (lastSelectedPiece === "wb") {
-            alert("white bishop wins placeholder animatinon")
+            setWhatShouldReturn("wb kill")
           } else if (lastSelectedPiece === "wr") {
-            alert("white rook wins placeholder animatinon")
+            setWhatShouldReturn("wr kill")
           } else if (lastSelectedPiece === "wq") {
-            alert("white queen wins placeholder animatinon")
+            setWhatShouldReturn("wq kill")
           } else (
             alert("friendly fire/kill before game starts placeholder animatinon")
           )
-          resetBoard()
+          // resetBoard()
         }
       }
 
@@ -156,7 +205,77 @@ const Board = (props) => {
     })
   }
 
-  return <div id="board">{boardData}</div>
+
+  if (whatShouldReturn === "board") {
+    return <div id="board">{boardData}</div>
+  } else if (whatShouldReturn === "bp kill") {
+    return (
+      <Keyframes>
+        <Frame duration={250}><img src={Red}/></Frame>
+        <Frame duration={80}><img src={Streak1}/></Frame>
+        <Frame duration={80}><img src={Streak2}/></Frame>
+        <Frame duration={100}><img src={Streak3}/></Frame>
+        <Frame duration={100}><img src={BP1}/></Frame>
+        <Frame duration={100}><img src={BP2}/></Frame>
+        <Frame duration={100}><img src={BP3}/></Frame>
+        <Frame duration={100}><img src={BP4}/></Frame>
+        <Frame duration={100}><img src={BP5}/></Frame>
+        <Frame duration={100}><img src={BP6}/></Frame>
+        <Frame duration={100}><img src={BP7}/></Frame>
+        <Frame duration={100}><img src={BP8}/></Frame>
+        <Frame duration={100}><img src={BP9}/></Frame>
+        <Frame duration={100}><img src={BP10}/></Frame>
+        <Frame duration={100}><img src={BP11}/></Frame>
+        <Frame duration={100}><img src={BP12}/></Frame>
+        <Frame duration={100}><img src={BP13}/></Frame>
+      </Keyframes>
+    )
+  } else if (whatShouldReturn === "wp kill") {
+    return (
+      <Keyframes>
+        <Frame duration={250}><img src={Red}/></Frame>
+        <Frame duration={80}><img src={Streak1}/></Frame>
+        <Frame duration={80}><img src={Streak2}/></Frame>
+        <Frame duration={100}><img src={Streak3}/></Frame>
+        <Frame duration={100}><img src={WP1}/></Frame>
+        <Frame duration={100}><img src={WP2}/></Frame>
+        <Frame duration={100}><img src={WP3}/></Frame>
+        <Frame duration={100}><img src={WP4}/></Frame>
+        <Frame duration={100}><img src={WP5}/></Frame>
+        <Frame duration={100}><img src={WP6}/></Frame>
+        <Frame duration={100}><img src={WP7}/></Frame>
+        <Frame duration={100}><img src={WP8}/></Frame>
+        <Frame duration={100}><img src={WP9}/></Frame>
+        <Frame duration={100}><img src={WP10}/></Frame>
+        <Frame duration={100}><img src={WP11}/></Frame>
+        <Frame duration={100}><img src={WP12}/></Frame>
+        <Frame duration={100}><img src={WP13}/></Frame>
+      </Keyframes>
+    )
+  } else if (whatShouldReturn === "bn kill") {
+    return (
+      <Keyframes>
+        <Frame duration={250}><img src={Red}/></Frame>
+        <Frame duration={80}><img src={Streak1}/></Frame>
+        <Frame duration={80}><img src={Streak2}/></Frame>
+        <Frame duration={100}><img src={Streak3}/></Frame>
+        <Frame duration={100}><img src={BN1}/></Frame>
+        <Frame duration={100}><img src={BN2}/></Frame>
+        <Frame duration={100}><img src={BN3}/></Frame>
+        <Frame duration={100}><img src={BN4}/></Frame>
+        <Frame duration={100}><img src={BN5}/></Frame>
+        <Frame duration={100}><img src={BN6}/></Frame>
+        <Frame duration={100}><img src={BN7}/></Frame>
+        <Frame duration={100}><img src={BN8}/></Frame>
+        <Frame duration={100}><img src={BN9}/></Frame>
+        <Frame duration={100}><img src={BN10}/></Frame>
+        <Frame duration={100}><img src={BN11}/></Frame>
+        <Frame duration={100}><img src={BN12}/></Frame>
+        <Frame duration={100}><img src={BN13}/></Frame>
+        <Frame duration={100}><img src={BN14}/></Frame>
+      </Keyframes>
+    )
+  }
 }
 
 export default Board
