@@ -139,6 +139,24 @@ import WQ11 from "../../../assets/images/White Queen 11.png"
 import WQ12 from "../../../assets/images/White Queen 12.png"
 import WQ13 from "../../../assets/images/White Queen 13.png"
 import WQ14 from "../../../assets/images/White Queen 14.png"
+import BK1 from "../../../assets/images/Black King 1.png"
+import BK2 from "../../../assets/images/Black King 2.png"
+import BK3 from "../../../assets/images/Black King 3.png"
+import BK4 from "../../../assets/images/Black King 4.png"
+import BK5 from "../../../assets/images/Black King 5.png"
+import BK6 from "../../../assets/images/Black King 6.png"
+import BK7 from "../../../assets/images/Black King 7.png"
+import BK8 from "../../../assets/images/Black King 8.png"
+import BK9 from "../../../assets/images/Black King 9.png"
+import WK1 from "../../../assets/images/White King 1.png"
+import WK2 from "../../../assets/images/White King 2.png"
+import WK3 from "../../../assets/images/White King 3.png"
+import WK4 from "../../../assets/images/White King 4.png"
+import WK5 from "../../../assets/images/White King 5.png"
+import WK6 from "../../../assets/images/White King 6.png"
+import WK7 from "../../../assets/images/White King 7.png"
+import WK8 from "../../../assets/images/White King 8.png"
+import WK9 from "../../../assets/images/White King 9.png"
 
 const Board = (props) => {
   const [boardState, setBoardState] = useState({
@@ -225,9 +243,11 @@ const Board = (props) => {
             setWhatShouldReturn("br kill")
           } else if (lastSelectedPiece === "bq") {
             setWhatShouldReturn("bq kill")
-          } else (
-            alert("friendly fire/resign placeholder animatinon")
-          )
+          } else if (lastSelectedPiece === "bk") {
+            setWhatShouldReturn("bk resign")
+          } else {
+            setWhatShouldReturn("wk resign")
+          }
         }
       }
 
@@ -253,9 +273,11 @@ const Board = (props) => {
             setWhatShouldReturn("wr kill")
           } else if (lastSelectedPiece === "wq") {
             setWhatShouldReturn("wq kill")
-          } else (
-            alert("friendly fire/resign placeholder animatinon")
-          )
+          } else if (lastSelectedPiece === "wk") {
+            setWhatShouldReturn("wk resign")
+          } else {
+            setWhatShouldReturn("bk resign")
+          }
         }
       }
 
@@ -305,7 +327,9 @@ const Board = (props) => {
     [BR1, BR2, BR3, BR4, BR5, BR6, BR7, BR8, BR9, BR10, BR11, BR12, BR13, BR14],
     [WR1, WR2, WR3, WR4, WR5, WR6, WR7, WR8, WR9, WR10, WR11, WR12, WR13, WR14],
     [BQ1, BQ2, BQ3, BQ4, BQ5, BQ6, BQ7, BQ8, BQ9, BQ10, BQ11, BQ12, BQ13, BQ14],
-    [WQ1, WQ2, WQ3, WQ4, WQ5, WQ6, WQ7, WQ8, WQ9, WQ10, WQ11, WQ12, WQ13, WQ14]
+    [WQ1, WQ2, WQ3, WQ4, WQ5, WQ6, WQ7, WQ8, WQ9, WQ10, WQ11, WQ12, WQ13, WQ14],
+    [BK1, BK2, BK3, BK4, BK5, BK6, BK7, BK8, BK9],
+    [WK1, WK2, WK3, WK4, WK5, WK6, WK7, WK8, WK9]
   ]
 
   let animations = []
@@ -359,6 +383,10 @@ const Board = (props) => {
     return endGameComponents[8]
   } else if (whatShouldReturn === "wq kill") {
     return endGameComponents[9]
+  } else if (whatShouldReturn === "bk resign") {
+    return endGameComponents[10]
+  } else if (whatShouldReturn === "wk resign") {
+    return endGameComponents[11]
   }
 }
 
