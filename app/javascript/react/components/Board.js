@@ -159,7 +159,7 @@ import WK8 from "../../../assets/images/White King 8.png"
 import WK9 from "../../../assets/images/White King 9.png"
 
 const Board = (props) => {
-  const [boardState, setBoardState] = useState({
+  const defaultBoard = {
     a: ["wr", "wp", null, null, null, null, "bp", "br"],
     b: ["wn", "wp", null, null, null, null, "bp", "bn"],
     c: ["wb", "wp", null, null, null, null, "bp", "bb"],
@@ -168,7 +168,8 @@ const Board = (props) => {
     f: ["wb", "wp", null, null, null, null, "bp", "bb"],
     g: ["wn", "wp", null, null, null, null, "bp", "bn"],
     h: ["wr", "wp", null, null, null, null, "bp", "br"],
-  })
+  }
+  const [boardState, setBoardState] = useState(defaultBoard)
   const [whatShouldReturn, setWhatShouldReturn] = useState("board")
 
   let boardData = []
@@ -300,16 +301,7 @@ const Board = (props) => {
 
   const newGame = () => {
     setWhatShouldReturn("board")
-    setBoardState({
-      a: ["wr", "wp", null, null, null, null, "bp", "br"],
-      b: ["wn", "wp", null, null, null, null, "bp", "bn"],
-      c: ["wb", "wp", null, null, null, null, "bp", "bb"],
-      d: ["wq", "wp", null, null, null, null, "bp", "bq"],
-      e: ["wk", "wp", null, null, null, null, "bp", "bk"],
-      f: ["wb", "wp", null, null, null, null, "bp", "bb"],
-      g: ["wn", "wp", null, null, null, null, "bp", "bn"],
-      h: ["wr", "wp", null, null, null, null, "bp", "br"],
-    })
+    setBoardState(defaultBoard)
   }
 
   let frames = [
