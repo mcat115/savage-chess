@@ -377,33 +377,49 @@ const Board = (props) => {
     endGameComponents.push(returnComponent)
   })
 
+  let output 
+
   if (whatShouldReturn === "board") {
-    return <div id="board">{boardData}</div>
-  } else if (whatShouldReturn === "bp") {
-    return endGameComponents[0]
-  } else if (whatShouldReturn === "wp") {
-    return endGameComponents[1]
-  } else if (whatShouldReturn === "bn") {
-    return endGameComponents[2]
-  } else if (whatShouldReturn === "wn") {
-    return endGameComponents[3]
-  } else if (whatShouldReturn === "bb") {
-    return endGameComponents[4]
-  } else if (whatShouldReturn === "wb") {
-    return endGameComponents[5]
-  } else if (whatShouldReturn === "br") {
-    return endGameComponents[6]
-  } else if (whatShouldReturn === "wr") {
-    return endGameComponents[7]
-  } else if (whatShouldReturn === "bq") {
-    return endGameComponents[8]
-  } else if (whatShouldReturn === "wq") {
-    return endGameComponents[9]
-  } else if (whatShouldReturn === "bk") {
-    return endGameComponents[10]
-  } else if (whatShouldReturn === "wk") {
-    return endGameComponents[11]
-  }
+    output = <div id="board">{boardData}</div>
+  } 
+  
+  let allPieces = ["bp", "wp", "bn", "wn", "bb", "wb", "br", "wr", "bq", "wq", "bk", "wk"]
+  let i = 0
+
+  allPieces.forEach(piece => {
+    if (whatShouldReturn === piece) {
+      output = endGameComponents[i]
+    }
+    i++
+  })
+
+  return output
+  
+  //   if (whatShouldReturn === "bp") {
+  //   return endGameComponents[0]
+  // } else if (whatShouldReturn === "wp") {
+  //   return endGameComponents[1]
+  // } else if (whatShouldReturn === "bn") {
+  //   return endGameComponents[2]
+  // } else if (whatShouldReturn === "wn") {
+  //   return endGameComponents[3]
+  // } else if (whatShouldReturn === "bb") {
+  //   return endGameComponents[4]
+  // } else if (whatShouldReturn === "wb") {
+  //   return endGameComponents[5]
+  // } else if (whatShouldReturn === "br") {
+  //   return endGameComponents[6]
+  // } else if (whatShouldReturn === "wr") {
+  //   return endGameComponents[7]
+  // } else if (whatShouldReturn === "bq") {
+  //   return endGameComponents[8]
+  // } else if (whatShouldReturn === "wq") {
+  //   return endGameComponents[9]
+  // } else if (whatShouldReturn === "bk") {
+  //   return endGameComponents[10]
+  // } else if (whatShouldReturn === "wk") {
+  //   return endGameComponents[11]
+  // }
 }
 
 export default Board
