@@ -209,7 +209,7 @@ const Board = (props) => {
             null
           )
           newBoard[column].splice(row - 1, 1, pieceOnOldSpace)
-
+          
           setBoardState(newBoard)
           props.setSelectedSquare(null)
         }
@@ -226,7 +226,6 @@ const Board = (props) => {
           newBoard[column].splice(row - 1, 1, newPiece)
 
           setBoardState(newBoard)
-
           props.setBankSelection(null)
         }
       }
@@ -326,17 +325,17 @@ const Board = (props) => {
   frames.forEach((piece) => {
     let frameData = []
     frameData.push(
-      <Frame duration={250}>
+      <Frame duration={200}>
         <img src={Red} />
       </Frame>
     )
     frameData.push(
-      <Frame duration={80}>
+      <Frame duration={100}>
         <img src={Streak1} />
       </Frame>
     )
     frameData.push(
-      <Frame duration={80}>
+      <Frame duration={100}>
         <img src={Streak2} />
       </Frame>
     )

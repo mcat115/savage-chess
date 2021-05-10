@@ -2,25 +2,33 @@
 
 [![Codeship Status for mcat115/savage-chess](https://app.codeship.com/projects/90a3633b-a191-4e64-93eb-73f322f676bd/status?branch=main)](https://app.codeship.com/projects/443350)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome to Savage Chess!
 
-Things you may want to cover:
+The classic game, but with a simple twist! Inspired by the art and game elements of the hit viral game Among Us.
 
-* Ruby version
+A casual version of chess you can play with friends while having a few laughs and a few drinks, regardless of chess experience. No checks, no mate to win. You play the extra move to kill the king! This is no longer a gentlemen’s game, this is war!
 
-* System dependencies
+And like real warefare, there's nobody checking that both sides follow the rules! It's up to you to notice if your opponent does anything sneaky, like trying to move a piece in a way they aren't supposed to... call a war crime trial if you are suspicious! If you can confidently prove they cheated, they automatically lose! If you fail to, they get away with it and the game continues! Save the state of the board whenever you want to gather evidence. Or maybe you'll want to sneak in a slightly illegal move yourself when your opponent isn't looking... social deduction mixed with raw strategy!
 
-* Configuration
+It also serves as a fully functional board and pieces virtual toy! Make custom positions and save positions to try out different paths. Much like the freedom a real chess board gives, but with the ability to easily keep positions and use of unlimited pieces!
 
-* Database creation
+Dependencies:
+Made with Ruby version 2.7.3
+Rails version 5.2.5
+PostgreSQL version 13.2
 
-* Database initialization
+To create locally:
+```
+git clone https://github.com/mcat115/savage-chess.git
+yarn install
+bundle install
+bundle exec rake db:create
+bundle exec rake db:migrate
+```
+Then in two seperate terminal windows, run `bundle exec rails s` in one and `yarn run start` in another
 
-* How to run the test suite
+Future plans for app:
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Optimize better, had to remove piece moving sound effects as it slowed it down too much with the already demanding animations
+- Create more in depth system to save and organize positions
+- Add move validation logic for each piece to still allow you to cheat, but to create parameters in which ways you can cheat while still following some basic piece restrictions (ie rook and bishop can jump, pawn can both move and attack forward and diagonally, etc)
