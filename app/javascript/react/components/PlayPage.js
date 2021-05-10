@@ -6,6 +6,8 @@ import MeetingButton from "./MeetingButton"
 const PlayPage = () => {
   const [bankSelection, setBankSelection] = useState(null)
   const [selectedSquare, setSelectedSquare] = useState(null)
+  const [lastSelectedPiece, setLastSelectedPiece] = useState(null)
+
 
   return (
     <div className="grid-container playPageFull">
@@ -20,6 +22,8 @@ const PlayPage = () => {
             setBankSelection={setBankSelection}
             selectedSquare={selectedSquare}
             setSelectedSquare={setSelectedSquare}
+            lastSelectedPiece={lastSelectedPiece}
+            setLastSelectedPiece={setLastSelectedPiece}
           />
         </div>
         <div className="cell small-6 medium-3"> 
@@ -29,6 +33,7 @@ const PlayPage = () => {
             setBankSelection={setBankSelection}
             selectedSquare={selectedSquare}
             setSelectedSquare={setSelectedSquare}
+            setLastSelectedPiece={setLastSelectedPiece}
           />
         </div>
       </div>

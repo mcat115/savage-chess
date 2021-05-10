@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import Square from "./Square"
-import { Keyframes, Frame } from 'react-keyframes';
+import { Keyframes, Frame } from "react-keyframes"
 import Red from "../../../assets/images/red.png"
 import Streak1 from "../../../assets/images/streak 1.png"
 import Streak2 from "../../../assets/images/streak 2.png"
@@ -125,6 +125,7 @@ import BQ11 from "../../../assets/images/Black Queen 11.png"
 import BQ12 from "../../../assets/images/Black Queen 12.png"
 import BQ13 from "../../../assets/images/Black Queen 13.png"
 import BQ14 from "../../../assets/images/Black Queen 14.png"
+import BQ15 from "../../../assets/images/Black Queen 15.png"
 import WQ1 from "../../../assets/images/White Queen 1.png"
 import WQ2 from "../../../assets/images/White Queen 2.png"
 import WQ3 from "../../../assets/images/White Queen 3.png"
@@ -139,6 +140,7 @@ import WQ11 from "../../../assets/images/White Queen 11.png"
 import WQ12 from "../../../assets/images/White Queen 12.png"
 import WQ13 from "../../../assets/images/White Queen 13.png"
 import WQ14 from "../../../assets/images/White Queen 14.png"
+import WQ15 from "../../../assets/images/White Queen 15.png"
 import BK1 from "../../../assets/images/Black King 1.png"
 import BK2 from "../../../assets/images/Black King 2.png"
 import BK3 from "../../../assets/images/Black King 3.png"
@@ -159,7 +161,7 @@ import WK8 from "../../../assets/images/White King 8.png"
 import WK9 from "../../../assets/images/White King 9.png"
 
 const Board = (props) => {
-  const [boardState, setBoardState] = useState({
+  const defaultBoard = {
     a: ["wr", "wp", null, null, null, null, "bp", "br"],
     b: ["wn", "wp", null, null, null, null, "bp", "bn"],
     c: ["wb", "wp", null, null, null, null, "bp", "bb"],
@@ -167,24 +169,27 @@ const Board = (props) => {
     e: ["wk", "wp", null, null, null, null, "bp", "bk"],
     f: ["wb", "wp", null, null, null, null, "bp", "bb"],
     g: ["wn", "wp", null, null, null, null, "bp", "bn"],
-    h: ["wr", "wp", null, null, null, null, "bp", "br"]
-  })
-  const [lastSelectedPiece, setLastSelectedPiece] = useState(null)
+    h: ["wr", "wp", null, null, null, null, "bp", "br"],
+  }
+  const [boardState, setBoardState] = useState(defaultBoard)
   const [whatShouldReturn, setWhatShouldReturn] = useState("board")
 
   let boardData = []
   let columns = ["h", "g", "f", "e", "d", "c", "b", "a"]
   for (let row = 1; row <= 8; row++) {
     columns.forEach((column) => {
-
       let id = `${column}${row}`
 
       const selectFirstSquare = () => {
-        if ((boardState[column][row - 1]) !== null && props.selectedSquare === null && props.bankSelection === null) {
+        if (
+          boardState[column][row - 1] !== null &&
+          props.selectedSquare === null &&
+          props.bankSelection === null
+        ) {
           props.setSelectedSquare(id)
-          setLastSelectedPiece((boardState[column][row - 1]))
+          props.setLastSelectedPiece(boardState[column][row - 1])
         }
-    
+
         if (props.selectedSquare == id) {
           props.setSelectedSquare(null)
         }
@@ -194,12 +199,17 @@ const Board = (props) => {
         if (props.selectedSquare !== null) {
           let oldSpace = props.selectedSquare
           let oldSpaceData = oldSpace.split("")
-          let pieceOnOldSpace = boardState[oldSpaceData[0]][parseInt(oldSpaceData[1]) - 1]
+          let pieceOnOldSpace =
+            boardState[oldSpaceData[0]][parseInt(oldSpaceData[1]) - 1]
 
           let newBoard = boardState
-          newBoard[oldSpaceData[0]].splice((parseInt(oldSpaceData[1] - 1)), 1, null)
-          newBoard[column].splice((row - 1), 1, pieceOnOldSpace)
-
+          newBoard[oldSpaceData[0]].splice(
+            parseInt(oldSpaceData[1] - 1),
+            1,
+            null
+          )
+          newBoard[column].splice(row - 1, 1, pieceOnOldSpace)
+          
           setBoardState(newBoard)
           props.setSelectedSquare(null)
         }
@@ -207,16 +217,15 @@ const Board = (props) => {
 
       const addPiece = () => {
         if (props.bankSelection !== null) {
-          let newPiece = props.bankSelection 
+          let newPiece = props.bankSelection
           if (newPiece === "x") {
             newPiece = null
           }
 
           let newBoard = boardState
-          newBoard[column].splice((row - 1), 1, newPiece)
+          newBoard[column].splice(row - 1, 1, newPiece)
 
           setBoardState(newBoard)
-
           props.setBankSelection(null)
         }
       }
@@ -224,60 +233,50 @@ const Board = (props) => {
       const checkGameOverWhite = () => {
         let gameOver = true
 
-        columns.forEach(letter => {
-          boardState[letter].forEach(square => {
+        columns.forEach((letter) => {
+          boardState[letter].forEach((square) => {
             if (square === "wk") {
               gameOver = false
             }
           })
         })
 
+        let pieces = ["bp", "bn", "bb", "br", "bq", "bk"]
+
         if (gameOver === true) {
-          if (lastSelectedPiece === "bp") {
-            setWhatShouldReturn("bp kill")
-          } else if (lastSelectedPiece === "bn") {
-            setWhatShouldReturn("bn kill")
-          } else if (lastSelectedPiece === "bb") {
-            setWhatShouldReturn("bb kill")
-          } else if (lastSelectedPiece === "br") {
-            setWhatShouldReturn("br kill")
-          } else if (lastSelectedPiece === "bq") {
-            setWhatShouldReturn("bq kill")
-          } else if (lastSelectedPiece === "bk") {
-            setWhatShouldReturn("bk resign")
-          } else {
-            setWhatShouldReturn("wk resign")
-          }
+          pieces.forEach((piece) => {
+            if (props.lastSelectedPiece === piece) {
+              setWhatShouldReturn(piece)
+            }
+            if (props.lastSelectedPiece === "x" || props.lastSelectedPiece.charAt(0) === "w") {
+              setWhatShouldReturn("wk")
+            }
+          })
         }
       }
 
       const checkGameOverBlack = () => {
         let gameOver = true
 
-        columns.forEach(letter => {
-          boardState[letter].forEach(square => {
+        columns.forEach((letter) => {
+          boardState[letter].forEach((square) => {
             if (square === "bk") {
               gameOver = false
             }
           })
         })
 
+        let pieces = ["wp", "wn", "wb", "wr", "wq", "wk"]
+
         if (gameOver === true) {
-          if (lastSelectedPiece === "wp") {
-            setWhatShouldReturn("wp kill")
-          } else if (lastSelectedPiece === "wn") {
-            setWhatShouldReturn("wn kill")
-          } else if (lastSelectedPiece === "wb") {
-            setWhatShouldReturn("wb kill")
-          } else if (lastSelectedPiece === "wr") {
-            setWhatShouldReturn("wr kill")
-          } else if (lastSelectedPiece === "wq") {
-            setWhatShouldReturn("wq kill")
-          } else if (lastSelectedPiece === "wk") {
-            setWhatShouldReturn("wk resign")
-          } else {
-            setWhatShouldReturn("bk resign")
-          }
+          pieces.forEach((piece) => {
+            if (props.lastSelectedPiece === piece) {
+              setWhatShouldReturn(piece)
+            }
+            if (props.lastSelectedPiece === "x" || props.lastSelectedPiece.charAt(0) === "b") {
+              setWhatShouldReturn("bk")
+            }
+          })
         }
       }
 
@@ -296,25 +295,14 @@ const Board = (props) => {
         />
       )
       if (column === "a") {
-        boardData.unshift(
-          <br key={`break ${row}`}/>
-        )
+        boardData.unshift(<br key={`break ${row}`} />)
       }
     })
   }
 
   const newGame = () => {
     setWhatShouldReturn("board")
-    setBoardState({
-      a: ["wr", "wp", null, null, null, null, "bp", "br"],
-      b: ["wn", "wp", null, null, null, null, "bp", "bn"],
-      c: ["wb", "wp", null, null, null, null, "bp", "bb"],
-      d: ["wq", "wp", null, null, null, null, "bp", "bq"],
-      e: ["wk", "wp", null, null, null, null, "bp", "bk"],
-      f: ["wb", "wp", null, null, null, null, "bp", "bb"],
-      g: ["wn", "wp", null, null, null, null, "bp", "bn"],
-      h: ["wr", "wp", null, null, null, null, "bp", "br"]
-    })
+    setBoardState(defaultBoard)
   }
 
   let frames = [
@@ -326,68 +314,78 @@ const Board = (props) => {
     [WB1, WB2, WB3, WB4, WB5, WB6, WB7, WB8, WB9, WB10, WB11, WB12],
     [BR1, BR2, BR3, BR4, BR5, BR6, BR7, BR8, BR9, BR10, BR11, BR12, BR13, BR14],
     [WR1, WR2, WR3, WR4, WR5, WR6, WR7, WR8, WR9, WR10, WR11, WR12, WR13, WR14],
-    [BQ1, BQ2, BQ3, BQ4, BQ5, BQ6, BQ7, BQ8, BQ9, BQ10, BQ11, BQ12, BQ13, BQ14],
-    [WQ1, WQ2, WQ3, WQ4, WQ5, WQ6, WQ7, WQ8, WQ9, WQ10, WQ11, WQ12, WQ13, WQ14],
+    [BQ1, BQ2, BQ3, BQ4, BQ5, BQ6, BQ7, BQ8, BQ9, BQ10, BQ11, BQ12, BQ13, BQ14, BQ15],
+    [WQ1, WQ2, WQ3, WQ4, WQ5, WQ6, WQ7, WQ8, WQ9, WQ10, WQ11, WQ12, WQ13, WQ14, WQ15],
     [BK1, BK2, BK3, BK4, BK5, BK6, BK7, BK8, BK9],
-    [WK1, WK2, WK3, WK4, WK5, WK6, WK7, WK8, WK9]
+    [WK1, WK2, WK3, WK4, WK5, WK6, WK7, WK8, WK9],
   ]
 
   let animations = []
 
-  frames.forEach(piece => {
+  frames.forEach((piece) => {
     let frameData = []
-    frameData.push(<Frame duration={250}><img src={Red}/></Frame>)
-    frameData.push(<Frame duration={80}><img src={Streak1}/></Frame>)
-    frameData.push(<Frame duration={80}><img src={Streak2}/></Frame>)
-    frameData.push(<Frame duration={100}><img src={Streak3}/></Frame>)
-    piece.forEach(frame => {
-      frameData.push(<Frame duration={100}><img src={frame}/></Frame>)
+    frameData.push(
+      <Frame duration={200}>
+        <img src={Red} />
+      </Frame>
+    )
+    frameData.push(
+      <Frame duration={100}>
+        <img src={Streak1} />
+      </Frame>
+    )
+    frameData.push(
+      <Frame duration={100}>
+        <img src={Streak2} />
+      </Frame>
+    )
+    frameData.push(
+      <Frame duration={100}>
+        <img src={Streak3} />
+      </Frame>
+    )
+    piece.forEach((frame) => {
+      frameData.push(
+        <Frame duration={100}>
+          <img src={frame} />
+        </Frame>
+      )
     })
     animations.push(frameData)
   })
 
   let endGameComponents = []
 
-  animations.forEach(animation => {
+  animations.forEach((animation) => {
     let returnComponent = []
     returnComponent.push(
       <div>
-        <Keyframes>
-          {animation}
-        </Keyframes>
-        <p id="newGameButton" onClick={newGame}>Start a new game!</p>
+        <Keyframes>{animation}</Keyframes>
+        <p id="newGameButton" onClick={newGame}>
+          Start a new game!
+        </p>
       </div>
     )
     endGameComponents.push(returnComponent)
   })
 
+  let output 
+
   if (whatShouldReturn === "board") {
-    return <div id="board">{boardData}</div>
-  } else if (whatShouldReturn === "bp kill") {
-    return endGameComponents[0]
-  } else if (whatShouldReturn === "wp kill") {
-    return endGameComponents[1]
-  } else if (whatShouldReturn === "bn kill") {
-    return endGameComponents[2]
-  } else if (whatShouldReturn === "wn kill") {
-    return endGameComponents[3]
-  } else if (whatShouldReturn === "bb kill") {
-    return endGameComponents[4]
-  } else if (whatShouldReturn === "wb kill") {
-    return endGameComponents[5]
-  } else if (whatShouldReturn === "br kill") {
-    return endGameComponents[6]
-  } else if (whatShouldReturn === "wr kill") {
-    return endGameComponents[7]
-  } else if (whatShouldReturn === "bq kill") {
-    return endGameComponents[8]
-  } else if (whatShouldReturn === "wq kill") {
-    return endGameComponents[9]
-  } else if (whatShouldReturn === "bk resign") {
-    return endGameComponents[10]
-  } else if (whatShouldReturn === "wk resign") {
-    return endGameComponents[11]
-  }
+    output = <div id="board">{boardData}</div>
+  } 
+  
+  let allPieces = ["bp", "wp", "bn", "wn", "bb", "wb", "br", "wr", "bq", "wq", "bk", "wk"]
+  let i = 0
+
+  allPieces.forEach(piece => {
+    if (whatShouldReturn === piece) {
+      output = endGameComponents[i]
+    }
+    i++
+  })
+
+  return output
 }
 
 export default Board
