@@ -13,8 +13,8 @@ And like real warefare, there's nobody checking that both sides follow the rules
 It also serves as a fully functional board and pieces virtual toy! Make custom positions and save positions to try out different paths. Much like the freedom a real chess board gives, but with the ability to easily keep positions and use of unlimited pieces!
 
 Dependencies:
-Made with Ruby version 2.7.3
-Rails version 5.2.5
+Made with Ruby version 2.7.3, 
+Rails version 5.2.5, 
 PostgreSQL version 13.2
 
 To create locally:
