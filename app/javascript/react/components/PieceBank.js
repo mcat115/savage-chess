@@ -20,6 +20,7 @@ const PieceBank = (props) => {
   const click = () => {
     if (props.selectedSquare === null) {
       props.setBankSelection(piece)
+      props.setLastSelectedPiece(piece)
     }
     
     if (props.bankSelection === piece) {

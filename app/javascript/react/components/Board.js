@@ -169,7 +169,6 @@ const Board = (props) => {
     g: ["wn", "wp", null, null, null, null, "bp", "bn"],
     h: ["wr", "wp", null, null, null, null, "bp", "br"],
   })
-  const [lastSelectedPiece, setLastSelectedPiece] = useState(null)
   const [whatShouldReturn, setWhatShouldReturn] = useState("board")
 
   let boardData = []
@@ -185,7 +184,7 @@ const Board = (props) => {
           props.bankSelection === null
         ) {
           props.setSelectedSquare(id)
-          setLastSelectedPiece(boardState[column][row - 1])
+          props.setLastSelectedPiece(boardState[column][row - 1])
         }
 
         if (props.selectedSquare == id) {
@@ -244,10 +243,10 @@ const Board = (props) => {
 
         if (gameOver === true) {
           pieces.forEach((piece) => {
-            if (lastSelectedPiece === piece) {
+            if (props.lastSelectedPiece === piece) {
               setWhatShouldReturn(piece)
             }
-            if (lastSelectedPiece === null || lastSelectedPiece.charAt(0) === "w") {
+            if (props.lastSelectedPiece === "x" || props.lastSelectedPiece.charAt(0) === "w") {
               setWhatShouldReturn("wk")
             }
           })
@@ -269,10 +268,10 @@ const Board = (props) => {
 
         if (gameOver === true) {
           pieces.forEach((piece) => {
-            if (lastSelectedPiece === piece) {
+            if (props.lastSelectedPiece === piece) {
               setWhatShouldReturn(piece)
             }
-            if (lastSelectedPiece === null || lastSelectedPiece.charAt(0) === "b") {
+            if (props.lastSelectedPiece === "x" || props.lastSelectedPiece.charAt(0) === "b") {
               setWhatShouldReturn("bk")
             }
           })
@@ -394,32 +393,6 @@ const Board = (props) => {
   })
 
   return output
-  
-  //   if (whatShouldReturn === "bp") {
-  //   return endGameComponents[0]
-  // } else if (whatShouldReturn === "wp") {
-  //   return endGameComponents[1]
-  // } else if (whatShouldReturn === "bn") {
-  //   return endGameComponents[2]
-  // } else if (whatShouldReturn === "wn") {
-  //   return endGameComponents[3]
-  // } else if (whatShouldReturn === "bb") {
-  //   return endGameComponents[4]
-  // } else if (whatShouldReturn === "wb") {
-  //   return endGameComponents[5]
-  // } else if (whatShouldReturn === "br") {
-  //   return endGameComponents[6]
-  // } else if (whatShouldReturn === "wr") {
-  //   return endGameComponents[7]
-  // } else if (whatShouldReturn === "bq") {
-  //   return endGameComponents[8]
-  // } else if (whatShouldReturn === "wq") {
-  //   return endGameComponents[9]
-  // } else if (whatShouldReturn === "bk") {
-  //   return endGameComponents[10]
-  // } else if (whatShouldReturn === "wk") {
-  //   return endGameComponents[11]
-  // }
 }
 
 export default Board
