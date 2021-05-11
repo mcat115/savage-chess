@@ -107,3 +107,22 @@
     border: solid 3px rgb(231, 158, 23);
   }
 }
+
+.listOfSaves {
+  text-align: center;
+  list-style: none
+}
+
+.saveComponent {
+  font-weight: bold;
+  cursor: pointer;
+  margin: 3px 25%;
+
+  &:hover {
+    color: rgb(223, 33, 33)
+  }
+}
+
+#warning {
+  margin-bottom: 3px;
+}
