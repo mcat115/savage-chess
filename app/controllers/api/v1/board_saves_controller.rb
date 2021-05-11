@@ -29,11 +29,11 @@ class Api::V1::BoardSavesController < ApiController
 
   private 
 
-  def board_save_params
-    params.require(:board_safe).permit(:position)
+  # def board_save_params
+  #   params.require(:board_safe).permit(:position)
 
-    # permit title once you add that functionality
-  end
+  #   permit title once you add that functionality
+  # end
 
   def authenticate_user
     if !user_signed_in?

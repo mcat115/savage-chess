@@ -2,26 +2,7 @@ import React, { useState, useEffect } from "react"
 
 const SavedStatesSection = (props) => {
   const [boardStates, setBoardStates] = useState([])
-  // const [currentUserId, setCurrentUserId] = useState(null)
-
-  // const fetchCurrentUser = async () => {
-  //   try {
-  //     const response = await fetch("/api/v1/current_users")
-  //     if (!response.ok) {
-  //       const errorMessage = `${response.status} (${response.statusText})`
-  //       throw new Error(errorMessage)
-  //     }
-  //     const responseBody = await response.json()
-  //     setCurrentUserId(responseBody.id)
-  //   } catch (error) {
-  //     console.error(`Error in Fetch: ${error.message}`)
-  //   }
-  // }
-
-
-
-
-
+  const [currentUserId, setCurrentUserId] = useState(null)
 
   // ONLY FETCH CURRENT USER's BOARDS AND USER ID, DONE IN CONTROLLER?
   const fetchStates = async () => {
@@ -32,7 +13,8 @@ const SavedStatesSection = (props) => {
         throw new Error(errorMessage)
       }
       const responseBody = await response.json()
-      setBoardStates(responseBody)
+      setBoardStates(responseBody["board_saves"])
+      setCurrentUserId(responseBody["board_saves"][0]["user"]["id"])
     } catch (error) {
       console.error(`Error in Fetch: ${error.message}`)
     }
@@ -45,9 +27,10 @@ const SavedStatesSection = (props) => {
 
 
   useEffect(() => {
-    // fetchCurrentUser()
-    // fetchStates()
+    fetchStates()
   }, [])
+
+  
 
   const postState = async (boardPayload) => {
     // event.preventDefault()      event was also an argument
@@ -77,37 +60,41 @@ const SavedStatesSection = (props) => {
     }
   }
 
-  // let currentBoard = props.boardState
-
   const click = () => {
-    // postState({
-    //   position: props.boardState,
-    //   user_id: currentUserId
-    // })
-
     postState(props.boardState)
   }
 
+  let listOfSaves = []
+  let saveReturnComponents = []
 
 
+  if (currentUserId !== null) {
+    boardStates.forEach(save => {
+      if (save["title"] === null) {
+        listOfSaves.push(save["user"]["created_at"])
+      } else {
+        listOfSaves.push(save["title"])
+      }
+    })
+
+    listOfSaves.forEach(entry => {
+      saveReturnComponents.unshift(
+        <li>{entry}</li>
+      )
+    })
+  }
 
 
-  // if (currentUserId !== null) { 
-  
-    
- // commented out to work with edits, worked earlier - this and the part below is here to only have this component render if the user is currently signed in
-    
-  // move button to parent component
+  if (currentUserId !== null) { 
     return (
       <div>
-      
         <p id="save" onClick={click}>Save the current state of the board!</p>
-        {/* {boardStates} */}
+        <ul>{saveReturnComponents}</ul>
       </div>
     ) 
-  // } else {
-  //   return null
-  // }
+  } else {
+    return null
+  }
 }
 
 export default SavedStatesSection
