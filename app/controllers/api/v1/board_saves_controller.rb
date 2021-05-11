@@ -12,16 +12,18 @@ class Api::V1::BoardSavesController < ApiController
     # new_board_save = BoardSave.new(params[:board_safe])
     # new_board_save = BoardSave.new(board_save_params)
 
-    data = JSON.parse(params[:board_safe])
-    new_board_save = BoardSave.new({ position: data})
+    # data = JSON.parse(params[:board_safe])
+    new_board_save = BoardSave.new(position: params[:board_safe], user_id: current_user.id)
 
     # take a look how to overwrite rails default convention model name, etc
 
-    binding.pry 
-    new_board_save.user = current_user
+    # binding.pry 
+
+    # new_board_save.user_id = current_user
     if new_board_save.save 
       render json: new_board_save
-      # else errors
+    else
+      render json: { error: new_board_save.errors.full_messages }
     end
   end
 

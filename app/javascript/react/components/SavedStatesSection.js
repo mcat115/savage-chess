@@ -93,6 +93,7 @@ const SavedStatesSection = (props) => {
 
 
   // if (currentUserId !== null) { 
+  
     
  // commented out to work with edits, worked earlier - this and the part below is here to only have this component render if the user is currently signed in
     

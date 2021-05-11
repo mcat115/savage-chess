@@ -219,9 +219,6 @@ const Board = (props) => {
       const addPiece = () => {
         if (props.bankSelection !== null) {
           let newPiece = props.bankSelection
-          if (newPiece === "empty") {
-            newPiece = null
-          }
 
           let newBoard = boardState
           newBoard[column].splice(row - 1, 1, newPiece)
