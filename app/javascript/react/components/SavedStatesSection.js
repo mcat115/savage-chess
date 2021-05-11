@@ -22,10 +22,6 @@ const SavedStatesSection = (props) => {
 
 
 
-
-
-
-
   useEffect(() => {
     fetchStates()
   }, [])
@@ -65,22 +61,18 @@ const SavedStatesSection = (props) => {
   }
 
   let listOfSaves = []
-  let saveReturnComponents = []
-
 
   if (currentUserId !== null) {
     boardStates.forEach(save => {
       if (save["title"] === null) {
-        listOfSaves.push(save["user"]["created_at"])
+        listOfSaves.unshift(
+         <li>{save["created_at"]}</li>
+        )
       } else {
-        listOfSaves.push(save["title"])
+        listOfSaves.unshift(
+          <li>{save["title"]}</li>
+        )
       }
-    })
-
-    listOfSaves.forEach(entry => {
-      saveReturnComponents.unshift(
-        <li>{entry}</li>
-      )
     })
   }
 
@@ -89,7 +81,7 @@ const SavedStatesSection = (props) => {
     return (
       <div>
         <p id="save" onClick={click}>Save the current state of the board!</p>
-        <ul>{saveReturnComponents}</ul>
+        <ul>{listOfSaves}</ul>
       </div>
     ) 
   } else {
