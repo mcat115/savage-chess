@@ -15,7 +15,20 @@
   margin-left: 60px;
   width: 175px;
   padding: 5px;
-  // overflow: visible
+  background-color: rgb(252, 255, 248);
+}
+
+.bankIcon {
+  cursor: pointer;
+  margin: 5px 3px;
+  right: 5px
+}
+
+.playWords {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 50px;
+  font-size: 30px;
 }
 
 .square {
@@ -39,11 +52,6 @@
   color: rgb(223, 33, 33)
 }
 
-.bankIcon {
-  cursor: pointer;
-  margin: 5px 3px
-}
-
 .tile {
   cursor: pointer;
   height: 60px;
@@ -63,6 +71,7 @@
   border-radius: 10px;
   text-align: center;
   padding: 5px;
+  background-color: rgb(252, 255, 248);
 
   img {
     cursor: pointer;
@@ -77,5 +86,24 @@
   border-radius: 10px;
   margin-right: 150px;
   margin-left: 150px;
-  cursor: pointer
+  cursor: pointer;
+
+  &:hover {
+    border: solid 3px rgb(231, 141, 23);
+  }
+}
+
+#newGameButton {
+  text-align: center;
+  border: solid 3px rgb(223, 33, 33);
+  background-color: rgb(243, 234, 234);
+  border-radius: 10px;
+  margin-right: 200px;
+  margin-left: 200px;
+  margin-top: 10px;
+  cursor: pointer;
+
+  &:hover {
+    border: solid 3px rgb(231, 141, 23);
+  }
 }

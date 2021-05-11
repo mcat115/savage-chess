@@ -3,7 +3,7 @@ import BankIcon from "./BankIcon"
 
 const PieceBank = (props) => {
   
-  const icons = ["wp", "wn", "wb", "wr", "wq", "bp", "bn", "bb", "br", "bq", "x"]
+  const icons = ["wp", "wn", "wb", "wr", "wq", "bp", "bn", "bb", "br", "bq", "x", "bk", "wk"]
 
   let iconComponents = []
 
@@ -20,6 +20,7 @@ const PieceBank = (props) => {
   const click = () => {
     if (props.selectedSquare === null) {
       props.setBankSelection(piece)
+      props.setLastSelectedPiece(piece)
     }
     
     if (props.bankSelection === piece) {

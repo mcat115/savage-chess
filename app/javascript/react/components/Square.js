@@ -40,6 +40,8 @@ const Square = (props) => {
     props.selectFirstSquare()
     props.movePiece()
     props.addPiece()
+    props.checkGameOverWhite()
+    props.checkGameOverBlack()
   }
 
   let piece = props.boardState[`${props.column}`][`${props.row - 1}`]
