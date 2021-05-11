@@ -163,14 +163,14 @@ import WK9 from "../../../assets/images/White King 9.png"
 
 const Board = (props) => {
   const defaultBoard = {
-    a: ["wr", "wp", null, null, null, null, "bp", "br"],
-    b: ["wn", "wp", null, null, null, null, "bp", "bn"],
-    c: ["wb", "wp", null, null, null, null, "bp", "bb"],
-    d: ["wq", "wp", null, null, null, null, "bp", "bq"],
-    e: ["wk", "wp", null, null, null, null, "bp", "bk"],
-    f: ["wb", "wp", null, null, null, null, "bp", "bb"],
-    g: ["wn", "wp", null, null, null, null, "bp", "bn"],
-    h: ["wr", "wp", null, null, null, null, "bp", "br"],
+    a: ["wr", "wp", "empty", "empty", "empty", "empty", "bp", "br"],
+    b: ["wn", "wp", "empty", "empty", "empty", "empty", "bp", "bn"],
+    c: ["wb", "wp", "empty", "empty", "empty", "empty", "bp", "bb"],
+    d: ["wq", "wp", "empty", "empty", "empty", "empty", "bp", "bq"],
+    e: ["wk", "wp", "empty", "empty", "empty", "empty", "bp", "bk"],
+    f: ["wb", "wp", "empty", "empty", "empty", "empty", "bp", "bb"],
+    g: ["wn", "wp", "empty", "empty", "empty", "empty", "bp", "bn"],
+    h: ["wr", "wp", "empty", "empty", "empty", "empty", "bp", "br"],
   }
   const [boardState, setBoardState] = useState(defaultBoard)
   const [whatShouldReturn, setWhatShouldReturn] = useState("board")
@@ -183,7 +183,7 @@ const Board = (props) => {
 
       const selectFirstSquare = () => {
         if (
-          boardState[column][row - 1] !== null &&
+          boardState[column][row - 1] !== "empty" &&
           props.selectedSquare === null &&
           props.bankSelection === null
         ) {
@@ -195,8 +195,7 @@ const Board = (props) => {
           props.setSelectedSquare(null)
         }
       }
-// look at lesson supplemnts/resources nick shared how to movfe fetch to other files
-// applies to other functions with state involved
+
       const movePiece = () => {
         if (props.selectedSquare !== null) {
           let oldSpace = props.selectedSquare
@@ -208,7 +207,7 @@ const Board = (props) => {
           newBoard[oldSpaceData[0]].splice(
             parseInt(oldSpaceData[1] - 1),
             1,
-            null
+            "empty"
           )
           newBoard[column].splice(row - 1, 1, pieceOnOldSpace)
           
@@ -220,7 +219,7 @@ const Board = (props) => {
       const addPiece = () => {
         if (props.bankSelection !== null) {
           let newPiece = props.bankSelection
-          if (newPiece === "x") {
+          if (newPiece === "empty") {
             newPiece = null
           }
 
@@ -250,7 +249,7 @@ const Board = (props) => {
             if (props.lastSelectedPiece === piece) {
               setWhatShouldReturn(piece)
             }
-            if (props.lastSelectedPiece === "x" || props.lastSelectedPiece.charAt(0) === "w") {
+            if (props.lastSelectedPiece === "empty" || props.lastSelectedPiece.charAt(0) === "w") {
               setWhatShouldReturn("wk")
             }
           })
@@ -275,7 +274,7 @@ const Board = (props) => {
             if (props.lastSelectedPiece === piece) {
               setWhatShouldReturn(piece)
             }
-            if (props.lastSelectedPiece === "x" || props.lastSelectedPiece.charAt(0) === "b") {
+            if (props.lastSelectedPiece === "empty" || props.lastSelectedPiece.charAt(0) === "b") {
               setWhatShouldReturn("bk")
             }
           })

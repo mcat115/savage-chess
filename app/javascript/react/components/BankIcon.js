@@ -26,7 +26,7 @@ const BankIcon = (props) => {
     iconClass = `${props.classContent} white fas fa-chess-king fa-2x bank-icon`
   } else if (props.piece === "bk") {
     iconClass = `${props.classContent} fas fa-chess-king fa-2x bank-icon`
-  } else if (props.piece === "x") {
+  } else if (props.piece === "empty") {
     iconClass = `${props.classContent} fas fa-times fa-2x bank-icon`
   }
 
