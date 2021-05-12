@@ -1,3 +1,4 @@
+import { render } from "enzyme"
 import React, { useState, useEffect } from "react"
 import Save from "./Save"
 
@@ -21,19 +22,11 @@ const SavedStatesSection = (props) => {
     }
   }
 
-
-
   useEffect(() => {
     fetchStates()
   }, [])
 
-  
-
   const postState = async (boardPayload) => {
-    // event.preventDefault()      event was also an argument
-    // const boardPayload = {
-    //   position: props.currentBoard
-    // }
     try {
       const response = await fetch("/api/v1/board_saves", {
         credentials: "same-origin",
@@ -49,13 +42,12 @@ const SavedStatesSection = (props) => {
         throw new Error(errorMessage)
       }
       const newState = await response.json()
-      let stateList = boardStates
-      stateList.unshift(newState)
-      setBoardStates(stateList)
+      setBoardStates(boardStates.concat([newState["board_save"]]))
     } catch (error) {
       console.error(`Error in Fetch: ${error.message}`)
     }
   }
+  console.log(boardStates.length)
 
   const click = () => {
     postState(props.boardState)
@@ -65,16 +57,17 @@ const SavedStatesSection = (props) => {
 
   if (currentUserId !== null) {
     boardStates.forEach(save => {
+      console.log(save)
 
       listOfSaves.unshift(
         <Save
+          key={save.id}
           saveData={save}
           setBoardState={props.setBoardState}
         />
       )
     })
   }
-
 
   if (currentUserId !== null) { 
     return (
