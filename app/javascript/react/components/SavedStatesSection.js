@@ -5,7 +5,6 @@ const SavedStatesSection = (props) => {
   const [boardStates, setBoardStates] = useState([])
   const [currentUserId, setCurrentUserId] = useState(null)
 
-  // ONLY FETCH CURRENT USER's BOARDS AND USER ID, DONE IN CONTROLLER?
   const fetchStates = async () => {
     try {
       const response = await fetch("/api/v1/board_saves")
@@ -14,6 +13,7 @@ const SavedStatesSection = (props) => {
         throw new Error(errorMessage)
       }
       const responseBody = await response.json()
+      debugger
       setBoardStates(responseBody["board_saves"])
       setCurrentUserId(responseBody["board_saves"][0]["user"]["id"])
     } catch (error) {
