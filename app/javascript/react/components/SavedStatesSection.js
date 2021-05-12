@@ -1,4 +1,3 @@
-import { render } from "enzyme"
 import React, { useState, useEffect } from "react"
 import Save from "./Save"
 
@@ -47,7 +46,6 @@ const SavedStatesSection = (props) => {
       console.error(`Error in Fetch: ${error.message}`)
     }
   }
-  console.log(boardStates.length)
 
   const click = () => {
     postState(props.boardState)
@@ -75,7 +73,7 @@ const SavedStatesSection = (props) => {
         <p id="save" onClick={click}>Save the current state of the board!</p>
         <p className="listOfSaves" id="warning">Click any of your below saves to load them onto the board. Make sure to save your current position first if you don't want to lose it!</p>
         <ul className="listOfSaves">{listOfSaves}</ul>
-        <p className="listOfSaves">Note: Once you load a save, you will be able to play around with it freely, and jump between other saves without losing your spot in the previous one. The changes you make to these saves will be held for the entire duration of your time on the page (unless you end the game by killing the king). If you want to keep these changes, hit the save button again and it will create a new save branch from the current position, while leaving your old save in tact!</p>
+        <p className="listOfSaves">Note: Once you load a save, you will be able to play around with it freely, and jump between other saves without losing your spot in the previous one. The changes you make to these saves will be held for the entire duration of your time on the page (unless you end the game by killing the king). If you want to keep these changes, hit the save button again and it will create a new save branch from the current position, while leaving your old save in tact for next time you visit!</p>
       </div>
     ) 
   } else {
