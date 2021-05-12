@@ -5,7 +5,6 @@ const SavedStatesSection = (props) => {
   const [boardStates, setBoardStates] = useState([])
   const [currentUserId, setCurrentUserId] = useState(null)
 
-  // ONLY FETCH CURRENT USER's BOARDS AND USER ID, DONE IN CONTROLLER?
   const fetchStates = async () => {
     try {
       const response = await fetch("/api/v1/board_saves")
@@ -53,21 +52,18 @@ const SavedStatesSection = (props) => {
 
   let listOfSaves = []
 
-  if (currentUserId !== null) {
+  if (currentUserId !== null) { 
     boardStates.forEach(save => {
-      console.log(save)
-
       listOfSaves.unshift(
         <Save
           key={save.id}
           saveData={save}
           setBoardState={props.setBoardState}
+          setBoardStates={setBoardStates}
         />
       )
     })
-  }
 
-  if (currentUserId !== null) { 
     return (
       <div>
         <p id="save" onClick={click}>Save the current state of the board!</p>

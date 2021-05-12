@@ -9,11 +9,49 @@ const Save = (props) => {
     display = props.saveData["title"]
   }
 
-  const click = () => {
+  const clickSave = () => {
     props.setBoardState(props.saveData["position"])
   }
 
-  return <li className="saveComponent" onClick={click}>{display}</li>
+  const deleteSave = async (saveId) => {
+    try {
+      const response = await fetch(
+        `api/v1/board_saves/${saveId}`,
+        {
+          credentials: "same-origin",
+          method: "DELETE",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+          }
+        }
+      )
+      if (!response.ok) {
+        const errorMessage = `${response.status} (${response.statusText})`
+        throw new Error(errorMessage)
+      }
+      const updatedSavesList = await response.json()
+      props.setBoardStates(updatedSavesList["board_saves"])
+
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
+  const clickDelete = () => {
+    deleteSave(props.saveData["id"])
+  }
+
+  return (
+    <li>
+      <span onClick={clickSave} className="saveText">
+        {display}
+      </span>
+      <span>
+        <i onClick={clickDelete} className="fas fa-trash-alt trash"></i>
+      </span>
+    </li>
+  )
 }
 
 export default Save
