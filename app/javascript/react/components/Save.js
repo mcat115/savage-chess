@@ -13,8 +13,33 @@ const Save = (props) => {
     props.setBoardState(props.saveData["position"])
   }
 
+  const deleteSave = async (saveId) => {
+    try {
+      const response = await fetch(
+        `api/v1/board_saves/${saveId}`,
+        {
+          credentials: "same-origin",
+          method: "DELETE",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+          }
+        }
+      )
+      if (!response.ok) {
+        const errorMessage = `${response.status} (${response.statusText})`
+        throw new Error(errorMessage)
+      }
+      const updatedSavesList = await response.json()
+      props.setBoardStates(updatedSavesList["board_saves"])
+
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
   const clickDelete = () => {
-    alert("delete placeholder")
+    deleteSave(props.saveData["id"])
   }
 
   return (

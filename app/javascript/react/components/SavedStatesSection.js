@@ -59,6 +59,7 @@ const SavedStatesSection = (props) => {
           key={save.id}
           saveData={save}
           setBoardState={props.setBoardState}
+          setBoardStates={setBoardStates}
         />
       )
     })
