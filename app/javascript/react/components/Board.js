@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import Square from "./Square"
+import SavedStateSection from "./SavedStatesSection"
 import { Keyframes, Frame } from "react-keyframes"
 import Red from "../../../assets/images/red.png"
 import Streak1 from "../../../assets/images/streak 1.png"
@@ -162,14 +163,14 @@ import WK9 from "../../../assets/images/White King 9.png"
 
 const Board = (props) => {
   const defaultBoard = {
-    a: ["wr", "wp", null, null, null, null, "bp", "br"],
-    b: ["wn", "wp", null, null, null, null, "bp", "bn"],
-    c: ["wb", "wp", null, null, null, null, "bp", "bb"],
-    d: ["wq", "wp", null, null, null, null, "bp", "bq"],
-    e: ["wk", "wp", null, null, null, null, "bp", "bk"],
-    f: ["wb", "wp", null, null, null, null, "bp", "bb"],
-    g: ["wn", "wp", null, null, null, null, "bp", "bn"],
-    h: ["wr", "wp", null, null, null, null, "bp", "br"],
+    a: ["wr", "wp", "empty", "empty", "empty", "empty", "bp", "br"],
+    b: ["wn", "wp", "empty", "empty", "empty", "empty", "bp", "bn"],
+    c: ["wb", "wp", "empty", "empty", "empty", "empty", "bp", "bb"],
+    d: ["wq", "wp", "empty", "empty", "empty", "empty", "bp", "bq"],
+    e: ["wk", "wp", "empty", "empty", "empty", "empty", "bp", "bk"],
+    f: ["wb", "wp", "empty", "empty", "empty", "empty", "bp", "bb"],
+    g: ["wn", "wp", "empty", "empty", "empty", "empty", "bp", "bn"],
+    h: ["wr", "wp", "empty", "empty", "empty", "empty", "bp", "br"],
   }
   const [boardState, setBoardState] = useState(defaultBoard)
   const [whatShouldReturn, setWhatShouldReturn] = useState("board")
@@ -182,7 +183,7 @@ const Board = (props) => {
 
       const selectFirstSquare = () => {
         if (
-          boardState[column][row - 1] !== null &&
+          boardState[column][row - 1] !== "empty" &&
           props.selectedSquare === null &&
           props.bankSelection === null
         ) {
@@ -206,7 +207,7 @@ const Board = (props) => {
           newBoard[oldSpaceData[0]].splice(
             parseInt(oldSpaceData[1] - 1),
             1,
-            null
+            "empty"
           )
           newBoard[column].splice(row - 1, 1, pieceOnOldSpace)
           
@@ -218,9 +219,6 @@ const Board = (props) => {
       const addPiece = () => {
         if (props.bankSelection !== null) {
           let newPiece = props.bankSelection
-          if (newPiece === "x") {
-            newPiece = null
-          }
 
           let newBoard = boardState
           newBoard[column].splice(row - 1, 1, newPiece)
@@ -248,7 +246,7 @@ const Board = (props) => {
             if (props.lastSelectedPiece === piece) {
               setWhatShouldReturn(piece)
             }
-            if (props.lastSelectedPiece === "x" || props.lastSelectedPiece.charAt(0) === "w") {
+            if (props.lastSelectedPiece === "empty" || props.lastSelectedPiece.charAt(0) === "w") {
               setWhatShouldReturn("wk")
             }
           })
@@ -273,7 +271,7 @@ const Board = (props) => {
             if (props.lastSelectedPiece === piece) {
               setWhatShouldReturn(piece)
             }
-            if (props.lastSelectedPiece === "x" || props.lastSelectedPiece.charAt(0) === "b") {
+            if (props.lastSelectedPiece === "empty" || props.lastSelectedPiece.charAt(0) === "b") {
               setWhatShouldReturn("bk")
             }
           })
@@ -372,7 +370,15 @@ const Board = (props) => {
   let output 
 
   if (whatShouldReturn === "board") {
-    output = <div id="board">{boardData}</div>
+    output = ( 
+    <>
+      <div id="board">{boardData}</div>
+      <SavedStateSection
+        boardState={boardState}
+        setBoardState={setBoardState}
+      />
+    </>
+    )
   } 
   
   let allPieces = ["bp", "wp", "bn", "wn", "bb", "wb", "br", "wr", "bq", "wq", "bk", "wk"]

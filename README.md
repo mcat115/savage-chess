@@ -27,6 +27,9 @@ bundle exec rake db:migrate
 ```
 Then in two seperate terminal windows, run `bundle exec rails s` in one and `yarn run start` in another
 
+NOTE:
+Rails uses strong naming conventions which automatically recognizes the addition or removal of plurality from certain file names. There is an error in the way rails does this, which lead to, in some cases, a model being named "board_safe" as the singular of "board_saves." I changed some lines of code to account for this inaccuracy in the framework, they are not spelling errors.
+
 Future plans for app:
 
 - Optimize better, had to remove piece moving sound effects as it slowed it down too much with the already demanding animations

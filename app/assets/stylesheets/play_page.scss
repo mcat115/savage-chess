@@ -2,6 +2,7 @@
   text-align: center;
   margin-bottom: 10px;
   min-width: 500px;
+  // overflow: auto
 }
 
 #pieceBank {
@@ -9,7 +10,7 @@
   border-radius: 10px;
   text-align: center;
   // margin: 50% auto 50% 100px;
-  margin-top: 125px;
+  margin-top: 100px;
   margin-right: 25px;
   margin-left: 60px;
   width: 175px;
@@ -78,6 +79,20 @@
   }
 }
 
+#save {
+  text-align: center;
+  border: solid 3px rgb(223, 33, 33);
+  background-color: rgb(243, 234, 234);
+  border-radius: 10px;
+  margin-right: 150px;
+  margin-left: 150px;
+  cursor: pointer;
+
+  &:hover {
+    border: solid 3px rgb(231, 158, 23);
+  }
+}
+
 #newGameButton {
   text-align: center;
   border: solid 3px rgb(223, 33, 33);
@@ -89,6 +104,25 @@
   cursor: pointer;
 
   &:hover {
-    border: solid 3px rgb(231, 141, 23);
+    border: solid 3px rgb(231, 158, 23);
   }
+}
+
+.listOfSaves {
+  text-align: center;
+  list-style: none
+}
+
+.saveComponent {
+  font-weight: bold;
+  cursor: pointer;
+  margin: 3px 25%;
+
+  &:hover {
+    color: rgb(223, 33, 33)
+  }
+}
+
+#warning {
+  margin-bottom: 3px;
 }
