@@ -9,11 +9,24 @@ const Save = (props) => {
     display = props.saveData["title"]
   }
 
-  const click = () => {
+  const clickSave = () => {
     props.setBoardState(props.saveData["position"])
   }
 
-  return <li className="saveComponent" onClick={click}>{display}</li>
+  const clickDelete = () => {
+    alert("delete placeholder")
+  }
+
+  return (
+    <li>
+      <span onClick={clickSave} className="saveText">
+        {display}
+      </span>
+      <span>
+        <i onClick={clickDelete} className="fas fa-trash-alt trash"></i>
+      </span>
+    </li>
+  )
 }
 
 export default Save

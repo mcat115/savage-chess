@@ -113,10 +113,10 @@
   list-style: none
 }
 
-.saveComponent {
+.saveText {
   font-weight: bold;
   cursor: pointer;
-  margin: 3px 25%;
+  margin: 3px;
 
   &:hover {
     color: rgb(223, 33, 33)
@@ -125,4 +125,13 @@
 
 #warning {
   margin-bottom: 3px;
+}
+
+.trash {
+  margin-left: 10px;
+  cursor: pointer;
+
+  &:hover {
+    color: rgb(223, 33, 33)
+  }
 }

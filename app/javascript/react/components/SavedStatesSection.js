@@ -13,7 +13,6 @@ const SavedStatesSection = (props) => {
         throw new Error(errorMessage)
       }
       const responseBody = await response.json()
-      debugger
       setBoardStates(responseBody["board_saves"])
       setCurrentUserId(responseBody["board_saves"][0]["user"]["id"])
     } catch (error) {
@@ -53,10 +52,8 @@ const SavedStatesSection = (props) => {
 
   let listOfSaves = []
 
-  if (currentUserId !== null) {
+  if (currentUserId !== null) { 
     boardStates.forEach(save => {
-      console.log(save)
-
       listOfSaves.unshift(
         <Save
           key={save.id}
@@ -65,9 +62,7 @@ const SavedStatesSection = (props) => {
         />
       )
     })
-  }
 
-  if (currentUserId !== null) { 
     return (
       <div>
         <p id="save" onClick={click}>Save the current state of the board!</p>
