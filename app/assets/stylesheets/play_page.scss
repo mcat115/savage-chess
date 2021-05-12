@@ -2,17 +2,13 @@
   text-align: center;
   margin-bottom: 10px;
   min-width: 500px;
-  // overflow: auto
 }
 
 #pieceBank {
   border: solid black;
   border-radius: 10px;
   text-align: center;
-  // margin: 50% auto 50% 100px;
-  margin-top: 100px;
-  margin-right: 25px;
-  margin-left: 60px;
+  margin: auto;
   width: 175px;
   padding: 5px;
   background-color: rgb(252, 255, 248);
@@ -65,13 +61,13 @@
 
 #emergencyMeetingDiv {
   text-align: center;
-  margin-top: 125px;
-  margin-right: 25px;
+  margin: auto;
   border: solid black;
   border-radius: 10px;
   text-align: center;
   padding: 5px;
   background-color: rgb(252, 255, 248);
+  width: 245px;
 
   img {
     cursor: pointer;
@@ -87,6 +83,7 @@
   margin-right: 150px;
   margin-left: 150px;
   cursor: pointer;
+  min-width: 150px;
 
   &:hover {
     border: solid 3px rgb(231, 158, 23);
