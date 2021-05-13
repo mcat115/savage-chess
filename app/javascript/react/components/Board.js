@@ -174,6 +174,7 @@ const Board = (props) => {
   }
   const [boardState, setBoardState] = useState(defaultBoard)
   const [whatShouldReturn, setWhatShouldReturn] = useState("board")
+  const [perspective, setPerspective] = useState("white")
 
   let boardData = []
   let columns = ["h", "g", "f", "e", "d", "c", "b", "a"]
@@ -278,23 +279,35 @@ const Board = (props) => {
         }
       }
 
-      boardData.unshift(
-        <Square
-          key={id}
-          row={row}
-          column={column}
-          selectedSquare={props.selectedSquare}
-          boardState={boardState}
-          movePiece={movePiece}
-          selectFirstSquare={selectFirstSquare}
-          addPiece={addPiece}
-          checkGameOverWhite={checkGameOverWhite}
-          checkGameOverBlack={checkGameOverBlack}
-        />
-      )
-      if (column === "a") {
-        boardData.unshift(<br key={`break ${row}`} />)
+    let method
+ 
+    if (perspective === "white") {
+      method = (square) => {
+        boardData.unshift(square)
       }
+    } else {
+      method = (square) => {
+        boardData.push(square)
+      }
+    }
+ 
+    method(
+      <Square
+        key={id}
+        row={row}
+        column={column}
+        selectedSquare={props.selectedSquare}
+        boardState={boardState}
+        movePiece={movePiece}
+        selectFirstSquare={selectFirstSquare}
+        addPiece={addPiece}
+        checkGameOverWhite={checkGameOverWhite}
+        checkGameOverBlack={checkGameOverBlack}
+      />
+    )
+    if (column === "a" && row !== 8) {
+      method(<br key={`break ${row}`} />)
+    }
     })
   }
 
@@ -369,9 +382,18 @@ const Board = (props) => {
 
   let output 
 
+  const click = () => {
+    if (perspective === "white") {
+      setPerspective("black")
+    } else {
+      setPerspective("white")
+    }
+  } 
+
   if (whatShouldReturn === "board") {
     output = ( 
     <>
+      <p onClick={click} id="flip"> Flip the board perspective!</p>
       <div id="board">{boardData}</div>
       <SavedStateSection
         boardState={boardState}
