@@ -47,8 +47,15 @@ const SavedStatesSection = (props) => {
   }
 
   const click = () => {
-    postState(props.boardState)
-  }
+    let title = prompt("If you want to provide a name for the save, title it here")
+    if (title === "") {
+      title = null
+    }
+    postState({
+      position: props.boardState,
+      title: title
+    })
+   }
 
   let listOfSaves = []
 

@@ -6,7 +6,7 @@ class Api::V1::BoardSavesController < ApiController
   end
 
   def create
-    new_board_save = BoardSave.new(position: params[:board_safe], user_id: current_user.id)
+    new_board_save = BoardSave.new(position: params[:position], title: params[:title], user_id: current_user.id)
 
     if new_board_save.save 
       render json: new_board_save
