@@ -28,11 +28,5 @@ bundle exec rake db:migrate
 Then in two seperate terminal windows, run `bundle exec rails s` in one and `yarn run start` in another
 
 NOTES:
-- Rails uses strong naming conventions which automatically recognizes the addition or removal of plurality from certain file names. There is an error in the way rails does this, which lead to, in some cases, a model being named "board_safe" as the singular of "board_saves." I changed some lines of code to account for this inaccuracy in the framework, they are not spelling errors.
+- Rails uses strong naming conventions which automatically recognizes the addition or removal of plurality from certain file names. There is an error in the way rails does this, which lead to, in some cases, a model being named "board_safe" as the singular of "board_saves." If you spot this, it is due to the inaccuracy in the framework, not spelling a error.
 - The listed animation components do not have keyes intentionally. This is because when I added keys it messed with the frame rendering. The warning it gives in the console about the lack of key inclusions has no effect on the app.
-
-Future plans for app:
-
-- Optimize better, had to remove piece moving sound effects as it slowed it down too much with the already demanding animations
-- Create more in depth system to save and organize positions
-- Add move validation logic for each piece to still allow you to cheat, but to create parameters in which ways you can cheat while still following some basic piece restrictions (ie rook and bishop can jump, pawn can both move and attack forward and diagonally, etc)
