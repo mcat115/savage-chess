@@ -3,7 +3,6 @@ import LightSquareImage from "../../../assets/images/light-square.png"
 import DarkSquareImage from "../../../assets/images/dark-square.png"
 
 const Square = (props) => {
-
   let id = `${props.column}${props.row}`
   let square = DarkSquareImage
   let lightTiles = []
@@ -75,10 +74,7 @@ const Square = (props) => {
 
   return (
     <span className="square" onClick={click}>
-      <img 
-        src={square} 
-        className={classContent} 
-      />
+      <img src={square} className={classContent} />
       <i className={iconClass}></i>
     </span>
   )

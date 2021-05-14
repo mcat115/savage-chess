@@ -211,7 +211,7 @@ const Board = (props) => {
             "empty"
           )
           newBoard[column].splice(row - 1, 1, pieceOnOldSpace)
-          
+
           setBoardState(newBoard)
           props.setSelectedSquare(null)
         }
@@ -247,7 +247,10 @@ const Board = (props) => {
             if (props.lastSelectedPiece === piece) {
               setWhatShouldReturn(piece)
             }
-            if (props.lastSelectedPiece === "empty" || props.lastSelectedPiece.charAt(0) === "w") {
+            if (
+              props.lastSelectedPiece === "empty" ||
+              props.lastSelectedPiece.charAt(0) === "w"
+            ) {
               setWhatShouldReturn("wk")
             }
           })
@@ -272,42 +275,45 @@ const Board = (props) => {
             if (props.lastSelectedPiece === piece) {
               setWhatShouldReturn(piece)
             }
-            if (props.lastSelectedPiece === "empty" || props.lastSelectedPiece.charAt(0) === "b") {
+            if (
+              props.lastSelectedPiece === "empty" ||
+              props.lastSelectedPiece.charAt(0) === "b"
+            ) {
               setWhatShouldReturn("bk")
             }
           })
         }
       }
 
-    let method
- 
-    if (perspective === "white") {
-      method = (square) => {
-        boardData.unshift(square)
+      let method
+
+      if (perspective === "white") {
+        method = (square) => {
+          boardData.unshift(square)
+        }
+      } else {
+        method = (square) => {
+          boardData.push(square)
+        }
       }
-    } else {
-      method = (square) => {
-        boardData.push(square)
+
+      method(
+        <Square
+          key={id}
+          row={row}
+          column={column}
+          selectedSquare={props.selectedSquare}
+          boardState={boardState}
+          movePiece={movePiece}
+          selectFirstSquare={selectFirstSquare}
+          addPiece={addPiece}
+          checkGameOverWhite={checkGameOverWhite}
+          checkGameOverBlack={checkGameOverBlack}
+        />
+      )
+      if (column === "a" && row !== 8) {
+        method(<br key={`break ${row}`} />)
       }
-    }
- 
-    method(
-      <Square
-        key={id}
-        row={row}
-        column={column}
-        selectedSquare={props.selectedSquare}
-        boardState={boardState}
-        movePiece={movePiece}
-        selectFirstSquare={selectFirstSquare}
-        addPiece={addPiece}
-        checkGameOverWhite={checkGameOverWhite}
-        checkGameOverBlack={checkGameOverBlack}
-      />
-    )
-    if (column === "a" && row !== 8) {
-      method(<br key={`break ${row}`} />)
-    }
     })
   }
 
@@ -380,7 +386,7 @@ const Board = (props) => {
     endGameComponents.push(returnComponent)
   })
 
-  let output 
+  let output
 
   const click = () => {
     if (perspective === "white") {
@@ -388,25 +394,41 @@ const Board = (props) => {
     } else {
       setPerspective("white")
     }
-  } 
+  }
 
   if (whatShouldReturn === "board") {
-    output = ( 
-    <>
-      <p onClick={click} id="flip"> Flip the board perspective!</p>
-      <div id="board">{boardData}</div>
-      <SavedStateSection
-        boardState={boardState}
-        setBoardState={setBoardState}
-      />
-    </>
+    output = (
+      <>
+        <p onClick={click} id="flip">
+          {" "}
+          Flip the board perspective!
+        </p>
+        <div id="board">{boardData}</div>
+        <SavedStateSection
+          boardState={boardState}
+          setBoardState={setBoardState}
+        />
+      </>
     )
-  } 
-  
-  let allPieces = ["bp", "wp", "bn", "wn", "bb", "wb", "br", "wr", "bq", "wq", "bk", "wk"]
+  }
+
+  let allPieces = [
+    "bp",
+    "wp",
+    "bn",
+    "wn",
+    "bb",
+    "wb",
+    "br",
+    "wr",
+    "bq",
+    "wq",
+    "bk",
+    "wk",
+  ]
   let i = 0
 
-  allPieces.forEach(piece => {
+  allPieces.forEach((piece) => {
     if (whatShouldReturn === piece) {
       output = endGameComponents[i]
     }

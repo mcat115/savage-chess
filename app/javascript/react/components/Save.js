@@ -3,7 +3,7 @@ import React from "react"
 const Save = (props) => {
   let display
 
-  if (props.saveData["title"] === null || !(props.saveData["title"]).replace(/\s/g, '').length) {
+  if (props.saveData["title"] === null) {
     display = props.saveData["created_at"]
   } else {
     display = props.saveData["title"]
@@ -15,24 +15,20 @@ const Save = (props) => {
 
   const deleteSave = async (saveId) => {
     try {
-      const response = await fetch(
-        `api/v1/board_saves/${saveId}`,
-        {
-          credentials: "same-origin",
-          method: "DELETE",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json"
-          }
-        }
-      )
+      const response = await fetch(`api/v1/board_saves/${saveId}`, {
+        credentials: "same-origin",
+        method: "DELETE",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      })
       if (!response.ok) {
         const errorMessage = `${response.status} (${response.statusText})`
         throw new Error(errorMessage)
       }
       const updatedSavesList = await response.json()
       props.setBoardStates(updatedSavesList["board_saves"])
-
     } catch (err) {
       console.error(err)
     }

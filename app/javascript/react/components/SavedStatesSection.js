@@ -31,9 +31,9 @@ const SavedStatesSection = (props) => {
         method: "POST",
         headers: {
           Accept: "application/json",
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(boardPayload)
+        body: JSON.stringify(boardPayload),
       })
       if (!response.ok) {
         const errorMessage = `${response.status} (${response.statusText})`
@@ -47,20 +47,22 @@ const SavedStatesSection = (props) => {
   }
 
   const click = () => {
-    let title = prompt("If you want to provide a name for the save, title it here")
-    if (title === "") {
+    let title = prompt(
+      "If you want to provide a name for the save, title it here"
+    )
+    if (!title.replace(/\s/g, "").length) {
       title = null
     }
     postState({
       position: props.boardState,
-      title: title
+      title: title,
     })
-   }
+  }
 
   let listOfSaves = []
 
-  if (currentUserId !== null) { 
-    boardStates.forEach(save => {
+  if (currentUserId !== null) {
+    boardStates.forEach((save) => {
       listOfSaves.unshift(
         <Save
           key={save.id}
@@ -73,12 +75,25 @@ const SavedStatesSection = (props) => {
 
     return (
       <div>
-        <p id="save" onClick={click}>Save the current state of the board!</p>
-        <p className="listOfSaves" id="warning">Click any of your below saves to load them onto the board. Make sure to save your current position first if you don't want to lose it!</p>
+        <p id="save" onClick={click}>
+          Save the current state of the board!
+        </p>
+        <p className="listOfSaves" id="warning">
+          Click any of your below saves to load them onto the board. Make sure
+          to save your current position first if you don't want to lose it!
+        </p>
         <ul className="listOfSaves">{listOfSaves}</ul>
-        <p className="listOfSaves">Note: Once you load a save, you will be able to play around with it freely, and jump between other saves without losing your spot in the previous one. The changes you make to these saves will be held for the entire duration of your time on the page (unless you end the game by killing the king). If you want to keep these changes, hit the save button again and it will create a new save branch from the current position, while leaving your old save in tact for next time you visit!</p>
+        <p className="listOfSaves">
+          Note: Once you load a save, you will be able to play around with it
+          freely, and jump between other saves without losing your spot in the
+          previous one. The changes you make to these saves will be held for the
+          entire duration of your time on the page (unless you end the game by
+          killing the king). If you want to keep these changes, hit the save
+          button again and it will create a new save branch from the current
+          position, while leaving your old save in tact for next time you visit!
+        </p>
       </div>
-    ) 
+    )
   } else {
     return null
   }
