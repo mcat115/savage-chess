@@ -2,7 +2,10 @@ class Api::V1::BoardSavesController < ApiController
   before_action :authenticate_user
 
   def index
-    render json: BoardSave.where(user_id: current_user.id)
+    render json: { 
+      data: BoardSave.where(user_id: current_user.id),
+      current_user_id: current_user.id
+    }
   end
 
   def create

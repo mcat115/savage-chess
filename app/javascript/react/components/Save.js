@@ -3,7 +3,7 @@ import React from "react"
 const Save = (props) => {
   let display
 
-  if (props.saveData["title"] === null) {
+  if (props.saveData["title"] === null || !props.saveData["title"].replace(/\s/g, "").length) {
     display = props.saveData["created_at"]
   } else {
     display = props.saveData["title"]

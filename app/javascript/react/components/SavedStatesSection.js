@@ -13,8 +13,8 @@ const SavedStatesSection = (props) => {
         throw new Error(errorMessage)
       }
       const responseBody = await response.json()
-      setBoardStates(responseBody["board_saves"])
-      setCurrentUserId(responseBody["board_saves"][0]["user"]["id"])
+      setCurrentUserId(responseBody["current_user_id"])
+      setBoardStates(responseBody["data"])
     } catch (error) {
       console.error(`Error in Fetch: ${error.message}`)
     }
@@ -50,7 +50,7 @@ const SavedStatesSection = (props) => {
     let title = prompt(
       "If you want to provide a name for the save, title it here"
     )
-    if (!title.replace(/\s/g, "").length) {
+    if (title === "") {
       title = null
     }
     postState({
@@ -61,7 +61,7 @@ const SavedStatesSection = (props) => {
 
   let listOfSaves = []
 
-  if (currentUserId !== null) {
+  if (currentUserId > 0) {
     boardStates.forEach((save) => {
       listOfSaves.unshift(
         <Save
