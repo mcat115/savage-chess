@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get '/', to: "homes#index"
   get '/play', to: "homes#index"
+  get '/about', to: "homes#index"
 
   namespace :api do 
     namespace :v1 do
