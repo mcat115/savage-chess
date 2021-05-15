@@ -199,8 +199,7 @@ const Board = (props) => {
 
       const movePiece = () => {
         if (props.selectedSquare !== null) {
-          let oldSpace = props.selectedSquare
-          let oldSpaceData = oldSpace.split("")
+          let oldSpaceData = props.selectedSquare.split("")
           let pieceOnOldSpace =
             boardState[oldSpaceData[0]][parseInt(oldSpaceData[1]) - 1]
 
