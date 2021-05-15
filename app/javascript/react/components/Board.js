@@ -176,6 +176,7 @@ const Board = (props) => {
   const [whatShouldReturn, setWhatShouldReturn] = useState("board")
   const [perspective, setPerspective] = useState("white")
 
+  let audio = new Audio("/sound.wav")
   let boardData = []
   let columns = ["h", "g", "f", "e", "d", "c", "b", "a"]
   for (let row = 1; row <= 8; row++) {
@@ -212,6 +213,7 @@ const Board = (props) => {
           newBoard[column].splice(row - 1, 1, pieceOnOldSpace)
 
           setBoardState(newBoard)
+          audio.play()
           props.setSelectedSquare(null)
         }
       }
@@ -224,6 +226,7 @@ const Board = (props) => {
           newBoard[column].splice(row - 1, 1, newPiece)
 
           setBoardState(newBoard)
+          audio.play()
           props.setBankSelection(null)
         }
       }
