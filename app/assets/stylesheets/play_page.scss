@@ -80,8 +80,8 @@
   border: solid 3px rgb(223, 33, 33);
   background-color: rgb(243, 234, 234);
   border-radius: 10px;
-  margin-right: 150px;
-  margin-left: 150px;
+  margin-right: 25%;
+  margin-left: 25%;
   cursor: pointer;
   min-width: 150px;
 
@@ -95,10 +95,11 @@
   border: solid 3px rgb(223, 33, 33);
   background-color: rgb(243, 234, 234);
   border-radius: 10px;
-  margin-right: 200px;
-  margin-left: 200px;
+  margin-right: 25%;
+  margin-left: 25%;
   margin-top: 10px;
   cursor: pointer;
+  min-width: 150px;
 
   &:hover {
     border: solid 3px rgb(231, 158, 23);
@@ -138,11 +139,11 @@
   border: solid 3px rgb(223, 33, 33);
   background-color: rgb(243, 234, 234);
   border-radius: 10px;
-  margin-right: 175px;
-  margin-left: 175px;
+  margin-right: 25%;
+  margin-left: 25%;
   margin-top: 10px;
   cursor: pointer;
-  
+  min-width: 150px;
   
   &:hover {
     border: solid 3px rgb(231, 158, 23);
