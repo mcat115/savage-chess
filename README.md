@@ -17,7 +17,7 @@ Made with Ruby version 2.7.3,
 Rails version 5.2.5, 
 PostgreSQL version 13.2
 
-To create locally:
+To create locally on Mac:
 ```
 git clone https://github.com/mcat115/savage-chess.git
 yarn install
