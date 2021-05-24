@@ -192,10 +192,6 @@ const Board = (props) => {
           props.setSelectedSquare(id)
           props.setLastSelectedPiece(boardState[column][row - 1])
         }
-
-        if (props.selectedSquare == id) {
-          props.setSelectedSquare(null)
-        }
       }
 
       const movePiece = () => {
