@@ -35,7 +35,9 @@ const Save = (props) => {
   }
 
   const clickDelete = () => {
-    deleteSave(props.saveData["id"])
+    if (confirm("Are you sure you want to delete this save?")) {
+      deleteSave(props.saveData["id"])
+    }  
   }
 
   return (
