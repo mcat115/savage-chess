@@ -53,7 +53,6 @@ const Board = (props) => {
             "empty"
           )
           newBoard[column].splice(row - 1, 1, pieceOnOldSpace)
-
           setBoardState(newBoard)
           audio.play()
           props.setSelectedSquare(null)
@@ -164,10 +163,10 @@ const Board = (props) => {
     setBoardState(defaultBoard)
   }
 
-  const importFrames = (r) => {
+  const importFrames = (data) => {
     let imports = {}
-    r.keys().map((item) => {
-      imports[item.replace("./", "")] = r(item)
+    data.keys().map((item) => {
+      imports[item.replace("./", "")] = data(item)
     })
     return imports
   }
