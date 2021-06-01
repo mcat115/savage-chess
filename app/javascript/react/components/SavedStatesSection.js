@@ -48,7 +48,7 @@ const SavedStatesSection = (props) => {
 
   const click = () => {
     let title = prompt(
-      "If you want to provide a name for the save, title it here"
+      "What would you like to name the save?"
     )
     if (title === "") {
       title = null
