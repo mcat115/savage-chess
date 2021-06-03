@@ -158,11 +158,6 @@ const Board = (props) => {
     })
   }
 
-  const newGame = () => {
-    setWhatShouldReturn("board")
-    setBoardState(defaultBoard)
-  }
-
   const importFrames = (data) => {
     let imports = {}
     data.keys().map((item) => {
@@ -240,6 +235,11 @@ const Board = (props) => {
   })
 
   let endGameComponents = []
+
+  const newGame = () => {
+    setWhatShouldReturn("board")
+    setBoardState(defaultBoard)
+  }
 
   animations.forEach((animation) => {
     let returnComponent = []
