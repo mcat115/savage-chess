@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import Square from "./Square"
-import SavedStateSection from "./SavedStatesSection"
-import AnimationLogic from "./AnimationLogic"
+import SavedStateSection from "./SavedStateSection"
+import Animation from "./Animation"
 
 const Board = (props) => {
   const defaultBoard = {
@@ -12,7 +12,7 @@ const Board = (props) => {
     e: ["wk", "wp", "empty", "empty", "empty", "empty", "bp", "bk"],
     f: ["wb", "wp", "empty", "empty", "empty", "empty", "bp", "bb"],
     g: ["wn", "wp", "empty", "empty", "empty", "empty", "bp", "bn"],
-    h: ["wr", "wp", "empty", "empty", "empty", "empty", "bp", "br"],
+    h: ["wr", "wp", "empty", "empty", "empty", "empty", "bp", "br"]
   }
   const [boardState, setBoardState] = useState(defaultBoard)
   const [whatShouldReturn, setWhatShouldReturn] = useState("board")
@@ -66,57 +66,27 @@ const Board = (props) => {
         }
       }
 
-      const checkGameOverWhite = () => {
+      const checkGameOver = (kingPiece, oppositePieces) => {
         let gameOver = true
 
         columns.forEach((letter) => {
           boardState[letter].forEach((square) => {
-            if (square === "wk") {
+            if (square === kingPiece) {
               gameOver = false
             }
           })
         })
 
-        let pieces = ["bp", "bn", "bb", "br", "bq", "bk"]
-
         if (gameOver === true) {
-          pieces.forEach((piece) => {
+          oppositePieces.forEach((piece) => {
             if (props.lastSelectedPiece === piece) {
               setWhatShouldReturn(piece)
             }
             if (
               props.lastSelectedPiece === "empty" ||
-              props.lastSelectedPiece.charAt(0) === "w"
+              props.lastSelectedPiece.charAt(0) === kingPiece.charAt(0)
             ) {
-              setWhatShouldReturn("wk")
-            }
-          })
-        }
-      }
-
-      const checkGameOverBlack = () => {
-        let gameOver = true
-
-        columns.forEach((letter) => {
-          boardState[letter].forEach((square) => {
-            if (square === "bk") {
-              gameOver = false
-            }
-          })
-        })
-
-        let pieces = ["wp", "wn", "wb", "wr", "wq", "wk"]
-
-        if (gameOver === true) {
-          pieces.forEach((piece) => {
-            if (props.lastSelectedPiece === piece) {
-              setWhatShouldReturn(piece)
-            }
-            if (
-              props.lastSelectedPiece === "empty" ||
-              props.lastSelectedPiece.charAt(0) === "b"
-            ) {
-              setWhatShouldReturn("bk")
+              setWhatShouldReturn(kingPiece)
             }
           })
         }
@@ -144,8 +114,7 @@ const Board = (props) => {
           movePiece={movePiece}
           selectFirstSquare={selectFirstSquare}
           addPiece={addPiece}
-          checkGameOverWhite={checkGameOverWhite}
-          checkGameOverBlack={checkGameOverBlack}
+          checkGameOver={checkGameOver}
         />
       )
       if (column === "a" && row !== 8) {
@@ -177,7 +146,7 @@ const Board = (props) => {
     )
   } else {
     return (
-      <AnimationLogic
+      <Animation
         whatShouldReturn={whatShouldReturn}
         setWhatShouldReturn={setWhatShouldReturn}
         setBoardState={setBoardState}

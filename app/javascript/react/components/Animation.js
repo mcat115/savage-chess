@@ -5,7 +5,7 @@ import Streak1 from "../../../assets/images/streak 1.png"
 import Streak2 from "../../../assets/images/streak 2.png"
 import Streak3 from "../../../assets/images/streak 3.png"
 
-const AnimationLogic = (props) => {
+const Animation = (props) => {
   const importFrames = (data) => {
     let imports = {}
     data.keys().map((item) => {
@@ -130,4 +130,4 @@ const AnimationLogic = (props) => {
   return output
 }
 
-export default AnimationLogic
+export default Animation
