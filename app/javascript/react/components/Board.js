@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import Square from "./Square"
-import SavedStateSection from "./SavedStateSection"
+import SaveList from "./SaveList"
 import Animation from "./Animation"
 
 const Board = (props) => {
@@ -61,7 +61,6 @@ const Board = (props) => {
           newBoard[column].splice(row - 1, 1, props.bankSelection)
 
           setBoardState(newBoard)
-          audio.play()
           props.setBankSelection(null)
         }
       }
@@ -138,7 +137,7 @@ const Board = (props) => {
           Flip the board perspective!
         </p>
         <div id="board">{boardData}</div>
-        <SavedStateSection
+        <SaveList
           boardState={boardState}
           setBoardState={setBoardState}
         />
