@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import Save from "./Save"
 
-const SavedStateSection = (props) => {
+const SaveList = (props) => {
   const [boardStates, setBoardStates] = useState([])
   const [currentUserId, setCurrentUserId] = useState(null)
 
@@ -99,4 +99,4 @@ const SavedStateSection = (props) => {
   }
 }
 
-export default SavedStateSection
+export default SaveList
