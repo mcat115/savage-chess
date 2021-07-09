@@ -4,6 +4,8 @@
 
 Welcome to Savage Chess!
 
+Try it out! (http://savage-chess.herokuapp.com/)
+
 The classic game, but with a simple twist! Inspired by the art and game elements of the hit viral game Among Us.
 
 A casual version of chess you can play with friends while having a few laughs and a few drinks, regardless of chess experience. No checks, no mate to win. You play the extra move to kill the king! This is no longer a gentlemen’s game, this is war!
