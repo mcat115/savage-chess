@@ -36,20 +36,6 @@ const HomePage = (props) => {
         like the freedom a real chess board gives, but with the ability to
         easily keep positions and use of unlimited pieces!
       </p>
-      <p>
-        DISCLAIMER: This app is deployed to heroku, which is a free server. The
-        trade off is it's super slow and laggy, and thus notoriously bad for
-        animations (unaware to me until I did research after the fact). After a
-        game ends, there is an animation displaying who won based on the last
-        moved piece. But due to heroku's shortcomings, it will sometimes lag and
-        skip to the last frame. This is an issue that only happens on the free
-        version of heroku, so I didn't want to remove them because they work
-        perfectly in all other contexts, took a lot of time and effort, and do
-        still work here, just not all of the time.
-        <a href="https://youtu.be/UwIcMCsCZqg" id="youtube" target="_blank">
-          Click here to watch a quick a video of all the animations as white.
-        </a>
-      </p>
       <div id="aboutLink">
         <Link to="/about">About the developer</Link>
       </div>
