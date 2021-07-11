@@ -4,6 +4,8 @@
 
 Welcome to Savage Chess!
 
+Try it out! (http://savage-chess.herokuapp.com/)
+
 The classic game, but with a simple twist! Inspired by the art and game elements of the hit viral game Among Us.
 
 A casual version of chess you can play with friends while having a few laughs and a few drinks, regardless of chess experience. No checks, no mate to win. You play the extra move to kill the king! This is no longer a gentlemen’s game, this is war!
@@ -20,13 +22,14 @@ PostgreSQL version 13.2
 To create locally on Mac:
 ```
 git clone https://github.com/mcat115/savage-chess.git
+cd savage-chess
 yarn install
 bundle install
 bundle exec rake db:create
 bundle exec rake db:migrate
 ```
-Then in two seperate terminal windows, run `bundle exec rails s` in one and `yarn run start` in another
+Then in two seperate terminal windows both open to the project, run `bundle exec rails s` in one and `yarn run start` in another
 
 NOTES:
 - Rails uses strong naming conventions which automatically recognizes the addition or removal of plurality from certain file names. There is an error in the way rails does this, which lead to, in some cases, a model being named "board_safe" as the singular of "board_saves." If you spot this, it is due to the inaccuracy in the framework, not spelling a error.
-- The listed animation components do not have keyes intentionally. This is because when I added keys it messed with the frame rendering. The warning it gives in the console about the lack of key inclusions has no effect on the app.
+- The listed animation components do not have keys intentionally. This is because when I added keys it messed with the frame rendering. The warning it gives in the console about the lack of key inclusions has no effect on the app.
