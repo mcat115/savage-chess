@@ -34,7 +34,7 @@ Then in two seperate terminal windows both open to the project, run `bundle exec
 If you are using Windows, add these lines in the database.yml file under both the development and test code blocks
 ```
 username: postgres
-password: <your databse password here>
+password: <your database password here>
 host: localhost
 
 ```
