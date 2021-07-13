@@ -19,7 +19,7 @@ Made with Ruby version 2.7.3,
 Rails version 5.2.5, 
 PostgreSQL version 13.2
 
-To create locally on Mac:
+To create locally:
 ```
 git clone https://github.com/mcat115/savage-chess.git
 cd savage-chess
@@ -28,7 +28,16 @@ bundle install
 bundle exec rake db:create
 bundle exec rake db:migrate
 ```
-Then in two seperate terminal windows both open to the project, run `bundle exec rails s` in one and `yarn run start` in another
+
+Then in two seperate terminal windows both open to the project, run `bundle exec rails s` in one, and `yarn run start` in the other if it's a Mac, or `ruby ./bin/webpack-dev-server` in the other if it's Windows. 
+
+If you are using Windows, add these lines in the database.yml file under both the development and test code blocks
+```
+username: postgres
+password: <your databse password here>
+host: localhost
+
+```
 
 NOTES:
 - Rails uses strong naming conventions which automatically recognizes the addition or removal of plurality from certain file names. There is an error in the way rails does this, which lead to, in some cases, a model being named "board_safe" as the singular of "board_saves." If you spot this, it is due to the inaccuracy in the framework, not spelling a error.
