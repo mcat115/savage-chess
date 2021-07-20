@@ -42,11 +42,11 @@ const Save = (props) => {
 
   return (
     <li>
-      <span onClick={clickSave} className="saveText">
+      <span onClick={clickSave} className="saveText click">
         {display}
       </span>
       <span>
-        <i onClick={clickDelete} className="fas fa-trash-alt trash"></i>
+        <i onClick={clickDelete} className="fas fa-trash-alt trash click"></i>
       </span>
     </li>
   )

@@ -22,7 +22,7 @@ const HomePage = (props) => {
         And like real warfare, there's nobody checking that both sides follow
         the rules! It's up to you to notice if your opponent does anything
         sneaky, like trying to move a piece in a way they aren't supposed to...
-        call a war crime trial if you are suspicious! The only movement rule is
+        call them out if you are suspicious! The only movement rule is
         you cannot capture their king with your own. If you can confidently
         prove your opponent cheated, they automatically lose! If you fail to,
         they get away with it and the game continues! If you are signed in, save
