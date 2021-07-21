@@ -5,6 +5,8 @@ ruby '2.7.3'
 
 gem "active_model_serializers"
 
+gem "bundler", '~> 2.1.4'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.5'
 # Use postgresql as the database for Active Record
