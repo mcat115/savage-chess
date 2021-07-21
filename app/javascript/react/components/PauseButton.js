@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import buttonImage from "../../../assets/images/meeting_button.png"
 
-const Button = () => {
+const PauseButton = () => {
   const [message, setMessage] = useState("Pause the game!")
 
   const click = () => {
@@ -21,4 +21,4 @@ const Button = () => {
   )
 }
 
-export default Button
+export default PauseButton

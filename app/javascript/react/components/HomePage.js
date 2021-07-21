@@ -22,12 +22,12 @@ const HomePage = (props) => {
         And like real warfare, there's nobody checking that both sides follow
         the rules! It's up to you to notice if your opponent does anything
         sneaky, like trying to move a piece in a way they aren't supposed to...
-        call them out if you are suspicious! The only movement rule is
-        you cannot capture their king with your own. If you can confidently
-        prove your opponent cheated, they automatically lose! If you fail to,
-        they get away with it and the game continues! If you are signed in, save
-        the state of the board whenever you want to gather evidence. Or maybe
-        you'll want to sneak in a slightly illegal move yourself when your
+        pause the game and call them out if you are suspicious! The only
+        movement rule is you cannot capture their king with your own. If you can
+        confidently prove your opponent cheated, they automatically lose! If you
+        fail to, they get away with it and the game continues! If you are signed
+        in, save the state of the board whenever you want to gather evidence. Or
+        maybe you'll want to sneak in a slightly illegal move yourself when your
         opponent isn't looking... social deduction mixed with raw strategy!
       </p>
       <p>
