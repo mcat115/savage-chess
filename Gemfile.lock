@@ -252,7 +252,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers
-  bundler (~> 2.1.4)
+  bundler (~> 2.2.16)
   capybara
   database_cleaner
   devise
