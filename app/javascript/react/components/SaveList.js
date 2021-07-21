@@ -90,7 +90,7 @@ const SaveList = (props) => {
           entire duration of your time on the page (unless you end the game by
           killing the king). If you want to keep these changes, hit the save
           button again and it will create a new save branch from the current
-          position, while leaving your old save in tact for next time you visit!
+          position, while leaving your old save in tact for next time you visit! hehe
         </p>
       </div>
     )
