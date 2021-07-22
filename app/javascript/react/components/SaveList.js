@@ -93,7 +93,7 @@ const SaveList = (props) => {
         </p>
         <ul className="listOfSaves center">{listOfSaves}</ul>
         <p>{disclaimer}</p>
-        <p className="center click" onClick={clickDisclaimer}>
+        <p className="center click" id="toggle" onClick={clickDisclaimer}>
           Click to toggle save disclaimer
         </p>
       </div>
