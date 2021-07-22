@@ -2,8 +2,11 @@ import React, { useState, useEffect } from "react"
 import Save from "./Save"
 
 const SaveList = (props) => {
+  let defaultDisclaimer =
+    "Note: Once you load a save, you will be able to play around with it freely, and jump between other saves without losing your spot in the previous one. The changes you make to these saves will be held for the entire duration of your time on the page (unless you end the game by killing the king). If you want to keep these changes, hit the save button again and it will create a new save branch from the current position, while leaving your old save in tact for next time you visit!"
   const [boardStates, setBoardStates] = useState([])
   const [currentUserId, setCurrentUserId] = useState(null)
+  const [disclaimer, setDisclaimer] = useState(defaultDisclaimer)
 
   const fetchStates = async () => {
     try {
@@ -46,10 +49,8 @@ const SaveList = (props) => {
     }
   }
 
-  const click = () => {
-    let title = prompt(
-      "What would you like to name the save?"
-    )
+  const clickSave = () => {
+    let title = prompt("What would you like to name the save?")
     if (title === "") {
       title = null
     }
@@ -57,6 +58,14 @@ const SaveList = (props) => {
       position: props.boardState,
       title: title,
     })
+  }
+
+  const clickDisclaimer = () => {
+    if (disclaimer == defaultDisclaimer) {
+      setDisclaimer("")
+    } else {
+      setDisclaimer(defaultDisclaimer)
+    }
   }
 
   let listOfSaves = []
@@ -75,22 +84,17 @@ const SaveList = (props) => {
 
     return (
       <div>
-        <p id="save" onClick={click}>
+        <p id="save" className="center" onClick={clickSave}>
           Save the current state of the board!
         </p>
-        <p className="listOfSaves" id="warning">
+        <p className="listOfSaves center" id="warning">
           Click any of your below saves to load them onto the board. Make sure
           to save your current position first if you don't want to lose it!
         </p>
-        <ul className="listOfSaves">{listOfSaves}</ul>
-        <p className="listOfSaves">
-          Note: Once you load a save, you will be able to play around with it
-          freely, and jump between other saves without losing your spot in the
-          previous one. The changes you make to these saves will be held for the
-          entire duration of your time on the page (unless you end the game by
-          killing the king). If you want to keep these changes, hit the save
-          button again and it will create a new save branch from the current
-          position, while leaving your old save in tact for next time you visit!
+        <ul className="listOfSaves center">{listOfSaves}</ul>
+        <p>{disclaimer}</p>
+        <p className="center click" onClick={clickDisclaimer}>
+          Click to toggle save disclaimer
         </p>
       </div>
     )

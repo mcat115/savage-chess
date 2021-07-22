@@ -94,7 +94,7 @@ const Animation = (props) => {
     returnComponent.push(
       <div>
         <Keyframes>{animation}</Keyframes>
-        <p id="newGameButton" onClick={newGame}>
+        <p id="newGameButton" className="center" onClick={newGame}>
           Start a new game!
         </p>
       </div>

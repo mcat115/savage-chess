@@ -1,5 +1,4 @@
 #board {
-  text-align: center;
   margin-bottom: 10px;
   min-width: 500px;
 }
@@ -7,7 +6,6 @@
 #pieceBank {
   border: solid black;
   border-radius: 10px;
-  text-align: center;
   margin: auto;
   width: 175px;
   padding: 5px;
@@ -21,7 +19,6 @@
 }
 
 .playWords {
-  text-align: center;
   font-weight: bold;
   margin-top: 50px;
   font-size: 30px;
@@ -59,8 +56,7 @@
   outline-offset: -3px;
 }
 
-#emergencyMeetingDiv {
-  text-align: center;
+#pauseDiv {
   margin: auto;
   border: solid black;
   border-radius: 10px;
@@ -76,7 +72,6 @@
 }
 
 #save {
-  text-align: center;
   border: solid 3px rgb(223, 33, 33);
   background-color: rgb(243, 234, 234);
   border-radius: 10px;
@@ -91,7 +86,6 @@
 }
 
 #newGameButton {
-  text-align: center;
   border: solid 3px rgb(223, 33, 33);
   background-color: rgb(243, 234, 234);
   border-radius: 10px;
@@ -107,18 +101,12 @@
 }
 
 .listOfSaves {
-  text-align: center;
   list-style: none
 }
 
 .saveText {
   font-weight: bold;
-  cursor: pointer;
   margin: 3px;
-
-  &:hover {
-    color: rgb(223, 33, 33)
-  }
 }
 
 #warning {
@@ -127,15 +115,9 @@
 
 .trash {
   margin-left: 10px;
-  cursor: pointer;
-
-  &:hover {
-    color: rgb(223, 33, 33)
-  }
 }
 
 #flip {
-  text-align: center;
   border: solid 3px rgb(223, 33, 33);
   background-color: rgb(243, 234, 234);
   border-radius: 10px;
@@ -149,4 +131,15 @@
     border: solid 3px rgb(231, 158, 23);
   }
 }
+
+.click {
+  cursor: pointer;
+
+  &:hover {
+    color: rgb(223, 33, 33)
+  }
+}
  
+.center {
+  text-align: center;
+}

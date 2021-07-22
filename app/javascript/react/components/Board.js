@@ -133,10 +133,10 @@ const Board = (props) => {
   if (whatShouldReturn === "board") {
     return (
       <>
-        <p onClick={click} id="flip">
+        <p onClick={click} id="flip" className="center">
           Flip the board perspective!
         </p>
-        <div id="board">{boardData}</div>
+        <div id="board" className="center">{boardData}</div>
         <SaveList
           boardState={boardState}
           setBoardState={setBoardState}
