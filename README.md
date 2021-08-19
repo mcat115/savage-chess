@@ -22,7 +22,6 @@ PostgreSQL version 13.2
 To create locally:
 ```
 git clone https://github.com/mcat115/savage-chess.git
-cd savage-chess
 yarn install
 bundle install
 bundle exec rake db:create
