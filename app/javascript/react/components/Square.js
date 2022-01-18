@@ -36,11 +36,12 @@ const Square = (props) => {
   }
 
   const click = () => {
-    props.selectFirstSquare()
-    props.movePiece()
-    props.addPiece()
-    props.checkGameOver("wk", ["bp", "bn", "bb", "br", "bq", "bk"])
-    props.checkGameOver("bk", ["wp", "wn", "wb", "wr", "wq", "wk"])
+    if (props.selectFirstSquare() !== "no change") {
+      props.movePiece()
+      props.addPiece()
+      props.checkGameOver("wk", ["bp", "bn", "bb", "br", "bq", "bk"])
+      props.checkGameOver("bk", ["wp", "wn", "wb", "wr", "wq", "wk"])
+    }
   }
 
   let piece = props.boardState[`${props.column}`][`${props.row - 1}`]

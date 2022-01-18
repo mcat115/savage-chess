@@ -34,6 +34,11 @@ const Board = (props) => {
           props.setSelectedSquare(id)
           props.setLastSelectedPiece(boardState[column][row - 1])
         }
+
+        if (props.selectedSquare == id) {
+          props.setSelectedSquare(null)
+          return "no change"
+        }
       }
 
       const movePiece = () => {
@@ -42,14 +47,13 @@ const Board = (props) => {
           let pieceOnOldSpace =
             boardState[oldSpaceData[0]][parseInt(oldSpaceData[1]) - 1]
 
-          let newBoard = boardState
-          newBoard[oldSpaceData[0]].splice(
+          boardState[oldSpaceData[0]].splice(
             parseInt(oldSpaceData[1] - 1),
             1,
             "empty"
           )
-          newBoard[column].splice(row - 1, 1, pieceOnOldSpace)
-          setBoardState(newBoard)
+          boardState[column].splice(row - 1, 1, pieceOnOldSpace)
+          
           audio.play()
           props.setSelectedSquare(null)
         }
