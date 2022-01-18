@@ -19,33 +19,27 @@ const Animation = (props) => {
   )
 
   let frames = [[], [], [], [], [], [], [], [], [], [], [], []]
+  let allPieces = [
+    "bp",
+    "wp",
+    "bn",
+    "wn",
+    "bb",
+    "wb",
+    "br",
+    "wr",
+    "bq",
+    "wq",
+    "bk",
+    "wk",
+  ]
 
   Object.keys(frameImports).forEach((key) => {
-    if (key.includes("BP")) {
-      frames[0].push(frameImports[key])
-    } else if (key.includes("WP")) {
-      frames[1].push(frameImports[key])
-    } else if (key.includes("BN")) {
-      frames[2].push(frameImports[key])
-    } else if (key.includes("WN")) {
-      frames[3].push(frameImports[key])
-    } else if (key.includes("BB")) {
-      frames[4].push(frameImports[key])
-    } else if (key.includes("WB")) {
-      frames[5].push(frameImports[key])
-    } else if (key.includes("BR")) {
-      frames[6].push(frameImports[key])
-    } else if (key.includes("WR")) {
-      frames[7].push(frameImports[key])
-    } else if (key.includes("BQ")) {
-      frames[8].push(frameImports[key])
-    } else if (key.includes("WQ")) {
-      frames[9].push(frameImports[key])
-    } else if (key.includes("BK")) {
-      frames[10].push(frameImports[key])
-    } else {
-      frames[11].push(frameImports[key])
-    }
+    allPieces.forEach((piece, index) => { 
+      if (key.includes(piece)) {
+        frames[index].push(frameImports[key])
+      }
+    })
   })
 
   let animations = []
@@ -104,27 +98,10 @@ const Animation = (props) => {
 
   let output
 
-  let allPieces = [
-    "bp",
-    "wp",
-    "bn",
-    "wn",
-    "bb",
-    "wb",
-    "br",
-    "wr",
-    "bq",
-    "wq",
-    "bk",
-    "wk",
-  ]
-  let i = 0
-
-  allPieces.forEach((piece) => {
+  allPieces.forEach((piece, index) => { 
     if (props.whatShouldReturn === piece) {
-      output = endGameComponents[i]
+      output = endGameComponents[index]
     }
-    i++
   })
 
   return output

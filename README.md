@@ -5,6 +5,7 @@
 Welcome to Savage Chess!
 
 Try it out! (http://savage-chess.herokuapp.com/)
+Note: Free servers on heroku are very slow, so the end-of-game animations often lag beyond viewabilility. If you want to check them out but heroku is lagging, here is a video of them all: https://www.youtube.com/watch?v=UwIcMCsCZqg
 
 The classic game, but with a simple twist! Inspired by the art and game elements of the hit viral game Among Us.
 
