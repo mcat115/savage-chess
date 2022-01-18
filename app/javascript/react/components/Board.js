@@ -47,15 +47,13 @@ const Board = (props) => {
           let pieceOnOldSpace =
             boardState[oldSpaceData[0]][parseInt(oldSpaceData[1]) - 1]
 
-          let newBoard = boardState
-          newBoard[oldSpaceData[0]].splice(
+          boardState[oldSpaceData[0]].splice(
             parseInt(oldSpaceData[1] - 1),
             1,
             "empty"
           )
-          newBoard[column].splice(row - 1, 1, pieceOnOldSpace)
-          // setBoardState(newBoard)
-          // not necessary because newBoard is a refrence to boardState, already changing it
+          boardState[column].splice(row - 1, 1, pieceOnOldSpace)
+          
           audio.play()
           props.setSelectedSquare(null)
         }
