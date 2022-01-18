@@ -34,6 +34,11 @@ const Board = (props) => {
           props.setSelectedSquare(id)
           props.setLastSelectedPiece(boardState[column][row - 1])
         }
+
+        if (props.selectedSquare == id) {
+          props.setSelectedSquare(null)
+          return "no change"
+        }
       }
 
       const movePiece = () => {
@@ -49,7 +54,8 @@ const Board = (props) => {
             "empty"
           )
           newBoard[column].splice(row - 1, 1, pieceOnOldSpace)
-          setBoardState(newBoard)
+          // setBoardState(newBoard)
+          // not necessary because newBoard is a refrence to boardState, already changing it
           audio.play()
           props.setSelectedSquare(null)
         }
