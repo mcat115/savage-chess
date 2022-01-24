@@ -29,7 +29,7 @@ const PieceBank = (props) => {
       classContent = "bankIcon"
     }
 
-    const click = () => {
+    const handleClick = () => {
       if (props.selectedSquare === null) {
         props.setBankSelection(piece)
         props.setLastSelectedPiece(piece)
@@ -47,7 +47,7 @@ const PieceBank = (props) => {
         setBankSelection={props.setBankSelection}
         piece={piece}
         key={piece}
-        click={click}
+        handleClick={handleClick}
       />
     )
   })

@@ -4,7 +4,7 @@ import buttonImage from "../../../assets/images/meeting_button.png"
 const PauseButton = () => {
   const [message, setMessage] = useState("Pause the game!")
 
-  const click = () => {
+  const handleClick = () => {
     if (message === "Pause the game!") {
       setMessage("Resume the game!")
     } else {
@@ -16,7 +16,7 @@ const PauseButton = () => {
   return (
     <div id="pauseDiv" className="center">
       <p>{message}</p>
-      <img src={buttonImage} onClick={click} />
+      <img src={buttonImage} onClick={handleClick} />
     </div>
   )
 }

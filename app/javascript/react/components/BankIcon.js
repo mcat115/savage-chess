@@ -30,7 +30,7 @@ const BankIcon = (props) => {
     iconClass = `${props.classContent} fas fa-times fa-2x bank-icon`
   }
 
-  return <i className={iconClass} onClick={props.click}></i>
+  return <i className={iconClass} onClick={props.handleClick}></i>
 }
 
 export default BankIcon
