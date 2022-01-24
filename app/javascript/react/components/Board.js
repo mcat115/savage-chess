@@ -12,7 +12,7 @@ const Board = (props) => {
     e: ["wk", "wp", "empty", "empty", "empty", "empty", "bp", "bk"],
     f: ["wb", "wp", "empty", "empty", "empty", "empty", "bp", "bb"],
     g: ["wn", "wp", "empty", "empty", "empty", "empty", "bp", "bn"],
-    h: ["wr", "wp", "empty", "empty", "empty", "empty", "bp", "br"]
+    h: ["wr", "wp", "empty", "empty", "empty", "empty", "bp", "br"],
   }
   const [boardState, setBoardState] = useState(defaultBoard)
   const [whatShouldReturn, setWhatShouldReturn] = useState("board")
@@ -53,7 +53,7 @@ const Board = (props) => {
             "empty"
           )
           boardState[column].splice(row - 1, 1, pieceOnOldSpace)
-          
+
           audio.play()
           props.setSelectedSquare(null)
         }
@@ -61,10 +61,7 @@ const Board = (props) => {
 
       const addPiece = () => {
         if (props.bankSelection !== null) {
-          let newBoard = boardState
-          newBoard[column].splice(row - 1, 1, props.bankSelection)
-
-          setBoardState(newBoard)
+          boardState[column].splice(row - 1, 1, props.bankSelection)
           props.setBankSelection(null)
         }
       }
@@ -126,7 +123,7 @@ const Board = (props) => {
     })
   }
 
-  const click = () => {
+  const handleClick = () => {
     if (perspective === "white") {
       setPerspective("black")
     } else {
@@ -137,14 +134,13 @@ const Board = (props) => {
   if (whatShouldReturn === "board") {
     return (
       <>
-        <p onClick={click} id="flip" className="center">
+        <p onClick={handleClick} id="flip" className="center">
           Flip the board perspective!
         </p>
-        <div id="board" className="center">{boardData}</div>
-        <SaveList
-          boardState={boardState}
-          setBoardState={setBoardState}
-        />
+        <div id="board" className="center">
+          {boardData}
+        </div>
+        <SaveList boardState={boardState} setBoardState={setBoardState} />
       </>
     )
   } else {

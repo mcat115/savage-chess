@@ -35,7 +35,7 @@ const Square = (props) => {
     classContent = "tile"
   }
 
-  const click = () => {
+  const handleClick = () => {
     if (props.selectFirstSquare() !== "no change") {
       props.movePiece()
       props.addPiece()
@@ -74,7 +74,7 @@ const Square = (props) => {
   }
 
   return (
-    <span className="square" onClick={click}>
+    <span className="square" onClick={handleClick}>
       <img src={square} className={classContent} />
       <i className={iconClass}></i>
     </span>
