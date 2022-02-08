@@ -15,12 +15,12 @@
 .bankIcon {
   cursor: pointer;
   margin: 5px 3px;
-  right: 5px
+  right: 5px;
 }
 
 .playWords {
   font-weight: bold;
-  margin-top: 50px;
+  margin-top: 30px;
   font-size: 30px;
 }
 
@@ -33,22 +33,22 @@
     left: 0;
     bottom: 0;
     right: 0;
-    cursor: pointer
+    cursor: pointer;
   }
 }
 
 .white {
-  color: rgb(202, 218, 238)
+  color: rgb(202, 218, 238);
 }
 
 .pieceSelected {
-  color: rgb(223, 33, 33)
+  color: rgb(223, 33, 33);
 }
 
 .tile {
   cursor: pointer;
   height: 60px;
-  width: 60px
+  width: 60px;
 }
 
 .selected {
@@ -67,7 +67,7 @@
 
   img {
     cursor: pointer;
-    max-width: 150px
+    max-width: 150px;
   }
 }
 
@@ -101,7 +101,7 @@
 }
 
 .listOfSaves {
-  list-style: none
+  list-style: none;
 }
 
 .saveText {
@@ -126,7 +126,7 @@
   margin-top: 10px;
   cursor: pointer;
   min-width: 150px;
-  
+
   &:hover {
     border: solid 3px rgb(231, 158, 23);
   }
@@ -136,15 +136,15 @@
   cursor: pointer;
 
   &:hover {
-    color: rgb(223, 33, 33)
+    color: rgb(223, 33, 33);
   }
 }
- 
+
 .center {
   text-align: center;
 }
 
 #toggle {
   margin-left: 25%;
-  margin-right: 25%
+  margin-right: 25%;
 }

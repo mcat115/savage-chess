@@ -99,7 +99,9 @@ const SaveList = (props) => {
       </div>
     )
   } else {
-    return null
+    return (
+      <p className="playWords center">Sign in to access save functionality!</p>
+    )
   }
 }
 
