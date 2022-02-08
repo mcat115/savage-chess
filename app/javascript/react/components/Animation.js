@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react"
 import { Keyframes, Frame } from "react-keyframes"
 import Red from "../../../assets/images/red.png"
 import Streak1 from "../../../assets/images/streak 1.png"
@@ -35,7 +35,7 @@ const Animation = (props) => {
   ]
 
   Object.keys(frameImports).forEach((key) => {
-    allPieces.forEach((piece, index) => { 
+    allPieces.forEach((piece, index) => {
       if (key.includes(piece)) {
         frames[index].push(frameImports[key])
       }
@@ -76,16 +76,15 @@ const Animation = (props) => {
     animations.push(frameData)
   })
 
-  let endGameComponents = []
-
   const newGame = () => {
     props.setWhatShouldReturn("board")
     props.setBoardState(props.defaultBoard)
   }
 
+  let endGameComponents = []
+
   animations.forEach((animation) => {
-    let returnComponent = []
-    returnComponent.push(
+    endGameComponents.push(
       <div>
         <Keyframes>{animation}</Keyframes>
         <p id="newGameButton" className="center" onClick={newGame}>
@@ -93,12 +92,11 @@ const Animation = (props) => {
         </p>
       </div>
     )
-    endGameComponents.push(returnComponent)
   })
 
   let output
 
-  allPieces.forEach((piece, index) => { 
+  allPieces.forEach((piece, index) => {
     if (props.whatShouldReturn === piece) {
       output = endGameComponents[index]
     }
