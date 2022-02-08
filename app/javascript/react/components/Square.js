@@ -5,35 +5,19 @@ import DarkSquareImage from "../../../assets/images/dark-square.png"
 const Square = (props) => {
   let id = `${props.column}${props.row}`
   let square = DarkSquareImage
-  let lightTiles = []
+  let lightTiles = ["a1", "a3", "a5", "a7", "b2", "b4", "b6", "b8", "c1", 
+  "c3", "c5", "c7", "d2", "d4", "d6", "d8", "e1", "e3", "e5", "e7", "f2", 
+  "f4", "f6", "f8", "g1", "g3", "g5", "g7", "h2", "h4", "h6", "h8"]
 
-  for (let i = 1; i <= 8; i++) {
-    if (i % 2 === 0) {
-      lightTiles.push(`b${i}`)
-      lightTiles.push(`d${i}`)
-      lightTiles.push(`f${i}`)
-      lightTiles.push(`h${i}`)
-    } else {
-      lightTiles.push(`a${i}`)
-      lightTiles.push(`c${i}`)
-      lightTiles.push(`e${i}`)
-      lightTiles.push(`g${i}`)
-    }
+  if (lightTiles.includes(id)) {
+    square = LightSquareImage
   }
-
-  lightTiles.forEach((tile) => {
-    if (tile === id) {
-      square = LightSquareImage
-    }
-  })
 
   let classContent = "tile"
 
   if (props.selectedSquare === id) {
     classContent = "selected tile"
-  } else {
-    classContent = "tile"
-  }
+  } 
 
   const handleClick = () => {
     if (props.selectFirstSquare() !== "no change") {
