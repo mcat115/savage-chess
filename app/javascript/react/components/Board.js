@@ -77,7 +77,7 @@ const Board = (props) => {
           })
         })
 
-        if (gameOver === true) {
+        if (gameOver) {
           oppositePieces.forEach((piece) => {
             if (props.lastSelectedPiece === piece) {
               setWhatShouldReturn(piece)
