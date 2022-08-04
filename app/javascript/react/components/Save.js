@@ -28,7 +28,7 @@ const Save = (props) => {
         throw new Error(errorMessage)
       }
       const updatedSavesList = await response.json()
-      props.setBoardStates(updatedSavesList["board_saves"])
+      props.setBoardSaves(updatedSavesList["board_saves"])
     } catch (err) {
       console.error(err)
     }
