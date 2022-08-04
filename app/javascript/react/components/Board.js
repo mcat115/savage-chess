@@ -67,17 +67,17 @@ const Board = (props) => {
       }
 
       const checkGameOver = (kingPiece, oppositePieces) => {
-        let gameOver = true
+        let isGameOver = true
 
         columns.forEach((letter) => {
           boardState[letter].forEach((square) => {
             if (square === kingPiece) {
-              gameOver = false
+              isGameOver = false
             }
           })
         })
 
-        if (gameOver) {
+        if (isGameOver) {
           oppositePieces.forEach((piece) => {
             if (props.lastSelectedPiece === piece) {
               setWhatShouldReturn(piece)
@@ -92,19 +92,19 @@ const Board = (props) => {
         }
       }
 
-      let method
+      let insertionMethod
 
       if (perspective === "white") {
-        method = (square) => {
+        insertionMethod = (square) => {
           boardData.unshift(square)
         }
       } else {
-        method = (square) => {
+        insertionMethod = (square) => {
           boardData.push(square)
         }
       }
 
-      method(
+      insertionMethod(
         <Square
           key={id}
           row={row}
@@ -118,7 +118,7 @@ const Board = (props) => {
         />
       )
       if (column === "a" && row !== 8) {
-        method(<br key={`break ${row}`} />)
+        insertionMethod(<br key={`break ${row}`} />)
       }
     })
   }
