@@ -3,10 +3,7 @@ import React from "react"
 const Save = (props) => {
   let display
 
-  if (
-    props.saveData["title"] === null ||
-    !props.saveData["title"].replace(/\s/g, "").length
-  ) {
+  if (props.saveData["title"] === null || !props.saveData["title"].replace(/\s/g, "").length) {
     display = props.saveData["created_at"]
   } else {
     display = props.saveData["title"]
@@ -31,7 +28,7 @@ const Save = (props) => {
         throw new Error(errorMessage)
       }
       const updatedSavesList = await response.json()
-      props.setBoardSaves(updatedSavesList["board_saves"])
+      props.setBoardStates(updatedSavesList["board_saves"])
     } catch (err) {
       console.error(err)
     }
@@ -40,7 +37,7 @@ const Save = (props) => {
   const clickDelete = () => {
     if (confirm("Press OK to confirm save deletion")) {
       deleteSave(props.saveData["id"])
-    }
+    }  
   }
 
   return (
