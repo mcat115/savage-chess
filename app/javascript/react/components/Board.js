@@ -67,17 +67,17 @@ const Board = (props) => {
       }
 
       const checkGameOver = (kingPiece, oppositePieces) => {
-        let isGameOver = true
+        let gameOver = true
 
         columns.forEach((letter) => {
           boardState[letter].forEach((square) => {
             if (square === kingPiece) {
-              isGameOver = false
+              gameOver = false
             }
           })
         })
 
-        if (isGameOver) {
+        if (gameOver) {
           oppositePieces.forEach((piece) => {
             if (props.lastSelectedPiece === piece) {
               setWhatShouldReturn(piece)
