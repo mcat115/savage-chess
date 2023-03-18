@@ -1,5 +1,5 @@
 import React from "react"
-import Pic from "../../../assets/images/Senior Pic.jpg"
+import Pic from "../../../assets/images/pic_of_me.jpg"
 
 const AboutPage = (props) => {
   return (
@@ -15,26 +15,19 @@ const AboutPage = (props) => {
       </div>
       <img src={Pic} />
       <p>
-        Hi! My name is Michael Catanese. Before the Covid pandemic, I was
-        attending UMass, in the second semester of my sophomore year as a psych
-        major. I love psychology, so when it came to applying for college, this
-        seemed like a reason as good as any to pick it as my major. As at 18
-        years old, I had no idea how I wanted to tackle my future. But right in
-        the middle of my college career, UMass shut down for over a year because
-        of the virus, and everything changed. I had to take my classes online,
-        and found the results to be not in line with what I expected from a
-        university education. But even before any of that happened, I had slowly
-        been becoming more and more interested in coding, after my CS major
-        friends would tell me about their assignments. I love using my brain and
-        solving puzzles, and thought it was something I could be pretty good at.
-        But after I became serious about wanting to switch, it was too late, as
-        UMass only lets you switch into this major, or even add it as a minor,
-        if you act very early on in your college career. So with Covid causing
-        me to be stuck at home regardless of what I do, I decided to instead
-        take the semester off from college and enroll in Launch Academy, a
-        full-stack coding boot-camp, and start my new path of learning here!
-        This is my final project for the boot-camp, and I've had an amazing
-        time. Thanks for checking out my app!
+        Hello! My name is Michael Catanese. Since it was too late to switch to a
+        computer science major once I decided what I wanted to do with my
+        career, and since education had been moved online due to the Covid
+        pandemic, I took a semester off from college to enroll in a coding
+        bootcamp. After I returned to college to finish my degree, I took every
+        CS class I was able to get a seat in, and worked multiple software
+        engineering internships between my semesters.
+      </p>
+      <p>
+        My goal now is to continue to grow my skills and career. I am very
+        organized and communicative, but also very creative and flexible,
+        qualities I believe work together beautifully in this field. And I would
+        love any opportunity to prove it!
       </p>
     </div>
   )
