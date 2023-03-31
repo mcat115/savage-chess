@@ -15,11 +15,11 @@ const HomePage = (props) => {
       <p>
         A casual version of chess you can play with friends regardless of chess
         experience. No checks, no mate to win. You play the extra move to kill
-        the king! This is no longer a gentlemen’s game, this is war!
+        the king. This is no longer a gentlemen’s game, this is war!
       </p>
       <p>
         And like real warefare, there's nobody checking that both sides follow
-        the rules! It's up to you to notice if your opponent does anything
+        the rules. It's up to you to notice if your opponent does anything
         sneaky, like trying to move a piece in a way they aren't supposed to...
         pause the game and call them out if you are suspicious! I made this app
         to have a digitial chess experiece akin to having a real board in front
