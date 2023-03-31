@@ -4,9 +4,9 @@ Welcome to Savage Chess!
 
 The classic game, but with a simple twist! Inspired by the art and game elements of the hit viral game Among Us. https://www.youtube.com/watch?v=UwIcMCsCZqg
 
-A casual version of chess you can play with friends regardless of chess experience. No checks, no mate to win. You play the extra move to kill the king! This is no longer a gentlemen’s game, this is war!
+A casual version of chess you can play with friends regardless of chess experience. No checks, no mate to win. You play the extra move to kill the king. This is no longer a gentlemen’s game, this is war!
 
-And like real warefare, there's nobody checking that both sides follow the rules! It's up to you to notice if your opponent does anything sneaky, like trying to move a piece in a way they aren't supposed to... pause the game and call them out if you are suspicious! I made this app to have a digitial chess experiece akin to having a real board in front of you. Almost all online chess apps have code inhibiting how you can move pieces, which can be frustuing and inhibiting at times. Make up your own rules if you want!
+And like real warefare, there's nobody checking that both sides follow the rules. It's up to you to notice if your opponent does anything sneaky, like trying to move a piece in a way they aren't supposed to... pause the game and call them out if you are suspicious! I made this app to have a digitial chess experiece akin to having a real board in front of you. Almost all online chess apps have code inhibiting how you can move pieces, which can be frustuing and inhibiting at times. Make up your own rules if you want!
 
 It also serves as a fully functional board and pieces virtual toy. Keep track of endless custom positions, and save them to try out different paths. Much like the freedom a real chess board gives, but with the ability to easily swap and store positions, and the use of unlimited pieces!
 
@@ -25,7 +25,7 @@ bundle exec rake db:create
 bundle exec rake db:migrate
 ```
 
-Then in two seperate terminal windows both open to the project, run `bundle exec rails s` in one, and `yarn run start` in the other if it's a Mac/Linux, or `ruby ./bin/webpack-dev-server` in the other if it's Windows. The app should then be running on `http://localhost:3000/`
+Then in two seperate terminal windows both open to the project, run `rails s` in one, and `yarn start` in the other if it's a Mac/Linux, or `ruby ./bin/webpack-dev-server` in the other if it's Windows. The app should then be running on `http://localhost:3000/`
 
 If you are using Windows or Linux, add these lines in the database.yml file under both the development and test code blocks
 
