@@ -1,6 +1,5 @@
 import React from "react"
 import { Keyframes, Frame } from "react-keyframes"
-import keyframes from "react-keyframes/dist/keyframes"
 import Red from "../../../assets/images/red.png"
 import Streak1 from "../../../assets/images/streak 1.png"
 import Streak2 from "../../../assets/images/streak 2.png"
