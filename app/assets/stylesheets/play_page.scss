@@ -71,23 +71,9 @@
   }
 }
 
-#save {
-  border: solid 3px rgb(223, 33, 33);
-  background-color: rgb(243, 234, 234);
-  border-radius: 10px;
-  margin-right: 25%;
-  margin-left: 25%;
-  cursor: pointer;
-  min-width: 150px;
-
-  &:hover {
-    border: solid 3px rgb(231, 158, 23);
-  }
-}
-
-#newGameButton {
-  border: solid 3px rgb(223, 33, 33);
-  background-color: rgb(243, 234, 234);
+.buttonClass {
+  border: solid 2.5px rgb(226, 44, 44);
+  background-color: rgb(240, 154, 154);
   border-radius: 10px;
   margin-right: 25%;
   margin-left: 25%;
@@ -96,7 +82,8 @@
   min-width: 150px;
 
   &:hover {
-    border: solid 3px rgb(231, 158, 23);
+    border: solid 2.5px rgb(231, 158, 23);
+    background-color: rgb(245, 207, 137);
   }
 }
 
@@ -115,21 +102,6 @@
 
 .trash {
   margin-left: 10px;
-}
-
-#flip {
-  border: solid 3px rgb(223, 33, 33);
-  background-color: rgb(243, 234, 234);
-  border-radius: 10px;
-  margin-right: 25%;
-  margin-left: 25%;
-  margin-top: 10px;
-  cursor: pointer;
-  min-width: 150px;
-
-  &:hover {
-    border: solid 3px rgb(231, 158, 23);
-  }
 }
 
 .click {
