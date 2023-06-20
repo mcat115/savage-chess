@@ -78,7 +78,7 @@ const Animation = (props) => {
   return (
     <div>
       <Keyframes>{frameData}</Keyframes>
-      <p id="newGameButton" className="center" onClick={newGame}>
+      <p className="buttonClass center" onClick={newGame}>
         Start a new game!
       </p>
     </div>

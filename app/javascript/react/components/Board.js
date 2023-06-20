@@ -134,7 +134,7 @@ const Board = (props) => {
   if (whatShouldReturn === "board") {
     return (
       <>
-        <p onClick={handleClick} id="flip" className="center">
+        <p onClick={handleClick} className="buttonClass center">
           Flip the board perspective!
         </p>
         <div id="board" className="center">
