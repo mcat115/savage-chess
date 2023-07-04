@@ -28,6 +28,7 @@ const PlayPage = () => {
             lastSelectedPiece={lastSelectedPiece}
             setLastSelectedPiece={setLastSelectedPiece}
             pauseStatus={pauseStatus}
+            setPauseStatus={setPauseStatus}
           />
         </div>
         <div className="text-center cell small-12 large-3">

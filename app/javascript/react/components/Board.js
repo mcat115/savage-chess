@@ -145,7 +145,11 @@ const Board = (props) => {
         <div id="board" className="center">
           {boardData}
         </div>
-        <SaveList boardState={boardState} setBoardState={setBoardState} />
+        <SaveList 
+          boardState={boardState}
+          setBoardState={setBoardState}
+          pauseStatus={props.pauseStatus} 
+        />
       </>
     )
   } else {
@@ -155,6 +159,8 @@ const Board = (props) => {
         setWhatShouldReturn={setWhatShouldReturn}
         setBoardState={setBoardState}
         defaultBoard={defaultBoard}
+        setPauseStatus={props.setPauseStatus}
+        setBankSelection={props.setBankSelection}
       />
     )
   }
