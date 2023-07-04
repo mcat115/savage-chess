@@ -26,23 +26,18 @@ const Board = (props) => {
       let id = `${column}${row}`
 
       const selectFirstSquare = () => {
-        if (
+        if (props.pauseStatus === "Resume the game!") {
+          alert("Resume the game to continue!")
+        } else if (
           boardState[column][row - 1] !== "empty" &&
           props.selectedSquare === null &&
-          props.bankSelection === null && 
-          props.pauseStatus === "Pause the game!"
+          props.bankSelection === null
         ) {
           props.setSelectedSquare(id)
           props.setLastSelectedPiece(boardState[column][row - 1])
-        }
-
-        if (props.selectedSquare == id) {
+        } else if (props.selectedSquare === id) {
           props.setSelectedSquare(null)
           return "no change"
-        }
-
-        if (props.pauseStatus === "Resume the game!") {
-          alert("Resume the game to continue!")
         }
       }
 

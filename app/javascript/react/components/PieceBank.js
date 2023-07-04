@@ -30,18 +30,14 @@ const PieceBank = (props) => {
     }
 
     const handleClick = () => {
-      if (props.selectedSquare === null && props.pauseStatus === "Pause the game!") {
-        props.setBankSelection(piece)
-        props.setLastSelectedPiece(piece)
-      }
-
-      if (props.bankSelection === piece) {
-        props.setBankSelection(null)
-      }
-
       if (props.pauseStatus === "Resume the game!") {
         alert("Resume the game to continue!")
-      }
+      } else if (props.bankSelection === piece) {
+        props.setBankSelection(null)
+      } else if (props.selectedSquare === null) {
+        props.setBankSelection(piece)
+        props.setLastSelectedPiece(piece)
+      } 
     }
 
     iconComponents.push(
