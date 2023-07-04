@@ -73,6 +73,8 @@ const Animation = (props) => {
   const newGame = () => {
     props.setWhatShouldReturn("board")
     props.setBoardState(props.defaultBoard)
+    props.setPauseStatus("Pause the game!")
+    props.setBankSelection(null)
   }
 
   return (

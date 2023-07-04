@@ -10,7 +10,9 @@ const Save = (props) => {
   }
 
   const clickSave = () => {
-    props.setBoardState(props.saveData["position"])
+    props.pauseStatus === "Pause the game!"
+      ? props.setBoardState(props.saveData["position"])
+      : alert("Resume the game to continue!");
   }
 
   const deleteSave = async (saveId) => {

@@ -78,6 +78,7 @@ const SaveList = (props) => {
           saveData={save}
           setBoardState={props.setBoardState}
           setBoardSaves={setBoardSaves}
+          pauseStatus={props.pauseStatus} 
         />
       )
     })

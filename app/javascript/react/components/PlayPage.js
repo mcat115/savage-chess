@@ -7,13 +7,17 @@ const PlayPage = () => {
   const [bankSelection, setBankSelection] = useState(null)
   const [selectedSquare, setSelectedSquare] = useState(null)
   const [lastSelectedPiece, setLastSelectedPiece] = useState(null)
+  const [pauseStatus, setPauseStatus] = useState("Pause the game!")
 
   return (
     <div className="grid-container playPageFull">
       <div className="grid-x">
         <div className="text-center cell small-12 large-3">
           <p className="playWords center">Point and click!</p>
-          <PauseButton />
+          <PauseButton 
+            pauseStatus={pauseStatus}
+            setPauseStatus={setPauseStatus}
+          />
         </div>
         <div className="cell small-12 large-6">
           <Board
@@ -23,6 +27,8 @@ const PlayPage = () => {
             setSelectedSquare={setSelectedSquare}
             lastSelectedPiece={lastSelectedPiece}
             setLastSelectedPiece={setLastSelectedPiece}
+            pauseStatus={pauseStatus}
+            setPauseStatus={setPauseStatus}
           />
         </div>
         <div className="text-center cell small-12 large-3">
@@ -33,6 +39,7 @@ const PlayPage = () => {
             selectedSquare={selectedSquare}
             setSelectedSquare={setSelectedSquare}
             setLastSelectedPiece={setLastSelectedPiece}
+            pauseStatus={pauseStatus}
           />
         </div>
       </div>
