@@ -1,14 +1,6 @@
 import React from "react"
 
 const Save = (props) => {
-  let display
-
-  if (props.saveData["title"] === null || !props.saveData["title"].replace(/\s/g, "").length) {
-    display = props.saveData["created_at"]
-  } else {
-    display = props.saveData["title"]
-  }
-
   const clickSave = () => {
     props.pauseStatus === "Pause the game!"
       ? props.setBoardState(props.saveData["position"])
@@ -45,7 +37,11 @@ const Save = (props) => {
   return (
     <li>
       <span onClick={clickSave} className="saveText click">
-        {display}
+        {props.saveData["title"] === null || !props.saveData["title"].replace(/\s/g, "").length ? (
+          props.saveData["created_at"]
+        ) : (
+          props.saveData["title"]
+        )}
       </span>
       <span>
         <i onClick={clickDelete} className="fas fa-trash-alt trash click"></i>
