@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react"
 import Save from "./Save"
 
 const SaveList = (props) => {
-  let defaultDisclaimer = "Note: Once you load a save, you will be able to play around with it freely, and jump between other saves without losing your spot in the previous one. \
+  let expandedDisclaimer = "Note: Once you load a save, you will be able to play around with it freely, and jump between other saves without losing your spot in the previous one. \
   The changes you make to these saves will be held for the entire duration of your time on the page (unless you end the game by killing the king). \
   If you want to keep these changes, hit the save button again and it will create a new save branch from the current position, while leaving your old save intact for next time you visit!";
   
   const [boardSaves, setBoardSaves] = useState([])
   const [currentUserId, setCurrentUserId] = useState(null)
-  const [disclaimer, setDisclaimer] = useState(defaultDisclaimer)
+  const [disclaimer, setDisclaimer] = useState("")
 
   const fetchSaves = async () => {
     try {
@@ -63,7 +63,7 @@ const SaveList = (props) => {
   }
 
   const clickDisclaimer = () => {
-    disclaimer === defaultDisclaimer ? setDisclaimer("") : setDisclaimer(defaultDisclaimer)
+    disclaimer === expandedDisclaimer ? setDisclaimer("") : setDisclaimer(expandedDisclaimer)
   }
 
   let listOfSaves = []
