@@ -2,7 +2,7 @@
 
 Welcome to Savage Chess!
 
-The classic game, but with a simple twist! Features custom end-game animations based on the last piece moved. Inspired by the art and game elements of the hit viral game Among Us. https://www.youtube.com/watch?v=UwIcMCsCZqg
+The classic game, but with a simple twist! Features custom end-game animations based on the last piece moved. Inspired by the art and game elements of the hit viral game Among Us. https://www.youtube.com/watch?v=UwIcMCsCZqg (Video was recorded on an earlier UI version)
 
 A casual version of chess you can play with friends regardless of chess experience. No checks, no mate to win. You play the extra move to kill the king. This is no longer a gentlemen’s game, this is war!
 
