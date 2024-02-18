@@ -1,29 +1,58 @@
-.home-page {
+@font-face {
+  font-family: 'medieval';    
+  src: asset-path(medieval) format("opentype");
+  src: font_url('medieval.otf'); 
+}
+
+#home-page {
   p {
-    margin: 20px 20%;
+    margin: 2em;
   }
 
   h1 {
-    font-size: 40px;
-    text-align: center
+    font-size: 60px;
+    text-align: center;
+    margin-bottom: 0.25em;
+    margin-top: 0.5em;
+    font-family: "medieval"
   }
 
   h2 {
     font-size: 25px;
     text-align: center;
     margin-right: 15%;
-    margin-left: 15%
-  }
-  
-  #playLink {
-    text-align: center;
-    font-size: 38px
+    margin-left: 15%;
+    margin-bottom: 1.25em;
   }
 
-  #aboutLink {
-    text-align: center;
-    font-size: 22px;
-    margin-bottom: 40px;
+  .playLink {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 28px;
+    background-color: rgb(230, 240, 210);
+    border-radius: 5px;
+  }
+
+  .playLinkContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .textChild {
+    flex-basis: 100%;
+    border-radius: 10px;
+    border: 1.5px solid rgb(207, 216, 190);
+    padding: 10px;
+    background: rgb(254, 255, 252);
+  }
+
+  .aboutLink {
+    position: fixed;
+    font-size: 18px;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   a {
@@ -32,8 +61,9 @@
     }
   }
 
-  #youtube {
-    margin-left: 5px
+  .textContainer {
+    display: flex;
+    flex-direction: row;
   }
 }
 
