@@ -84,7 +84,7 @@ const SaveList = (props) => {
     return (
       <div>
         <p className="buttonClass center" onClick={clickSave}>
-          Save the current state of the board!
+          Save current state of the board
         </p>
         <p className="listOfSaves center" id="warning">
           Click any of your below saves to load them onto the board. Make sure
