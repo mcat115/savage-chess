@@ -84,20 +84,18 @@ const SaveList = (props) => {
 
     return (
       <div>
-        <div>
-          <p className="buttonClass center" onClick={clickSave}>
-            Save current state of the board
-          </p>
-          <p className="listOfSaves center" id="warning">
-            Click any of your below saves to load them onto the board. Make sure
-            to save your current position first if you don't want to lose it!
-          </p>
-          <ul className="listOfSaves center">{listOfSaves}</ul>
-          <p>{disclaimer}</p>
-          <p className="click center" id="toggle" onClick={clickDisclaimer}>
-            Click to toggle save disclaimer
-          </p>
-        </div>
+        <p className="buttonClass center" onClick={clickSave}>
+          Save current state of the board
+        </p>
+        <p className="listOfSaves center" id="warning">
+          Click any of your below saves to load them onto the board. Make sure
+          to save your current position first if you don't want to lose it!
+        </p>
+        <ul className="listOfSaves center">{listOfSaves}</ul>
+        <p>{disclaimer}</p>
+        <p className="click center" id="toggle" onClick={clickDisclaimer}>
+          Click to toggle save disclaimer
+        </p>
       </div>
     )
   } else {

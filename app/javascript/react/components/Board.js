@@ -67,8 +67,7 @@ const Board = (props) => {
       }
 
       const checkGameOver = (kingPiece, oppositePieces) => {
-        let gameOver
-        gameOver = true
+        let gameOver = true
 
         columns.forEach((letter) => {
           boardState[letter].forEach((square) => {
@@ -94,7 +93,6 @@ const Board = (props) => {
       }
 
       let insertionMethod
-      insertionMethod = "apple"
 
       if (perspective === "white") {
         insertionMethod = (square) => {
