@@ -44,6 +44,7 @@ const SaveList = (props) => {
         const errorMessage = `${response.status} (${response.statusText})`
         throw new Error(errorMessage)
       }
+      
       const newState = await response.json()
       setBoardSaves(boardSaves.concat([newState["board_save"]]))
     } catch (error) {
