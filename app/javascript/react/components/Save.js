@@ -9,7 +9,7 @@ const Save = (props) => {
     }
   }
 
-  const deleteSave = async (saveId) => {
+  const del = async (saveId) => {
     try {
       const response = await fetch(`api/v1/board_saves/${saveId}`, {
         credentials: "same-origin",
@@ -32,7 +32,7 @@ const Save = (props) => {
 
   const clickDelete = () => {
     if (confirm("Press OK to confirm save deletion")) {
-      deleteSave(props.saveData["id"])
+      del(props.saveData["id"])
     }  
   }
 

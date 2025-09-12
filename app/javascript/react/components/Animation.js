@@ -31,6 +31,7 @@ const Animation = (props) => {
     wq: [],
     bk: [],
     wk: [],
+    silly: [],
   }
 
   Object.keys(frameImports).forEach((key) => {
@@ -83,6 +84,7 @@ const Animation = (props) => {
       <p className="buttonClass center" onClick={newGame}>
         Start a new game!
       </p>
+      <p></p>
     </div>
   )
 }
