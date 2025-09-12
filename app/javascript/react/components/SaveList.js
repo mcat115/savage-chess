@@ -12,18 +12,17 @@ const SaveList = (props) => {
 
   const fetchSaves = async () => {
     try {
-      const response = await fetch("/api/v1/board_saves")
+      const response = await fetch("/api/v1/board_saves");
       if (!response.ok) {
-        const errorMessage = `${response.status} (${response.statusText})`
-        throw new Error(errorMessage)
+        throw new Error(`${response.status} (${response.statusText})`);
       }
-      const responseBody = await response.json()
-      setCurrentUserId(responseBody["current_user_id"])
-      setBoardSaves(responseBody["data"])
+      const { current_user_id, data } = await response.json();
+      setCurrentUserId(current_user_id);
+      setBoardSaves(data);
     } catch (error) {
-      console.error(`Error in Fetch: ${error.message}`)
+      console.error("Error fetching saves:", error);
     }
-  }
+  }  
 
   useEffect(() => {
     fetchSaves()
@@ -39,18 +38,18 @@ const SaveList = (props) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(boardPayload),
-      })
+      });
+
       if (!response.ok) {
-        const errorMessage = `${response.status} (${response.statusText})`
-        throw new Error(errorMessage)
+        throw new Error(`${response.status} (${response.statusText})`);
       }
-      
-      const newState = await response.json()
-      setBoardSaves(boardSaves.concat([newState["board_save"]]))
+
+      const { board_save } = await response.json();
+      setBoardSaves([...boardSaves, board_save]);
     } catch (error) {
-      console.error(`Error in Fetch: ${error.message}`)
+      console.error("Error posting save:", error);
     }
-  }
+  }  
 
   const clickSave = () => {
     let title = prompt("What would you like to name the save?")
