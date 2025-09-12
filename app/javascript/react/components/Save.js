@@ -18,17 +18,18 @@ const Save = (props) => {
           Accept: "application/json",
           "Content-Type": "application/json",
         },
-      })
+      });
+
       if (!response.ok) {
-        const errorMessage = `${response.status} (${response.statusText})`
-        throw new Error(errorMessage)
+        throw new Error(`${response.status} (${response.statusText})`);
       }
-      const updatedSavesList = await response.json()
-      props.setBoardSaves(updatedSavesList["board_saves"])
-    } catch (err) {
-      console.error(err)
+
+      const { board_saves } = await response.json();
+      props.setBoardSaves(board_saves);
+    } catch (error) {
+      console.error("Failed to delete save:", error);
     }
-  }
+  }  
 
   const clickDelete = () => {
     if (confirm("Press OK to confirm save deletion")) {
