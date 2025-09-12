@@ -55,12 +55,16 @@ const Square = (props) => {
     iconClass = "white fas fa-chess-king fa-2x"
   } else if (piece === "bk") {
     iconClass = "fas fa-chess-king fa-2x"
+  } else if (piece === "silly") {
+    iconClass = "this will never happen"
   }
+ 
 
   return (
     <span className="square" onClick={handleClick}>
       <img src={square} className={classContent} />
       <i className={iconClass}></i>
+      <div></div>
     </span>
   )
 }
